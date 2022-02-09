@@ -1,0 +1,22 @@
+{
+  "name": "GA-PROJECT-3-",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tonyhaunschmidt/GA-PROJECT-3-.git",
+  "author": "Tony Haunschmidt <tmhaunschmidt@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.2",
+    "json": "^11.0.0",
+    "mongoose": "^6.2.1",
+    "mongoose-unique-validator": "^3.0.0",
+    "token": "^0.1.0",
+    "web": "^0.0.2"
+  },
+  "type": "module",
+  "scripts": {
+    "serve": "npx nodemon index.js",
+    "seed": "node seeds/seeds.js"
+  }
+}
