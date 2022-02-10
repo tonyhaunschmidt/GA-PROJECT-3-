@@ -1,8 +1,8 @@
 import express from 'express'
 import { secureRoute } from './secureRoute.js'
-import { addRecipe, getAllRecipes, getOneRecipe, deleteRecipe, editRecipe, addReview, deleteReview, editReview, addFav, follow, remFav, unfollow } from '../controllers/recipes.js'
+import { addRecipe, getAllRecipes, getOneRecipe, deleteRecipe, editRecipe, addReview, deleteReview, editReview } from '../controllers/recipes.js'
 import { registerUser, loginUser } from '../controllers/auth.js'
-import { getProfile, editProfile } from '../controllers/profile.js'
+import { getProfile, editProfile, addFav, follow, unfollow, remFav } from '../controllers/profile.js'
 
 const router = express.Router()
 

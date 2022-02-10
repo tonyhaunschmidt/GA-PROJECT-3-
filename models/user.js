@@ -1,15 +1,9 @@
 import mongoose from 'mongoose' // Imports mongoose that brings in the Schema
-import uniqueValidator from 'mongoose-unique-validator' // THis improves the readability of the errors passed back from the requests
 import bcrypt from 'bcrypt'
 
 
 
 const { Schema } = mongoose
-
-
-//const favourite = new Schema({
-//  favoutieRecipes = []
-//})
 
 
 const userSchema = new Schema({
@@ -19,8 +13,7 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   bio: { type: String },
   profileImage: { type: String },
-  // yourRecipes: [{ type: mongoose.Schema.ObjectId, ref: 'Recipe' }],
-  favRecipes: [{ type: mongoose.Schema.ObjectId, ref: 'Recipe' }],
+  favRecipes: [],
   following: [],
   followers: [],
   // mealPlan: []
@@ -32,13 +25,6 @@ userSchema.virtual('yourRecipes', {
   localField: '_id',
   foreignField: 'owner',
 })
-
-
-//userSchema.virtual('favouriteRecipes', {
-//  ref: 'Recipe',
-//  localField: '_id',
-//  foreignField: 'favouritedBy',
-//})
 
 userSchema.set('toJSON', {
   virtuals: true, 
