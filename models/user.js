@@ -5,6 +5,13 @@ import bcrypt from 'bcrypt'
 
 
 const { Schema } = mongoose
+
+
+//const favourite = new Schema({
+//  favoutieRecipes = []
+//})
+
+
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   name: { type: String },
@@ -12,12 +19,35 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   bio: { type: String },
   profileImage: { type: String },
-  // yourRecipes: []
-  // yourFavRecipes: []
-  // following: []
-  // followers: []
+  // yourRecipes: [{ type: mongoose.Schema.ObjectId, ref: 'Recipe' }],
+  favRecipes: [{ type: mongoose.Schema.ObjectId, ref: 'Recipe' }],
+  following: [],
+  followers: [],
   // mealPlan: []
   isAdmin: { type: Boolean },
+})
+
+userSchema.virtual('yourRecipes', {
+  ref: 'Recipe',
+  localField: '_id',
+  foreignField: 'owner',
+})
+
+
+//userSchema.virtual('favouriteRecipes', {
+//  ref: 'Recipe',
+//  localField: '_id',
+//  foreignField: 'favouritedBy',
+//})
+
+userSchema.set('toJSON', {
+  virtuals: true, 
+  transform(_doc, json) {
+    delete json.password
+    delete json.email
+    delete json.isAdmin
+    return json
+  },
 })
 
 userSchema
@@ -25,10 +55,6 @@ userSchema
   .set(function(passwordConfirmation){
     this._passwordConfirmation = passwordConfirmation
   })
-
-userSchema.set('toJSON', {
-  virtuals: true, 
-})
 
 userSchema
   .pre('validate', function(next){
@@ -46,7 +72,7 @@ userSchema
     next() 
   })
 
-userSchema.plugin(uniqueValidator)
+// userSchema.plugin(uniqueValidator)
 
 userSchema.methods.validatePassword = function(password){
   console.log(password, this.password)
