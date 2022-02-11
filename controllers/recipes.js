@@ -1,8 +1,5 @@
 import Recipe from '../models/recipe.js'
 
-
-
-
 export const getAllRecipes = async (_req, res) => {
   try {
     const recipes = await Recipe.find() 
@@ -20,14 +17,12 @@ export const addRecipe = async (req, res) => {
     return res.status(422).json(err)
   }
 }
-// || !req.currentUser.isAdmin === true 
+
 export const editRecipe = async(req, res) => {
   try {
     const { id } = req.params
     const recipeToEdit = await Recipe.findById(id)
     console.log(`Recipe to edit ${id}`)
-    console.log(req.currentUser)
-    console.log(req.currentUser.isAdmin)
     if (!req.currentUser.isAdmin){
       if (!recipeToEdit.owner.equals(req.currentUser._id)) throw new Error('Unauthorised')
     }
@@ -38,10 +33,11 @@ export const editRecipe = async(req, res) => {
     return res.status(404).json({ message: err.message })
   }
 }
+
 export const getOneRecipe = async (req, res) => {
   try {
     const { id } = req.params
-    const recipe = await Recipe.findById(id)
+    const recipe = await (await Recipe.findById(id)).populate('owner')
     console.log(`Recipe found ${id}`)
     return res.status(200).json(recipe)
   } catch (err) {
@@ -54,6 +50,9 @@ export const deleteRecipe = async (req, res) => {
     const { id } = req.params
     const recipeToDelete = await Recipe.findById(id)
     console.log(`Recipe to delete ${recipeToDelete}`)
+    if (!req.currentUser.isAdmin){
+      if (!recipeToDelete.owner.equals(req.currentUser._id)) throw new Error('Unauthorised')
+    }
     await recipeToDelete.remove()
     return res.sendStatus(204)
   } catch (err) {
@@ -84,8 +83,29 @@ export const deleteReview = async (req, res) => {
     if (!recipe) throw new Error('Recipe not found') 
     const reviewToDelete = recipe.reviews.id(reviewId)
     if (!reviewToDelete) throw new Error('Review not found')
-    if (!reviewToDelete.owner.equals(req.currentUser._id)) throw new Error('Unauthorised')
+    if (!req.currentUser.isAdmin){
+      if (!reviewToDelete.owner.equals(req.currentUser._id)) throw new Error('Unauthorised')
+    }
     await reviewToDelete.remove()
+    await recipe.save()
+    return res.sendStatus(204)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const editReview = async (req, res) => {
+  try {
+    const { id, reviewId } = req.params
+    const recipe = await Recipe.findById(id) 
+    if (!recipe) throw new Error('Recipe not found') 
+    const reviewToEdit = recipe.reviews.id(reviewId)
+    if (!reviewToEdit) throw new Error('Review not found')
+    if (!req.currentUser.isAdmin){
+      if (!reviewToEdit.owner.equals(req.currentUser._id)) throw new Error('Unauthorised')
+    }
+    Object.assign(reviewToEdit, req.body)
+    console.log(reviewToEdit)
     await recipe.save()
     return res.sendStatus(204)
   } catch (err) {

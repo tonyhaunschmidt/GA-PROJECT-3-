@@ -1,10 +1,11 @@
 import mongoose from 'mongoose' // Imports mongoose that brings in the Schema
-import uniqueValidator from 'mongoose-unique-validator' // THis improves the readability of the errors passed back from the requests
 import bcrypt from 'bcrypt'
 
 
 
 const { Schema } = mongoose
+
+
 const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   name: { type: String },
@@ -12,12 +13,27 @@ const userSchema = new Schema({
   password: { type: String, required: true },
   bio: { type: String },
   profileImage: { type: String },
-  // yourRecipes: []
-  // yourFavRecipes: []
-  // following: []
-  // followers: []
+  favRecipes: [],
+  following: [],
+  followers: [],
   // mealPlan: []
   isAdmin: { type: Boolean },
+})
+
+userSchema.virtual('yourRecipes', {
+  ref: 'Recipe',
+  localField: '_id',
+  foreignField: 'owner',
+})
+
+userSchema.set('toJSON', {
+  virtuals: true, 
+  transform(_doc, json) {
+    delete json.password
+    delete json.email
+    delete json.isAdmin
+    return json
+  },
 })
 
 userSchema
@@ -25,10 +41,6 @@ userSchema
   .set(function(passwordConfirmation){
     this._passwordConfirmation = passwordConfirmation
   })
-
-userSchema.set('toJSON', {
-  virtuals: true, 
-})
 
 userSchema
   .pre('validate', function(next){
@@ -46,7 +58,7 @@ userSchema
     next() 
   })
 
-userSchema.plugin(uniqueValidator)
+// userSchema.plugin(uniqueValidator)
 
 userSchema.methods.validatePassword = function(password){
   console.log(password, this.password)

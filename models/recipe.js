@@ -1,7 +1,6 @@
 import mongoose from 'mongoose'
 
 
-
 const { Schema } = mongoose
 
 const reviewSchema = new Schema({
@@ -24,6 +23,7 @@ const recipeSchema = new Schema({
   image: { type: String },
   tags: [{ type: String }], 
   owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true },
+  //favourtedBy: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
   reviews: [reviewSchema],
   Featured: { type: Boolean },
 }, {
