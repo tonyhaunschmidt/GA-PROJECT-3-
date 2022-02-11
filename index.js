@@ -5,6 +5,7 @@ import { port, dbURI } from './config/environment.js'
 
 const app = express()
 
+console.log('test')
 
 const startServer = async () => {
   try {
