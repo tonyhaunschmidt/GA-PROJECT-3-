@@ -998,5 +998,5 @@ export default [
     image: 'imageurl',
     tags: [ 'spicy', 'pizza', 'comfort food', 'guilty pleasure' ], 
     Featured: true,
-  },
+  }
 ]
