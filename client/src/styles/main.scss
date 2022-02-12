@@ -69,16 +69,17 @@ body{
   padding: 10px;
   background-color: $logoMain;
   height: 25vh;
+  overflow-y: hidden;
   .recipe-card{
-    height: 23vh;
+    height: 21vh;
     width: 25vh;
     position: relative;
     .recipe-image-container{
       width: 25vh;
-      height: 23vh;
+      height: 21vh;
       img {
         width: 25vh;
-        height: 23vh;
+        height: 21vh;
       }
     }
     .text-container{
@@ -88,7 +89,7 @@ body{
       text-align: center;
       top: 0;
       width: 25vh;
-      height: 23vh;      
+      height: 21vh;      
       p{
         font-size: 0.5rem ;
       }
