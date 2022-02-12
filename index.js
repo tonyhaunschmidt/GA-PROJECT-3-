@@ -5,8 +5,6 @@ import { port, dbURI } from './config/environment.js'
 
 const app = express()
 
-console.log('test')
-
 const startServer = async () => {
   try {
     await mongoose.connect(dbURI)
@@ -19,7 +17,7 @@ const startServer = async () => {
       next()
     })
 
-    app.use(router)
+    app.use('/api', router)
 
     app.use((_req, res) => {
       return res.status(404).json({ message: 'Route Not Found' })
