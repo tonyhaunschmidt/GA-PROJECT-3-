@@ -31,7 +31,7 @@ import Footer from './components/Footer'
         <Route path='myprofile/test' element={<Profile />} />
         <Route path='updateprofile/test' element={<UpdateProfile />} />
         <Route path='myrecipes/test' element={<MyRecipes />} />
-        <Route path='recipe/test' element={<Recipe />} />
+        <Route path='recipe/:id' element={<Recipe />} />
         <Route path='addrecipe' element={<AddRecipe />} />
         <Route path='shoppinglist' element={<ShoppingList />} />
       </Routes>
