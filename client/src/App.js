@@ -5,7 +5,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //COMPONENTS:
 import Welcome from './components/Welcome_page'
 import Search from './components/Search_page'
-import Auth from './components/Auth_page'
+import Login from './components/Login_page'
+import Register from './components/Register_page'
 import ProfileOther from './components/Profile_other_page'
 import Profile from './components/Profile_page'
 import UpdateProfile from './components/UpdateProfile_page'
@@ -16,17 +17,13 @@ import ShoppingList from './components/ShoppingList_page'
 import Footer from './components/Footer'
 
  function App() {
-//     const getData = async () => {
-//       const { data } = await axios.get('/api/profile/620591de033eedd8d146e333') // * <-- replace with your endpoint
-//       console.log(data)
-//     }
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Welcome />} />
         <Route path='search' element={<Search />} />
-        <Route path='auth' element={<Auth />} />
+        <Route path='login' element={<Login />} />
+        <Route path='register' element={<Register />} />
         <Route path='profile/test' element={<ProfileOther />} />
         <Route path='myprofile/test' element={<Profile />} />
         <Route path='updateprofile/test' element={<UpdateProfile />} />

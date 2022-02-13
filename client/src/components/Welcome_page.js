@@ -62,8 +62,8 @@ const handleTextInputChange = (e) => {
           {SearchInput === '' ? <button className='branded-button' >Go</button> : <Link to='/search' state={SearchInput}><button className='branded-button' >Go</button></Link>}
         </div>
           <ul>
-            <Link to={'/auth'}><li>sign up</li></Link>
-            <Link to={'/auth'}><li>log in</li></Link>
+            <Link to={'/register'}><li>sign up</li></Link>
+            <Link to={'/login'}><li>log in</li></Link>
           </ul>
       </div>
       <div className='welcome-page-banner'>
