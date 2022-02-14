@@ -1,4 +1,6 @@
-const getTokenFromLocalStorage = () => {
+import {Buffer} from 'buffer'
+
+export const getTokenFromLocalStorage = () => {
   return window.localStorage.getItem('faceCook-token')
 }
 
