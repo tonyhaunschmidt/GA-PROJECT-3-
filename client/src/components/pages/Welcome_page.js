@@ -2,8 +2,8 @@ import React, { useEffect, useState }  from 'react'
 import axios  from 'axios'
 import { Link } from 'react-router-dom'
 
-import faceCookLogo from '../assets/full_logo.png'
-import recipePlaceholder from '../assets/placeholder_recipe_pic.png'
+import faceCookLogo from '../../assets/full_logo.png'
+import recipePlaceholder from '../../assets/placeholder_recipe_pic.png'
 
 
 const Welcome = () => {
