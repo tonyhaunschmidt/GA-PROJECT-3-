@@ -81,6 +81,8 @@ export const unfollow = async (req, res) => {
     const userToUnfollow = await User.findById(id)
     const profileToRemove = { _id: userToUnfollow._id, username: userToUnfollow.username, profileImage: userToUnfollow.profile }
     user.following.remove(profileToRemove)
+    userToUnfollow.followers.remove({ _id: user._id, username: user.username, profileImage: user.profileImage })
+    await userToUnfollow.save()
     await user.save()
     return res.sendStatus(204)
   } catch (err) {
