@@ -33,7 +33,7 @@ const Recipe_page = () => {
       }
     </section>
   ) 
-  
+  console.log(test)
 }
 
 export default Recipe_page
