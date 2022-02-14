@@ -12,6 +12,7 @@ const Recipe_page = () => {
       try {
         const { data } = await axios.get(`/api/recipes/${id}`)
         setRecipe(data)
+        console.log(data)
       } catch (err) {
         console.log(err)
       }
