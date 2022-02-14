@@ -24,7 +24,7 @@ import Footer from './components/Footer'
         <Route path='search' element={<Search />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
-        <Route path='profile/test' element={<ProfileOther />} />
+        <Route path='profile/:id' element={<ProfileOther />} />
         <Route path='myprofile/test' element={<Profile />} />
         <Route path='updateprofile/test' element={<UpdateProfile />} />
         <Route path='myrecipes/test' element={<MyRecipes />} />

@@ -3,6 +3,8 @@ import { useLocation, Link } from 'react-router-dom'
 import axios from 'axios'
 import recipePlaceholder from '../assets/placeholder_recipe_pic.png'
 
+import Nav from './Nav'
+
 const Search = () => {
 
   const location = useLocation()
@@ -64,7 +66,7 @@ const Search = () => {
 
   return (
     <section className='searchPage'>
-      {/* THIS IS WHERE THE NAV BAR GOES */}
+      <Nav />
       <div className='search-bar-container'>
         <input type='text' placeholder={homepageSearchContents === '' || homepageSearchContents === null ? 'Search...' : homepageSearchContents} onChange={handleTextInputChange}></input>
         <button className='branded-button' onClick={runSearch}>Go</button>

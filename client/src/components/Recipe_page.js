@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 const Recipe_page = () => {
   
@@ -8,7 +8,7 @@ const Recipe_page = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    const getRecipes = async () => {
+    const getRecipe = async () => {
       try {
         const { data } = await axios.get(`/api/recipes/${id}`)
         setRecipe(data)
@@ -16,13 +16,20 @@ const Recipe_page = () => {
         console.log(err)
       }
   }
-    getRecipes()
+    getRecipe()
   }, [])
 
 
   return (
     <section className='recipe-page'>
-      <h1>{recipe.title}</h1>
+      {recipe.owner ?
+      <>
+        <h1>{recipe.title}</h1>
+        <Link to={`/profile/${recipe.owner._id}`}><p>{recipe.owner.username}</p></Link>
+      </>
+      :
+      <p>loading...</p>
+      }
     </section>
   ) 
   
