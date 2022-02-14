@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import axios from 'axios'
-import recipePlaceholder from '../assets/placeholder_recipe_pic.png'
+import recipePlaceholder from '../../assets/placeholder_recipe_pic.png'
 
-import Nav from './Nav'
+import Nav from '../Nav'
 
 const Search = () => {
 

@@ -2,8 +2,8 @@ import React, { useEffect, useState }  from 'react'
 import axios  from 'axios'
 import { Link } from 'react-router-dom'
 
-import faceCookLogo from '../assets/full_logo.png'
-import recipePlaceholder from '../assets/placeholder_recipe_pic.png'
+import faceCookLogo from '../../assets/full_logo.png'
+import recipePlaceholder from '../../assets/placeholder_recipe_pic.png'
 
 
 const Welcome = () => {
@@ -20,7 +20,6 @@ const Welcome = () => {
       try {
         const { data } = await axios.get('/api/recipes')
         //setRecipes(data)
-        console.log(data)
         const featRecipes = []
         for (let i = 0; i < data.length; i++){
           if (data[i].Featured === true) { //****** AFTER RE-SEEDING- CHANGE THE UPPERCASE 'F' ON FEATURED TO LOWERCASE
@@ -36,7 +35,6 @@ const Welcome = () => {
           ranRecipes.push(allRecipes[randomRecipeIndex])
           allRecipes.splice(randomRecipeIndex, 1)
           randomQty --
-          console.log(allRecipes)
         }
         setRandomRecipes(ranRecipes)
       } catch (err) {
@@ -48,7 +46,6 @@ const Welcome = () => {
 
 const handleTextInputChange = (e) => {
   setSearchInput(e.target.value)
-  console.log(e.target.value)
 }
 
 
