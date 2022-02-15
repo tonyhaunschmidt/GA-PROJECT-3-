@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import smallLogo from '../../assets/logo.png'
+import Nav from '../Nav'
+
 
 const Register = () => {
   const navigate = useNavigate()
@@ -31,7 +33,9 @@ const Register = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
+    <Nav />
+    <form onSubmit={handleSubmit} className='form-wrapper'>
       <img src={smallLogo} alt='FaceCook logo' />
       <div className='username-input'>
         <input onChange={handleChange} type='text' name='username' placeholder='Username' />
@@ -47,9 +51,10 @@ const Register = () => {
         {formData.password !== formData.passwordConfirmation ? <p>Passwords do not match!</p> : <p></p>}
       </div>
       <div>
-      {formData.password !== formData.passwordConfirmation ? <button>Register</button> : <p>-Register-</p>}
+      {formData.password !== formData.passwordConfirmation || !formData.password.length ? <button disabled className='green-branded-button'>Register</button> : <button className='gre-branded-button'>Register</button>} 
       </div>
     </form>
+    </>
   )
 }
 

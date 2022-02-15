@@ -1,1 +1,16 @@
 @import '../../variables';
+
+.form-wrapper {
+  margin: 40px auto;
+  text-align: center;
+  input {
+    border-radius: 5px;
+    width: 30vh;
+    height: 3vh;
+    margin: 2vh 0;
+  }
+  .green-branded-button{
+    width: 10vh;
+    height: 3vh;
+  }
+}

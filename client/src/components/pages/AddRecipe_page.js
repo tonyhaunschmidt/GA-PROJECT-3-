@@ -3,8 +3,8 @@ import axios from 'axios'
 import { getPayload } from '../helper/authHelper.js'
 import { useNavigate } from 'react-router-dom'
 
-import { AdvancedImage } from '@cloudinary/react';
-import { Cloudinary } from "@cloudinary/url-gen";
+// import { AdvancedImage } from '@cloudinary/react';
+// import { Cloudinary } from "@cloudinary/url-gen";
 
 
 
@@ -137,7 +137,7 @@ const AddRecipe = () => {
   }
 
   return (
-    <form className='recipe-form' onSubmit={handleSubmit}>
+    <form className='recipe-form-wrapper' onSubmit={handleSubmit}>
       <div className='title-input'>
         <input onChange={handleChange} type='text' name='title' placeholder='Recipe Name' />
       </div>

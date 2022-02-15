@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import smallLogo from '../../assets/logo.png'
+import Nav from '../Nav'
+
 
 const Login = () => {
   const navigate = useNavigate()
@@ -37,12 +39,17 @@ const Login = () => {
   }
 
   return (
-    <form className='auth-form' onSubmit={handleSubmit}>
+    <>
+    <Nav />
+    <form className='form-wrapper' onSubmit={handleSubmit}>
       <img src={smallLogo} alt='FaceCook logo' />
+      <div className="login-input">
       <input onChange={handleChange} type='text' name='email' placeholder='Email' />
       <input onChange={handleChange} type='password' name='password' placeholder='Password' />
+      </div>
       <button>Login</button>
     </form>
+    </>
   )
 
 }
