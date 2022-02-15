@@ -68,7 +68,7 @@ const Search = () => {
     <section className='searchPage'>
       <Nav />
       <div className='search-bar-container'>
-        <input type='text' placeholder={homepageSearchContents === '' || homepageSearchContents === null ? 'Search...' : homepageSearchContents} onChange={handleTextInputChange}></input>
+        <input type='text' placeholder='Search...' defaultValue={homepageSearchContents} onChange={handleTextInputChange}></input>
         <button className='branded-button' onClick={runSearch}>Go</button>
       </div>
       <p>{errorMessage}</p>

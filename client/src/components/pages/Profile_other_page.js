@@ -134,11 +134,13 @@ const ProfileOther = () => {
           }
         </div>
         <div className='button-container'>
-          {
+          {currentUser.following?
             isUserFollowing?
-            <button className='branded-button' onClick={handleUnfollow}>UNFOLLOW</button>
+              <button className='branded-button' onClick={handleUnfollow}>UNFOLLOW</button>
+                :
+              <button className='branded-button' onClick={handleFollow}>FOLLOW</button>
               :
-            <button className='branded-button' onClick={handleFollow}>FOLLOW</button>
+            <></>
           }
         </div>
       </div>
