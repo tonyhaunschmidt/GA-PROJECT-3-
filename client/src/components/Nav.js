@@ -13,6 +13,7 @@ const Nav = () => {
   const navigate = useNavigate()
 
   const [currentUser, setCurrentUser] = useState({})
+  const [displayDropDown, setDisplayDropDown] = useState(false)
   
   useEffect(() => {
     const getCurrentUser = async () => {
@@ -31,6 +32,22 @@ const Nav = () => {
     window.localStorage.removeItem('faceCook-token')
     navigate('/')
   }
+
+  // const handleDropDownToggleOn = () => {
+  //   setDisplayDropDown(true)
+  // }
+  // const handleDropDownToggleOff = () => {
+  //   let change = false
+  //   console.log(displayDropDown === true)
+  //   if(displayDropDown === true ) {
+  //     change = true
+  //   }
+  //   if(change === true){
+  //     setDisplayDropDown(false)
+  //   }
+  // }
+
+  // document.body.addEventListener('click', handleDropDownToggleOff)
   
   
   return (
@@ -45,15 +62,18 @@ const Nav = () => {
             :
           <>
             <li className="navbar-dropdown">
-              <button>
-                Username 
+              <button onClick={handleDropDownToggleOn}>
+              {!currentUser.name ? 
+                <p>{currentUser.username}</p> 
+                  : 
+                <p>{currentUser.name}</p>} 
                 {!currentUser.profileImage ? 
                   <img src={profilePlaceholder} alt='placeholder recipe' /> 
                     : 
                   <img src={currentUser.image} alt={currentUser.title} />
                 }
               </button>  {/*******  ON CLICK- UNHIDE (DISPLAY: INITIAL) THE DROPDOWN UL */}
-              
+              {displayDropDown ?
               <ul className="dropdown">  
                 <li><Link to={`/profile/${currentUser._id}`}>My Profile</Link></li>   
                 <li><Link to="/myrecipes">My Recipes</Link></li>
@@ -61,6 +81,8 @@ const Nav = () => {
                 <li><Link to="/updateprofile">Edit Profile</Link></li>
                 <li><button onClick={handleLogout}>Log Out</button></li>
               </ul>
+              :
+              <></>}
             </li>
           </>}
       </ul>
