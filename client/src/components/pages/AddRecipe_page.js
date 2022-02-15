@@ -1,14 +1,28 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { getPayload } from '../helper/authHelper.js'
+import { getPayload, getTokenFromLocalStorage } from '../helper/authHelper.js'
 import { useNavigate } from 'react-router-dom'
 
-import { AdvancedImage } from '@cloudinary/react';
-import { Cloudinary } from "@cloudinary/url-gen";
-
+const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
+const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
 
 const AddRecipe = () => {
+
+  // CLOUDINARY vvvv
+
+  const handleUpload = async (e) => {
+    const data = new FormData()
+    data.append('file', e.target.files[0])
+    data.append('upload_preset', uploadPreset)
+    console.log('data', data)
+    const res = await axios.post(uploadUrl, data)
+    console.log('response=>', res)
+    setFormData({ ...formData, image: res.data.url })
+  }
+
+
+  // CLOUDINARY ^^^^
 
 
   const navigate = useNavigate()
@@ -19,7 +33,6 @@ const AddRecipe = () => {
 
   const [ings, setIngs] = useState([
     {
-      num: 1,
       ingredient: '',
       quantityForOne: 0,
       quantityForTwo: 0,
@@ -43,7 +56,7 @@ const AddRecipe = () => {
     mealType: '',
     ingredients: [{}],
     method: [{}],
-    image: '',
+    image: 'imageurl',
     tags: [''],
   })
 
@@ -54,6 +67,7 @@ const AddRecipe = () => {
     console.log('Authenticated')
   }, [])
 
+
   // ! Form submission
   const handleChange = (e) => {
     const form = { ...formData, [e.target.name]: e.target.value }
@@ -61,13 +75,18 @@ const AddRecipe = () => {
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log('formData at submit=>', formData)
     const form = { ...formData, ingredients: ings, method: steps, tags: tags }
     setFormData(form)
     console.log(formData)
     try {
       // run input check function here 
-      const { data } = await axios.post('/api/recipes', formData)
-      console.log(`Recipe to add: ${data}`)
+      await axios.post('/api/recipes', formData, {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`
+        }
+      })
+
       //  navigate(/api/recipes/{data._id})
     } catch (err) {
       console.log(err)
@@ -77,6 +96,7 @@ const AddRecipe = () => {
   // ! Ingredients
   const handleIngChange = (e) => {
     let newIngArray = [...ings]
+    console.log(e.target.getAttribute('data-tag'))
     const ingToChangeIndex = e.target.id
     if (e.target.getAttribute('data-tag') === 'ingredient') {
       newIngArray[ingToChangeIndex] = { ...newIngArray[ingToChangeIndex], ingredient: e.target.value }
@@ -95,12 +115,15 @@ const AddRecipe = () => {
     }
     if (e.target.getAttribute('data-tag') === 'measure') {
       newIngArray[ingToChangeIndex] = { ...newIngArray[ingToChangeIndex], measure: e.target.value }
+      console.log(newIngArray[ingToChangeIndex])
     }
+    console.log(newIngArray)
     setIngs([...newIngArray])
+    setFormData({ ...formData, ingredients: newIngArray })
   }
   const addIng = (e) => {
     e.preventDefault()
-    setIngs([...ings, { num: ings.length += 1, ingredient: '', quantityForOne: 0, quantityForTwo: 0, quantityForThree: 0, quantityForFour: 0, measure: '' }])
+    setIngs([...ings, { ingredient: '', quantityForOne: 0, quantityForTwo: 0, quantityForThree: 0, quantityForFour: 0, measure: '' }])
   }
 
   // ! Method
@@ -113,6 +136,7 @@ const AddRecipe = () => {
     }
     newStepArray[stepTochangeIndex] = stepToChange
     setSteps([...newStepArray])
+    setFormData({ ...formData, method: newStepArray })
   }
   const addStep = (e) => {
     e.preventDefault()
@@ -126,7 +150,9 @@ const AddRecipe = () => {
   }
   const addTag = (e) => {
     e.preventDefault()
+    setFormData({ ...formData, tags: [...tags, tag] })
     setTags([...tags, tag])
+
   }
   const deleteTag = (e) => {
     e.preventDefault()
@@ -169,7 +195,7 @@ const AddRecipe = () => {
               <input onChange={handleIngChange} type='number' data-tag='quantityForThree' id={index} />
               <label htmlFor='quantityForFour'>Qty 4 per</label>
               <input onChange={handleIngChange} type='number' data-tag='quantityForFour' id={index} />
-              <input onChange={handleIngChange} type='text' name='measure' placeholder='Measure' id={index} />
+              <input onChange={handleIngChange} type='text' data-tag='measure' placeholder='Measure' id={index} />
             </div>
           )
         })}
@@ -186,7 +212,11 @@ const AddRecipe = () => {
         })}
         <button onClick={addStep}>Add Step</button>
       </div>
-      {/* image input here  */}
+      {/* image input here vvv */}
+      <div className='image-input'>
+        <input className='img-input' type='file' onChange={handleUpload} />
+      </div>
+      {/* image input here ^^^  */}
       <div className='tag-section'>
         <div className='tag-input'>
           <input onChange={handleTagChange} type='text' name='tags' placeholder='Tags' />
