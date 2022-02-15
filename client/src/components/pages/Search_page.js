@@ -29,7 +29,7 @@ const Search = () => {
         }
         setSearchedRecipes(foundRecipes)
         if (foundRecipes.length === 0){
-          setErrorMessage('sorry, we could not find anything that matches that')
+          setErrorMessage('sorry, we coud not find anything that matches that')
         }
       } catch (err) {
         console.log(err)

@@ -34,20 +34,28 @@ const ProfileOther = () => {
         console.log(err)
       }
     }
+    
+    getProfile()
+    
+
+  }, [])
+
+  useEffect(()=> {
     const getCurrentUser = async () => {
       try {
         const payload = getPayload()
         const { data } = await axios.get(`/api/profile/${payload.sub}`)
         setCurrentUser(data)
+        console.log('df', data.following)
         if (data.following.some(followingprofile => followingprofile._id === profile._id)){  //WHY IS THIS NOT WORKING!!!!!!
+
           setIsUserFollowing(true)}
       } catch (err) {
         console.log(err)
       }
     }
-    getProfile()
     getCurrentUser()
-  }, [])
+  }, [profile])
 
   
 
