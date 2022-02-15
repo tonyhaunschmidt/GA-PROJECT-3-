@@ -1,6 +1,6 @@
-import { Buffer } from "buffer"
+import {Buffer} from 'buffer'
 
-const getTokenFromLocalStorage = () => {
+export const getTokenFromLocalStorage = () => {
   return window.localStorage.getItem('faceCook-token')
 }
 
