@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 import { getPayload, getTokenFromLocalStorage } from '../helper/authHelper'
 
 import profilePlaceholder from '../../assets/placeholder_profile_pic.png'
 import recipePlaceholder from '../../assets/placeholder_recipe_pic.png'
-import { set } from 'mongoose'
 
 const ProfileOther = () => {
+
+  const navigate = useNavigate()
   
   const { id } = useParams()
   const [currentUser, setCurrentUser] = useState({})
@@ -32,26 +33,23 @@ const ProfileOther = () => {
       } catch (err) {
         console.log(err)
       }
-  }
-    getProfile()
-  }, [])
-
-  useEffect(() => {
+    }
     const getCurrentUser = async () => {
       try {
         const payload = getPayload()
         const { data } = await axios.get(`/api/profile/${payload.sub}`)
         setCurrentUser(data)
-        console.log(data)
-        if (data.following.some(followingprofile => followingprofile._id === profile._id)){
-          setIsUserFollowing(true)
-        }
+        if (data.following.some(followingprofile => followingprofile._id === profile._id)){  //WHY IS THIS NOT WORKING!!!!!!
+          setIsUserFollowing(true)}
       } catch (err) {
         console.log(err)
       }
-  }
+    }
+    getProfile()
     getCurrentUser()
   }, [])
+
+  
 
 
   const handleFilter = (e) => {
@@ -67,14 +65,18 @@ const ProfileOther = () => {
   }
 
   const handleFollow = async () => {
-    await axios.get(`/api/following/${profile._id}`, {
-      headers: {
-        Authorization: `Bearer ${getTokenFromLocalStorage()}`, 
-      }
-    })
-    setIsUserFollowing(true)
-    setFollowerCount(followerCount + 1)
-    //add if function for if you are not logged in then navigate to log in page
+    console.log(currentUser)
+    if (!currentUser._id){
+      navigate('/login')
+    } else {
+      await axios.get(`/api/following/${profile._id}`, {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`, 
+        }
+      })
+      setIsUserFollowing(true)
+      setFollowerCount(followerCount + 1)
+    }
   }
 
   const handleUnfollow = async () => {
@@ -85,7 +87,6 @@ const ProfileOther = () => {
     })
     setIsUserFollowing(false)
     setFollowerCount(followerCount - 1)
-    //add if function for if you are not logged in then navigate to log in page
   }
 
 
@@ -131,16 +132,14 @@ const ProfileOther = () => {
             :
           <p></p>
           }
-          
         </div>
         <div className='button-container'>
-          {currentUser.following ?
-          isUserFollowing?
-          <button className='branded-button' onClick={handleUnfollow}>UNFOLLOW</button>
-            :
-          <button className='branded-button' onClick={handleFollow}>FOLLOW</button>
-          :
-          <p>loading...</p>}
+          {
+            isUserFollowing?
+            <button className='branded-button' onClick={handleUnfollow}>UNFOLLOW</button>
+              :
+            <button className='branded-button' onClick={handleFollow}>FOLLOW</button>
+          }
         </div>
       </div>
       <div className='profile-main-section'>
