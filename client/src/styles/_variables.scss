@@ -1,3 +1,62 @@
-$logoMain: #00ff80;
-$mainDark: #008040;
-$cardGrey: #c1d0cf;
+$mainColour: #00ff80;
+$secondaryColour: #008040;
+$greyColour: #c1d0cf;
+$darkGreyColour: #88959F;
+
+
+
+.green-branded-button{
+  background-color: $mainColour;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.grey-branded-button{
+  background-color: $darkGreyColour;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.recipe-card{
+  height: 21vh;
+  width: 25vh;
+  position: relative;
+  .recipe-image-container{
+    width: 25vh;
+    height: 21vh;
+    img {
+      width: 25vh;
+      height: 21vh;
+      border-radius: 10%;
+    }
+  }
+  .text-container{
+    display: none;
+    color: white;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 25vh;
+    height: 21vh; 
+    border-radius: 10%;     
+    p{
+      font-size: 0.5rem ;
+    }
+    h3{
+      font-size: 1rem;
+    }
+    
+  }
+  &:hover{
+    .text-container{
+      display: initial;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    img{
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+}
+

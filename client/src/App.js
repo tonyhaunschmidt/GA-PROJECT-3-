@@ -7,7 +7,6 @@ import Welcome from './components/pages/Welcome_page'
 import Search from './components/pages/Search_page'
 import Login from './components/pages/Login_page'
 import Register from './components/pages/Register_page'
-import ProfileOther from './components/pages/Profile_other_page'
 import Profile from './components/pages/Profile_page'
 import UpdateProfile from './components/pages/UpdateProfile_page'
 import MyRecipes from './components/pages/MyRecipes_page'
@@ -24,8 +23,7 @@ import Footer from './components/Footer'
         <Route path='search' element={<Search />} />
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
-        <Route path='profile/:id' element={<ProfileOther />} />
-        <Route path='myprofile/test' element={<Profile />} />
+        <Route path='profile/:id' element={<Profile />} />
         <Route path='updateprofile/test' element={<UpdateProfile />} />
         <Route path='myrecipes' element={<MyRecipes />} />
         <Route path='recipe/:id' element={<Recipe />} />

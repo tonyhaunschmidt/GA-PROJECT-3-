@@ -1,0 +1,55 @@
+@import '../../variables';
+
+.welcome{
+  padding: 15vh 0 5vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  img{
+    width: 65vh;
+  }
+  .welcome-page-banner{
+    width: 80vw;
+    margin: 10px 0;
+    h2{
+      margin: 0;
+    }
+  }
+  .search-and-login-container{
+    width: 60vh;
+    height: 15vh;
+    text-align: right;
+  .search-bar-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    input{
+      width: 45vh;
+      height: 5vh;
+      margin: 0 5px 0 0;
+      border-radius: 10px;
+    }
+  }
+  ul{
+    margin: 0;
+    padding-right: 70px;
+    display:flex;
+    list-style: none;
+    justify-content: flex-end;
+    li{
+      margin: 0 15px;
+    }
+  }
+  }
+  .display-recipe-bar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: $mainColour;
+    height: 25vh;
+    overflow-y: hidden;
+    border-radius: 10px;
+  }
+}

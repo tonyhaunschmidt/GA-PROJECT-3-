@@ -3,8 +3,13 @@ import axios from 'axios'
 import { getPayload } from '../helper/authHelper.js'
 import { useNavigate } from 'react-router-dom'
 
+import { AdvancedImage } from '@cloudinary/react';
+import { Cloudinary } from "@cloudinary/url-gen";
+
+
 
 const AddRecipe = () => {
+
 
   const navigate = useNavigate()
   // const [ingArr, setIngArr] = useState([])
@@ -49,27 +54,27 @@ const AddRecipe = () => {
     console.log('Authenticated')
   }, [])
 
-// ! Form submission
+  // ! Form submission
   const handleChange = (e) => {
     const form = { ...formData, [e.target.name]: e.target.value }
     setFormData(form)
   }
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const form = {...formData, ingredients: ings, method: steps, tags: tags }
+    const form = { ...formData, ingredients: ings, method: steps, tags: tags }
     setFormData(form)
     console.log(formData)
     try {
       // run input check function here 
       const { data } = await axios.post('/api/recipes', formData)
       console.log(`Recipe to add: ${data}`)
-    //  navigate(/api/recipes/{data._id})
+      //  navigate(/api/recipes/{data._id})
     } catch (err) {
       console.log(err)
     }
   }
 
-// ! Ingredients
+  // ! Ingredients
   const handleIngChange = (e) => {
     let newIngArray = [...ings]
     const ingToChangeIndex = e.target.id
@@ -95,10 +100,10 @@ const AddRecipe = () => {
   }
   const addIng = (e) => {
     e.preventDefault()
-    setIngs([...ings, {num: ings.length += 1,ingredient: '',quantityForOne: 0,quantityForTwo: 0,quantityForThree: 0,quantityForFour: 0,measure: '' }])
+    setIngs([...ings, { num: ings.length += 1, ingredient: '', quantityForOne: 0, quantityForTwo: 0, quantityForThree: 0, quantityForFour: 0, measure: '' }])
   }
 
-// ! Method
+  // ! Method
   const handleStepChange = (e) => {
     const newStepArray = [...steps]
     const stepTochangeIndex = e.target.id
@@ -114,14 +119,14 @@ const AddRecipe = () => {
     setSteps([...steps, { step: steps.length += 1, instruction: '' }])
   }
 
-// ! Tags
+  // ! Tags
   const handleTagChange = (e) => {
     const currentTag = e.target.value
     setTag(currentTag)
   }
   const addTag = (e) => {
     e.preventDefault()
-    setTags([...tags, tag])    
+    setTags([...tags, tag])
   }
   const deleteTag = (e) => {
     e.preventDefault()
@@ -164,7 +169,7 @@ const AddRecipe = () => {
               <input onChange={handleIngChange} type='number' data-tag='quantityForThree' id={index} />
               <label htmlFor='quantityForFour'>Qty 4 per</label>
               <input onChange={handleIngChange} type='number' data-tag='quantityForFour' id={index} />
-              <input onChange={handleIngChange} type='text' name='measure' placeholder='Measure' id={index} />              
+              <input onChange={handleIngChange} type='text' name='measure' placeholder='Measure' id={index} />
             </div>
           )
         })}
@@ -183,23 +188,24 @@ const AddRecipe = () => {
       </div>
       {/* image input here  */}
       <div className='tag-section'>
-      <div className='tag-input'>
-        <input onChange={handleTagChange} type='text' name='tags' placeholder='Tags' />
-        <button onClick={addTag}>  Add tag </button>
-      </div>
-      {tags.map((tag, index) => {
-        return (
-          <div className='tag' key={index}>
-            <p>{tag}</p>
-            <button onClick={deleteTag} className='delete-tag' id={index}>Delete Tag</button>
-          </div>          
-        )
-      })}
+        <div className='tag-input'>
+          <input onChange={handleTagChange} type='text' name='tags' placeholder='Tags' />
+          <button onClick={addTag}>  Add tag </button>
+        </div>
+        {tags.map((tag, index) => {
+          return (
+            <div className='tag' key={index}>
+              <p>{tag}</p>
+              <button onClick={deleteTag} className='delete-tag' id={index}>Delete Tag</button>
+            </div>
+          )
+        })}
       </div>
       <button onClick={handleSubmit}>Submit</button>
     </form>
   )
 }
+
 
 export default AddRecipe
 
