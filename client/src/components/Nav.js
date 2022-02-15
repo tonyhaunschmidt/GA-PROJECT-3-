@@ -62,7 +62,7 @@ const Nav = () => {
             :
           <>
             <li className="navbar-dropdown">
-              <button onClick={handleDropDownToggleOn}>
+              <button >
               {!currentUser.name ? 
                 <p>{currentUser.username}</p> 
                   : 
