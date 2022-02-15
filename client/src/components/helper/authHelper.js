@@ -1,3 +1,5 @@
+import { Buffer } from "buffer"
+
 const getTokenFromLocalStorage = () => {
   return window.localStorage.getItem('faceCook-token')
 }
@@ -10,7 +12,6 @@ export const getPayload = () => {
   if (splitToken.length !== 3) return
   return JSON.parse(Buffer.from(splitToken[1], 'base64'))
 }
-
 
 export const userIsAuthenticated = () => {
   const payload = getPayload()

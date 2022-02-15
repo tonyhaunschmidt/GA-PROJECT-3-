@@ -7,7 +7,6 @@ const Login = () => {
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
-    username: '',
     email: '',
     password: '',
   })
@@ -40,7 +39,6 @@ const Login = () => {
   return (
     <form className='auth-form' onSubmit={handleSubmit}>
       <img src={smallLogo} alt='FaceCook logo' />
-      <input onChange={handleChange} type='text' name='username' placeholder='Username' />
       <input onChange={handleChange} type='text' name='email' placeholder='Email' />
       <input onChange={handleChange} type='password' name='password' placeholder='Password' />
       <button>Login</button>
