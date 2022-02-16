@@ -1,6 +1,6 @@
 import React from 'react'
 // import axios from 'axios'
-import { BrowserRouter, Routes, Route } from 'react-router-dom' 
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 //COMPONENTS:
 import Welcome from './components/pages/Welcome_page'
@@ -15,7 +15,7 @@ import AddRecipe from './components/pages/AddRecipe_page'
 import ShoppingList from './components/pages/ShoppingList_page'
 import Footer from './components/Footer'
 
- function App() {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -24,7 +24,7 @@ import Footer from './components/Footer'
         <Route path='login' element={<Login />} />
         <Route path='register' element={<Register />} />
         <Route path='profile/:id' element={<Profile />} />
-        <Route path='updateprofile/test' element={<UpdateProfile />} />
+        <Route path='updateprofile' element={<UpdateProfile />} />
         <Route path='myrecipes' element={<MyRecipes />} />
         <Route path='recipe/:id' element={<Recipe />} />
         <Route path='addrecipe' element={<AddRecipe />} />
