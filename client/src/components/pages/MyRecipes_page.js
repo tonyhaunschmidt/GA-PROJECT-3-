@@ -39,6 +39,7 @@ const MyRecipes = () => {
 
   const handleTextInputChange = (e) => {
     setSearchInput(e.target.value)
+    setRecipesToDisplay(filteredRecipes)
     setErrorMessage('')
   }
 
@@ -75,7 +76,7 @@ const MyRecipes = () => {
       console.log('here', foundRecipes)
       setRecipesToDisplay([...foundRecipes])
       if (foundRecipes.length === 0) {
-        setRecipesToDisplay(filteredRecipes)
+        setRecipesToDisplay([])
         setErrorMessage('sorry, we could not find anything that matches that')
       }
     }
@@ -85,18 +86,20 @@ const MyRecipes = () => {
   return (
     <section className='my-recipes-page'>
       <Nav />
+      <h3>My Recipes</h3>
       <div className='search-bar-container'>
         <input type='text' placeholder='Search...' onChange={handleTextInputChange}></input>
-        <button className='branded-button' onClick={runSearch}>Go</button>
+        <button className='grey-branded-button' onClick={runSearch}>Go</button>
       </div>
-      <p>{errorMessage}</p>
+
       <div className='profile-main-section-header'>
-        <ul>
-          <li><button onClick={handleFilter} value='myRecipes'>My recipes</button></li> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
-          <li><button onClick={handleFilter} value='favRecipes'>My favourites</button></li>
-          <li><button onClick={handleFilter} value='allRecipes'>All</button></li>
-        </ul>
+        <div className='filter-options'>
+          <button onClick={handleFilter} value='myRecipes' className='left-button'>My Recipes</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+          <button onClick={handleFilter} value='favRecipes' className='middle-button'>My Favourites</button>
+          <button onClick={handleFilter} value='allRecipes' className='right-button'>All</button>
+        </div>
       </div>
+      <p className='error-message'>{errorMessage}</p>
       <div className='recipe-card-dislay-container'>
         {recipesToDisplay?.map((recipe, index) => {
           return (

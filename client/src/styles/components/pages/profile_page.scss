@@ -1,1 +1,154 @@
 @import '../../variables';
+
+.profile-page{
+  margin: 90px 0 0 0;
+  .profile-card{
+    background-color: $greyColour;
+    width: 400px;
+    height: 80vh;
+    border-radius: 20px;
+    padding: 20px; 
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    border: 1px solid $darkGreyColour;
+    .pic-and-name-container{
+      display: flex;
+      //background-color: salmon;
+      img{
+        margin-right: 20px;
+        width: 30%;
+        border: 1px solid black;
+      }
+      .name-container{
+        //background-color: seagreen;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        h2{
+          margin: 0 0 10px 0;
+        }
+        h4{
+          margin: 0;
+        }
+      }
+    }
+    .bio-container{
+      //background-color: gold;
+      flex-grow: 1;
+      margin: 10px 0;
+      padding:  5px;
+      border-top: 1px solid $darkGreyColour;
+      border-bottom: 1px solid $darkGreyColour;
+    }
+    .profile-stats-container{
+      //background-color: green;
+      display: flex;
+      justify-content: space-between;
+      ul{
+        list-style: none;
+        padding: 0 30px 0 10px;
+      }
+      
+    }
+    .button-container{
+      button{
+        height: 30px;
+        padding: 0 10px; 
+      }
+      //background-color: indigo;
+    }
+  }
+
+  .profile-main-section{
+    position: relative;
+    margin: 0 0 0 500px;
+    padding-top: 10px;
+    .profile-main-section-header{
+      margin-bottom: 30px;
+      .filter-options{
+        display: flex;
+        border-bottom: 1px solid $darkGreyColour;
+        padding-bottom: 10px;
+        .left-button, .middle-button{
+          border-right: 1px solid $darkGreyColour;
+        }
+        .left-button {
+          padding-left: 0;
+        }
+        button{
+          font-size: 15px;
+          background-color: rgba(0, 0, 0, 0);
+          border: none;
+          padding: 0 10px;
+        }
+      }
+    }
+    .recipe-card-dislay-container{
+      display: flex;
+      flex-wrap: wrap;
+      //justify-content: flex-start;
+      .recipe-card{
+        margin: 0 2vw 2vw 0;
+      }
+    }
+    
+  }
+  .follower-following-popup{
+      position: absolute;    
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 20px;
+      background-color: $greyColour;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $darkGreyColour;
+      .follower-following-header{
+        margin: 20px;
+        .filter-options{
+          display: flex;
+          justify-content: center;
+          border-bottom: 1px solid $darkGreyColour;
+          padding-bottom: 10px;
+          .left-button, .middle-button{
+            border-right: 1px solid $darkGreyColour;
+          }
+          .left-button {
+            padding-left: 0;
+          }
+          button{
+            font-size: 15px;
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            padding: 0 20px;
+          }
+        }
+      }
+      .profile-list-display{
+        flex-grow: 1;
+        overflow-y: hidden;
+        .profile-list-item{
+          margin: 0 60px;
+          display: flex;
+
+          img{
+            height: 50px;
+            width: 50px;
+            margin-right: 70px; 
+          }
+        }
+      }
+      .button-container{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        button{
+          height: 30px;
+          padding: 0 10px; 
+        }
+      }
+    }
+}

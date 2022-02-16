@@ -21,6 +21,9 @@ const ProfileOther = () => {
   const [myAndFavRecipes, setMyAndFavRecipes] = useState([])
   const [isUserFollowing, setIsUserFollowing] = useState(false)
 
+  const [showPopUp, setShowPopUp] = useState(false)
+  const [followToDisplay, setFollowToDisplay] = useState([])
+
 
   useEffect(() => {
     const getProfile = async () => {
@@ -31,6 +34,7 @@ const ProfileOther = () => {
         setRecipesToDisplay(data.yourRecipes)
         setMyAndFavRecipes([...data.yourRecipes, ...data.favRecipes])
         setFollowerCount(data.followers.length)
+        setFollowToDisplay(data.following)
       } catch (err) {
         console.log(err)
       }
@@ -99,12 +103,57 @@ const ProfileOther = () => {
     setFollowerCount(followerCount - 1)
   }
 
+  const showPopUpOn = () => {
+    setShowPopUp(true)
+  }
+  const showPopUpOff = () => {
+    setShowPopUp(false)
+  }
+
+  const handlePopUpFilter = (e) => {
+    if (e.target.value === 'followers') {
+      setFollowToDisplay(profile.followers)
+    }
+    if (e.target.value === 'following') {
+      setFollowToDisplay(profile.following)
+    }
+  }
+
+  const handleNewProfile = (id) => {
+    navigate(`/profile/${id}`)
+  }
+
 
   return (
     <section className='profile-page'>
       <Nav />
       {console.log(isUserFollowing)}
       <div className='profile-card'>
+        {showPopUp &&
+          <div className='follower-following-popup'>
+            <div className='follower-following-header'>
+              <div className='filter-options'>
+                <button onClick={handlePopUpFilter} value='followers' className='left-button'>Followers</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+                <button onClick={handlePopUpFilter} value='following'>Following</button>
+              </div>
+            </div>
+            <div className='profile-list-display'>
+              {followToDisplay.map((profile, index) =>
+                <Link to={`/profile/${profile._id}`} onClick={() => window.location.assign(`/profile/${profile._id}`)}>
+                  <div className='profile-list-item'>
+                    {!profile.profileImage ?
+                      <img src={profilePlaceholder} alt='placeholder recipe' />
+                      :
+                      <img src={profile.image} alt={profile.title} />}
+                    <p>{profile.username}</p>
+                  </div>
+                </Link>
+              )}
+            </div>
+            <div className='button-container'>
+              <button className='green-branded-button' onClick={showPopUpOff}>Close</button>
+            </div>
+          </div>}
         <div className='pic-and-name-container'>
           {!profile.profileImage ?
             <img src={profilePlaceholder} alt='placeholder recipe' />
@@ -116,7 +165,6 @@ const ProfileOther = () => {
               :
               <h2>{profile.name}</h2>}
             <h4>{profile.username}</h4>
-
           </div>
         </div>
         <div className='bio-container'>
@@ -130,15 +178,15 @@ const ProfileOther = () => {
           <ul>
             <li>{!profile.name ? profile.username : profile.name}'s recipes</li>
             <li>{!profile.name ? profile.username : profile.name}'s favourites</li>
-            <li>Followers</li>  {/**************************** add on click to open pop up ********************/}
-            <li>Following</li>
+            <li onClick={showPopUpOn}>Followers</li>  {/**************************** add on click to open pop up ********************/}
+            <li onClick={showPopUpOn}>Following</li>
           </ul>
           {profile.yourRecipes ?
             <ul>
               <li>{profile.yourRecipes.length}</li>
               <li>{profile.favRecipes.length}</li>
-              <li>{followerCount}</li>
-              <li>{profile.following.length}</li>
+              <li onClick={showPopUpOn}>{followerCount}</li>
+              <li onClick={showPopUpOn}>{profile.following.length}</li>
             </ul>
             :
             <p></p>
@@ -147,9 +195,9 @@ const ProfileOther = () => {
         <div className='button-container'>
           {currentUser.following ?
             isUserFollowing ?
-              <button className='branded-button' onClick={handleUnfollow}>UNFOLLOW</button>
+              <button className='green-branded-button' onClick={handleUnfollow}>UNFOLLOW</button>
               :
-              <button className='branded-button' onClick={handleFollow}>FOLLOW</button>
+              <button className='green-branded-button' onClick={handleFollow}>FOLLOW</button>
             :
             <></>
           }
@@ -157,11 +205,11 @@ const ProfileOther = () => {
       </div>
       <div className='profile-main-section'>
         <div className='profile-main-section-header'>
-          <ul>
-            <li><button onClick={handleFilter} value='myRecipes'>{!profile.name ? profile.username : profile.name}'s recipes</button></li> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
-            <li><button onClick={handleFilter} value='favRecipes'>{!profile.name ? profile.username : profile.name}'s favourites</button></li>
-            <li><button onClick={handleFilter} value='allRecipes'>All</button></li>
-          </ul>
+          <div className='filter-options'>
+            <button onClick={handleFilter} value='myRecipes' className='left-button'>{!profile.name ? profile.username : profile.name}'s Recipes</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+            <button onClick={handleFilter} value='favRecipes' className='middle-button'>{!profile.name ? profile.username : profile.name}'s Favourites</button>
+            <button onClick={handleFilter} value='allRecipes' className='right-button'>All</button>
+          </div>
         </div>
         <div className='recipe-card-dislay-container'>
           {recipesToDisplay?.map((recipe, index) => {
