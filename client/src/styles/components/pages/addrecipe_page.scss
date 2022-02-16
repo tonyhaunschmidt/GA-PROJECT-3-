@@ -1,6 +1,21 @@
 @import '../../variables';
 
 .recipe-form-wrapper {
+  width: 30vh;
   margin: 40px auto;
   text-align: center;
+  .ingredient-input{
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh;
+    .ing-input-block{
+      display: flex;
+      input {
+        width: 3vh;
+      }
+    }
+    
+  }
 }
+

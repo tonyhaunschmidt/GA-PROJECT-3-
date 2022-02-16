@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+
+import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
+
 import smallLogo from '../../assets/logo.png'
-import Nav from '../Nav'
 
 
 const Login = () => {
@@ -40,14 +42,15 @@ const Login = () => {
 
   return (
     <>
-    <Nav />
     <form className='form-wrapper' onSubmit={handleSubmit}>
-      <img src={smallLogo} alt='FaceCook logo' />
-      <div className="login-input">
-      <input onChange={handleChange} type='text' name='email' placeholder='Email' />
-      <input onChange={handleChange} type='password' name='password' placeholder='Password' />
+      <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
+      <div className="login-input-block">
+        <input onChange={handleChange} type='text' name='email' placeholder='Email' />
+        <input onChange={handleChange} type='password' name='password' placeholder='Password' />
+        {formError.length ? <p className='form-error'>Unauthorised!</p> : <></>}
       </div>
-      <button>Login</button>
+      {!formData.email || !formData.password ? <button disabled id='dis' className='green-branded-button'>Login</button> : <button className='green-branded-button'>Login</button>} 
+      <p><Link to='/register'>Don't have an account?</Link></p>
     </form>
     </>
   )
