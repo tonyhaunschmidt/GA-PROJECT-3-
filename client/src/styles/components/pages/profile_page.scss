@@ -130,8 +130,10 @@
       .profile-list-display{
         flex-grow: 1;
         overflow-y: hidden;
+        border-bottom: 1px solid $darkGreyColour;
+        margin: 0 20px;
         .profile-list-item{
-          margin: 0 60px;
+          margin: 0 30px 10px 30px;
           display: flex;
 
           img{

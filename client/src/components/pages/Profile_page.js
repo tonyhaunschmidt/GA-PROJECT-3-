@@ -34,7 +34,7 @@ const ProfileOther = () => {
         setRecipesToDisplay(data.yourRecipes)
         setMyAndFavRecipes([...data.yourRecipes, ...data.favRecipes])
         setFollowerCount(data.followers.length)
-        setFollowToDisplay(data.following)
+        setFollowToDisplay(data.followers)
       } catch (err) {
         console.log(err)
       }
