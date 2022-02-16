@@ -1,9 +1,13 @@
 import React, { useEffect, useState }  from 'react'
 import axios  from 'axios'
-import { Link } from 'react-router-dom'
+
+import { Link, useNavigate } from 'react-router-dom'
+
+import { userIsAuthenticated, getPayload } from '../helper/authHelper.js'
 
 import faceCookLogo from '../../assets/full_logo.png'
 import recipePlaceholder from '../../assets/placeholder_recipe_pic.png'
+
 
 
 const Welcome = () => {
@@ -11,9 +15,11 @@ const Welcome = () => {
   //const [recipes, setRecipes] = useState([]) 
   const [featuredRecipes, setFeaturedRecipes] = useState([])
   const [randomRecipes, setRandomRecipes] = useState([])
-  let randomQty = 20
   const [SearchInput, setSearchInput] = useState('')
+  const [currentUser, setCurrentUser] = useState({})
+  let randomQty = 20
 
+  const navigate = useNavigate()
 
   useEffect(() => {
     const getRecipes = async () => {
@@ -41,14 +47,27 @@ const Welcome = () => {
         console.log(err)
       }
   }
+      const getCurrentUser = async () => {
+      try {
+        const payload = getPayload()
+        const { data } = await axios.get(`/api/profile/${payload.sub}`)
+        setCurrentUser(data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getCurrentUser()
     getRecipes()
 }, [])
+
+const handleLogout = () => {
+  window.localStorage.removeItem('faceCook-token')
+  navigate('/')
+  }
 
 const handleTextInputChange = (e) => {
   setSearchInput(e.target.value)
 }
-
-
 
   return ( 
     <section className='welcome'>
@@ -56,12 +75,11 @@ const handleTextInputChange = (e) => {
       <div className='search-and-login-container'>
         <div className='search-bar-container'>
           <input type='text' placeholder='Search...' onChange={handleTextInputChange}></input>
-          {SearchInput === '' ? <button className='branded-button' >Go</button> : <Link to='/search' state={SearchInput}><button className='branded-button' >Go</button></Link>}
+          {SearchInput === '' ? <button className='grey-branded-button' id='no-hover'>Go</button> : <Link to='/search' state={SearchInput}><button className='grey-branded-button' id='no-hover' >Go</button></Link>}
         </div>
-          <ul>
-            <Link to={'/register'}><li>sign up</li></Link>
-            <Link to={'/login'}><li>log in</li></Link>
-          </ul>
+        <ul>
+          {!userIsAuthenticated() ? <><Link to={'/login'}><li>log in</li></Link><Link to={'/register'}><li>sign up</li></Link></> :<><Link to={`/profile/${currentUser._id}`}><li>My Profile</li></Link><div id='logout' onClick={handleLogout} >Log out</div></>}
+        </ul>
       </div>
       <div className='welcome-page-banner'>
         <h2>Featured</h2>
@@ -112,3 +130,9 @@ const handleTextInputChange = (e) => {
 }
 
 export default Welcome
+
+
+
+
+{/*  fix problem with button */}
+// pop out recipe tiles 
