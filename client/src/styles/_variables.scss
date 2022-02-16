@@ -8,7 +8,7 @@ $darkGreyColour: #88959F;
 .green-branded-button{
   background-color: $mainColour;
   color: white;
-  border: none;
+  border: 1px solid $darkGreyColour;
   border-radius: 10px;
 }
 

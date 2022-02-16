@@ -30,6 +30,9 @@ const MyRecipes = () => {
         setCurrentUser(data)
         setRecipesToDisplay([...data.yourRecipes])
         setMyAndFavRecipes([...data.yourRecipes, ...data.favRecipes])
+        if (data.yourRecipes.length === 0) {
+          setErrorMessage('Here is where your recipes will display! Click ADD RECIPE to get started!')
+        }
       } catch (err) {
         console.log(err)
       }
@@ -86,7 +89,10 @@ const MyRecipes = () => {
   return (
     <section className='my-recipes-page'>
       <Nav />
-      <h3>My Recipes</h3>
+      <div className='my-recipes-title-and-button'>
+        <h3>My Recipes</h3>
+        <Link to='/addrecipe'><button className='green-branded-button' >ADD RECIPE</button></Link>
+      </div>
       <div className='search-bar-container'>
         <input type='text' placeholder='Search...' onChange={handleTextInputChange}></input>
         <button className='grey-branded-button' onClick={runSearch}>Go</button>
