@@ -52,9 +52,9 @@ const Nav = () => {
     <nav >
       <Link to='/'><img src={smallLogo} alt='faceCook small logo' className='small-logo' /></Link>
       {!currentUser._id ?
-        <ul>
-          <Link to={'/register'}><li>sign up</li></Link>
-          <Link to={'/login'}><li>log in</li></Link>
+        <ul className='loginRegister'>
+          <Link to={'/login'}><li>Log In</li></Link>
+          <Link to={'/register'}><li>Join</li></Link>
         </ul>
         :
         <div className="navbar-dropdown" ref={ref}>

@@ -27,20 +27,20 @@ const Welcome = () => {
         const { data } = await axios.get('/api/recipes')
         //setRecipes(data)
         const featRecipes = []
-        for (let i = 0; i < data.length; i++){
+        for (let i = 0; i < data.length; i++) {
           if (data[i].Featured === true) { //****** AFTER RE-SEEDING- CHANGE THE UPPERCASE 'F' ON FEATURED TO LOWERCASE
             featRecipes.push(data[i])
           }
         }
         setFeaturedRecipes(featRecipes)
-        const allRecipes = [ ...data ]
+        const allRecipes = [...data]
         const ranRecipes = []
 
-        while (randomQty > 0 && allRecipes.length > 0){
+        while (randomQty > 0 && allRecipes.length > 0) {
           const randomRecipeIndex = Math.floor(Math.random() * allRecipes.length)
           ranRecipes.push(allRecipes[randomRecipeIndex])
           allRecipes.splice(randomRecipeIndex, 1)
-          randomQty --
+          randomQty--
         }
         setRandomRecipes(ranRecipes)
       } catch (err) {
@@ -58,7 +58,7 @@ const Welcome = () => {
     }
     getCurrentUser()
     getRecipes()
-}, [])
+  }, [])
 
 const handleLogout = () => {
   window.localStorage.removeItem('faceCook-token')
@@ -71,7 +71,7 @@ const handleTextInputChange = (e) => {
 
   return ( 
     <section className='welcome'>
-      <img className='main-logo' src={faceCookLogo}  alt='facecook logo' />
+      <img className='main-logo' src={faceCookLogo} alt='facecook logo' />
       <div className='search-and-login-container'>
         <div className='search-bar-container'>
           <input type='text' placeholder='Search...' onChange={handleTextInputChange}></input>
@@ -87,33 +87,11 @@ const handleTextInputChange = (e) => {
           {featuredRecipes?.map((recipe, index) => {
             return (
               <Link key={index} to={`recipe/${recipe._id}`}>
-                <div  className='recipe-card'>
+                <div className='recipe-card'>
                   <div className='recipe-image-container'>
-                    {recipe.image === 'imageurl' ? 
-                      <img src={recipePlaceholder} alt='placeholder recipe' /> 
-                        : 
-                      <img src={recipe.image} alt={recipe.title} />}
-                  </div>
-                  <div className='text-container'>
-                    <h3>{recipe.title}</h3>
-                    <p>{recipe.avgRating}</p>
-                  </div>
-                </div>
-              </Link>  
-            )})}
-        </div>
-      </div>  
-      <div className='welcome-page-banner'>
-        <h2>Discover</h2>
-        <div className='display-recipe-bar'>
-        {randomRecipes?.map((recipe, index) => {
-            return (
-              <Link key={index} to={`recipe/${recipe._id}`}>
-                <div  className='recipe-card'>
-                  <div className='recipe-image-container'>
-                    {recipe.image === 'imageurl' ? 
-                      <img src={recipePlaceholder} alt='placeholder recipe' /> 
-                        : 
+                    {recipe.image === 'imageurl' ?
+                      <img src={recipePlaceholder} alt='placeholder recipe' />
+                      :
                       <img src={recipe.image} alt={recipe.title} />}
                   </div>
                   <div className='text-container'>
@@ -122,7 +100,31 @@ const handleTextInputChange = (e) => {
                   </div>
                 </div>
               </Link>
-            )})}
+            )
+          })}
+        </div>
+      </div>
+      <div className='welcome-page-banner'>
+        <h2>Discover</h2>
+        <div className='display-recipe-bar'>
+          {randomRecipes?.map((recipe, index) => {
+            return (
+              <Link key={index} to={`recipe/${recipe._id}`}>
+                <div className='recipe-card'>
+                  <div className='recipe-image-container'>
+                    {recipe.image === 'imageurl' ?
+                      <img src={recipePlaceholder} alt='placeholder recipe' />
+                      :
+                      <img src={recipe.image} alt={recipe.title} />}
+                  </div>
+                  <div className='text-container'>
+                    <h3>{recipe.title}</h3>
+                    <p>{recipe.avgRating}</p>
+                  </div>
+                </div>
+              </Link>
+            )
+          })}
         </div>
       </div>
     </section>
