@@ -68,13 +68,13 @@ const Nav = () => {
             {!currentUser.profileImage ?
               <img src={profilePlaceholder} alt='placeholder recipe' />
               :
-              <img src={currentUser.image} alt={currentUser.title} />
+              <img src={currentUser.profileImage} alt={currentUser.title} />
             }
           </div>
           {displayDropDown ?
             <div className='dropdown-container'>
               <ul className="dropdown-list">
-                <li><Link to={`/profile/${currentUser._id}`}>My Profile</Link></li>
+                <li><Link to={`/profile/${currentUser._id}`} onClick={() => window.location.assign(`/profile/${currentUser._id}`)}>My Profile</Link></li>
                 <li><Link to="/myrecipes">My Recipes</Link></li>
                 <li><Link to="/addrecipe">Add Recipe</Link></li>
                 <li><Link to="/shoppinglist">Shopping List</Link></li>

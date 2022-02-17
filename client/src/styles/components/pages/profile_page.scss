@@ -13,6 +13,7 @@
     flex-direction: column;
     justify-content: stretch;
     border: 1px solid $darkGreyColour;
+    box-shadow: 3px 3px 5px rgb(59, 59, 59);
     .pic-and-name-container{
       display: flex;
       //background-color: salmon;
@@ -56,6 +57,7 @@
       button{
         height: 30px;
         padding: 0 10px; 
+        margin-right: 20px;
       }
       //background-color: indigo;
     }
@@ -93,7 +95,26 @@
         margin: 0 2vw 2vw 0;
       }
     }
-    
+    .calander-section{
+      h3{
+        padding: 0;
+        margin: 0;
+      }
+      h1{
+        padding: 0;
+        margin: 0;
+      }
+      .calander-container{
+        margin: 0;
+        height: 45vh;
+        background-color: orange; 
+      }
+      
+    }
+    .recently-added-title{
+        padding: 0;
+        margin-bottom: 0;
+    }
   }
   .follower-following-popup{
       position: absolute;    
@@ -149,8 +170,18 @@
         margin: 20px 0;
         button{
           height: 30px;
-          padding: 0 10px; 
+          padding: 0 10px;
         }
       }
+    }
+  .display-recipe-bar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: $mainColour;
+    height: 25vh;
+    overflow-y: hidden;
+    border-radius: 10px;
     }
 }
