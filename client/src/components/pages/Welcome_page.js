@@ -1,5 +1,5 @@
-import React, { useEffect, useState }  from 'react'
-import axios  from 'axios'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
 
 import { Link, useNavigate } from 'react-router-dom'
 
@@ -46,8 +46,8 @@ const Welcome = () => {
       } catch (err) {
         console.log(err)
       }
-  }
-      const getCurrentUser = async () => {
+    }
+    const getCurrentUser = async () => {
       try {
         const payload = getPayload()
         const { data } = await axios.get(`/api/profile/${payload.sub}`)
@@ -60,16 +60,16 @@ const Welcome = () => {
     getRecipes()
   }, [])
 
-const handleLogout = () => {
-  window.localStorage.removeItem('faceCook-token')
-  navigate('/')
+  const handleLogout = () => {
+    window.localStorage.removeItem('faceCook-token')
+    navigate('/')
   }
 
-const handleTextInputChange = (e) => {
-  setSearchInput(e.target.value)
-}
+  const handleTextInputChange = (e) => {
+    setSearchInput(e.target.value)
+  }
 
-  return ( 
+  return (
     <section className='welcome'>
       <img className='main-logo' src={faceCookLogo} alt='facecook logo' />
       <div className='search-and-login-container'>
@@ -78,7 +78,7 @@ const handleTextInputChange = (e) => {
           {SearchInput === '' ? <button className='grey-branded-button' id='no-hover'>Go</button> : <Link to='/search' state={SearchInput}><button className='grey-branded-button' id='no-hover' >Go</button></Link>}
         </div>
         <ul>
-          {!userIsAuthenticated() ? <><Link to={'/login'}><li>log in</li></Link><Link to={'/register'}><li>sign up</li></Link></> :<><Link to={`/profile/${currentUser._id}`}><li>My Profile</li></Link><div id='logout' onClick={handleLogout} >Log out</div></>}
+          {!userIsAuthenticated() ? <><Link to={'/login'}><li>log in</li></Link><Link to={'/register'}><li>sign up</li></Link></> : <><Link to={`/profile/${currentUser._id}`}><li>My Profile</li></Link><div id='logout' onClick={handleLogout} >Log out</div></>}
         </ul>
       </div>
       <div className='welcome-page-banner'>
@@ -136,5 +136,5 @@ export default Welcome
 
 
 
-{/*  fix problem with button */}
+{/*  fix problem with button */ }
 // pop out recipe tiles 

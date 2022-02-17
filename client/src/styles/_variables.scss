@@ -21,6 +21,13 @@ $darkGreyColour: #88959F;
   font-family: 'Righteous', cursive;
 }
 
+.red-branded-button{
+  background-color: red;
+  color: white;
+  border: 1px solid $darkGreyColour;
+  border-radius: 10px;
+}
+
 .recipe-card{
   height: 21vh;
   width: 25vh;

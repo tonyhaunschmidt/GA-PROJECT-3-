@@ -26,8 +26,9 @@ userSchema.virtual('yourRecipes', {
   foreignField: 'owner',
 })
 
+
 userSchema.set('toJSON', {
-  virtuals: true, 
+  virtuals: true,
   transform(_doc, json) {
     delete json.password
     delete json.email
@@ -38,29 +39,29 @@ userSchema.set('toJSON', {
 
 userSchema
   .virtual('passwordConfirmation')
-  .set(function(passwordConfirmation){
+  .set(function (passwordConfirmation) {
     this._passwordConfirmation = passwordConfirmation
   })
 
 userSchema
-  .pre('validate', function(next){
-    if (this.isModified('password') && this.password !== this._passwordConfirmation){
+  .pre('validate', function (next) {
+    if (this.isModified('password') && this.password !== this._passwordConfirmation) {
       this.invalidate('passwordConfirmation', 'Does not match password field.')
     }
     next()
   })
 
 userSchema
-  .pre('save', function(next){
-    if (this.isModified('password')){
+  .pre('save', function (next) {
+    if (this.isModified('password')) {
       this.password = bcrypt.hashSync(this.password, bcrypt.genSaltSync())
     }
-    next() 
+    next()
   })
 
 // userSchema.plugin(uniqueValidator)
 
-userSchema.methods.validatePassword = function(password){
+userSchema.methods.validatePassword = function (password) {
   console.log(password, this.password)
   return bcrypt.compareSync(password, this.password)
 }

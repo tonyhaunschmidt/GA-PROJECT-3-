@@ -30,6 +30,11 @@ const UpdateProfile = () => {
         const { data } = await axios.get(`/api/profile/${payload.sub}`)
         setCurrentUser(data)
         console.log(data)
+        setFormData({
+          name: data.name,
+          bio: data.bio,
+          profileImage: data.profileImage
+        })
       } catch (err) {
         console.log(err)
       }
