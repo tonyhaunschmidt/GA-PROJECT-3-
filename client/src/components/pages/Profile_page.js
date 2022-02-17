@@ -27,6 +27,9 @@ const ProfileOther = () => {
   const [showPopUp, setShowPopUp] = useState(false)
   const [followToDisplay, setFollowToDisplay] = useState([])
 
+  const [currentFilter, setCurrentFilter] = useState('userRecipes')
+  const [currentFollowFilter, setCurrentFollowFilter] = useState('followers')
+
 
   useEffect(() => {
     const getProfile = async () => {
@@ -94,12 +97,15 @@ const ProfileOther = () => {
   const handleFilter = (e) => {
     if (e.target.value === 'myRecipes') {
       setRecipesToDisplay(profile.yourRecipes)
+      setCurrentFilter('userRecipes')
     }
     if (e.target.value === 'favRecipes') {
       setRecipesToDisplay(profile.favRecipes)
+      setCurrentFilter(`favRecipes`)
     }
     if (e.target.value === 'allRecipes') {
       setRecipesToDisplay(myAndFavRecipes)
+      setCurrentFilter('allRecipes')
     }
   }
 
@@ -138,9 +144,11 @@ const ProfileOther = () => {
   const handlePopUpFilter = (e) => {
     if (e.target.value === 'followers') {
       setFollowToDisplay(profile.followers)
+      setCurrentFollowFilter('followers')
     }
     if (e.target.value === 'following') {
       setFollowToDisplay(profile.following)
+      setCurrentFollowFilter('following')
     }
   }
 
@@ -156,8 +164,8 @@ const ProfileOther = () => {
             <div className='follower-following-popup'>
               <div className='follower-following-header'>
                 <div className='filter-options'>
-                  <button onClick={handlePopUpFilter} value='followers' className='left-button'>Followers</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
-                  <button onClick={handlePopUpFilter} value='following'>Following</button>
+                  <button onClick={handlePopUpFilter} value='followers' className='left-button' id={currentFollowFilter === 'followers' && 'bold'}>Followers</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+                  <button onClick={handlePopUpFilter} value='following' id={currentFollowFilter === 'following' && 'bold'}>Following</button>
                 </div>
               </div>
               <div className='profile-list-display'>
@@ -228,9 +236,9 @@ const ProfileOther = () => {
         <div className='profile-main-section'>
           <div className='profile-main-section-header'>
             <div className='filter-options'>
-              <button onClick={handleFilter} value='myRecipes' className='left-button'>{!profile.name ? profile.username : profile.name}'s Recipes</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
-              <button onClick={handleFilter} value='favRecipes' className='middle-button'>{!profile.name ? profile.username : profile.name}'s Favourites</button>
-              <button onClick={handleFilter} value='allRecipes' className='right-button'>All</button>
+              <button onClick={handleFilter} value='myRecipes' className='left-button' id={currentFilter === 'userRecipes' && 'bold'}>{!profile.name ? profile.username : profile.name}'s Recipes</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+              <button onClick={handleFilter} value='favRecipes' className='middle-button' id={currentFilter === 'favRecipes' && 'bold'}>{!profile.name ? profile.username : profile.name}'s Favourites</button>
+              <button onClick={handleFilter} value='allRecipes' className='right-button' id={currentFilter === 'allRecipes' && 'bold'}>All</button>
             </div>
           </div>
           <div className='recipe-card-dislay-container'>
@@ -265,8 +273,8 @@ const ProfileOther = () => {
             <div className='follower-following-popup'>
               <div className='follower-following-header'>
                 <div className='filter-options'>
-                  <button onClick={handlePopUpFilter} value='followers' className='left-button'>Followers</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
-                  <button onClick={handlePopUpFilter} value='following'>Following</button>
+                  <button onClick={handlePopUpFilter} value='followers' className='left-button' id={currentFollowFilter === 'followers' && 'bold'}>Followers</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+                  <button onClick={handlePopUpFilter} value='following' id={currentFollowFilter === 'following' && 'bold'}>Following</button>
                 </div>
               </div>
               <div className='profile-list-display'>

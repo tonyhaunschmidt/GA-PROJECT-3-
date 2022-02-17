@@ -32,6 +32,9 @@
       display: flex;
       border-bottom: 1px solid $darkGreyColour;
       padding-bottom: 10px;
+      #bold{
+        font-weight: bold;
+      }
       .left-button, .middle-button{
         border-right: 1px solid $darkGreyColour;
       }

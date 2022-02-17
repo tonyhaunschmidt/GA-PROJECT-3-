@@ -16,9 +16,11 @@ const MyRecipes = () => {
   const [SearchInput, setSearchInput] = useState('')
   const [myAndFavRecipes, setMyAndFavRecipes] = useState([])
   const [filteredRecipes, setFilteredRecipes] = useState([])
-  const [searchedRecipes, setSearchedRecipes] = useState([])
+  //const [searchedRecipes, setSearchedRecipes] = useState([])
   const [recipesToDisplay, setRecipesToDisplay] = useState([])
   const [errorMessage, setErrorMessage] = useState('')
+
+  const [currentFilter, setCurrentFilter] = useState('myRecipes')
 
 
   useEffect(() => {
@@ -49,12 +51,15 @@ const MyRecipes = () => {
   const handleFilter = (e) => {
     if (e.target.value === 'myRecipes') {
       setFilteredRecipes(currentUser.yourRecipes)
+      setCurrentFilter('myRecipes')
     }
     if (e.target.value === 'favRecipes') {
       setFilteredRecipes(currentUser.favRecipes)
+      setCurrentFilter('favRecipes')
     }
     if (e.target.value === 'allRecipes') {
       setFilteredRecipes(myAndFavRecipes)
+      setCurrentFilter('allRecipes')
     }
     setErrorMessage('')
   }
@@ -100,9 +105,9 @@ const MyRecipes = () => {
 
       <div className='profile-main-section-header'>
         <div className='filter-options'>
-          <button onClick={handleFilter} value='myRecipes' className='left-button'>My Recipes</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
-          <button onClick={handleFilter} value='favRecipes' className='middle-button'>My Favourites</button>
-          <button onClick={handleFilter} value='allRecipes' className='right-button'>All</button>
+          <button onClick={handleFilter} value='myRecipes' className='left-button' id={currentFilter === 'myRecipes' && 'bold'}>My Recipes</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+          <button onClick={handleFilter} value='favRecipes' className='middle-button' id={currentFilter === 'favRecipes' && 'bold'}>My Favourites</button>
+          <button onClick={handleFilter} value='allRecipes' className='right-button' id={currentFilter === 'allRecipes' && 'bold'}>All</button>
         </div>
       </div>
       <p className='error-message'>{errorMessage}</p>

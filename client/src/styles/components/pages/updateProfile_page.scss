@@ -1,1 +1,35 @@
 @import '../../variables';
+
+.up-profile-form-wrapper{
+  border-radius: 15px;
+  box-shadow: 10px 10px 15px rgb(158, 158, 158) ;
+  padding: 5vh 5vh;
+  border: 2px solid rgb(224, 224, 224);
+  width: 70vh;
+  margin: 40px auto;
+  text-align: center;
+  textarea {
+    resize: none;
+ }
+  input{
+    border-radius: 5px;
+    width: 35vh;
+    height: 4vh;
+    margin: 2vh 0;
+  }
+  .green-branded-button{
+    cursor: pointer;
+    font-size: 2vh;
+    width: 15vh;
+    height: 4vh;
+    margin-bottom: 3px;
+  }
+}
+@media (max-width: 600px) {
+  .up-profile-form-wrapper{
+    width: 50vh;
+    textarea {
+      width: 40vh;
+   }
+  }
+}

@@ -1,6 +1,6 @@
 $mainColour: #00ff80;
 $secondaryColour: #008040;
-$greyColour: #c1d0cf;
+$greyColour: #e2e2e2;
 $darkGreyColour: #88959F;
 
 
@@ -10,6 +10,7 @@ $darkGreyColour: #88959F;
   color: white;
   border: 1px solid $darkGreyColour;
   border-radius: 10px;
+  font-family: 'Righteous', cursive;
 }
 
 .grey-branded-button{
@@ -17,6 +18,7 @@ $darkGreyColour: #88959F;
   color: white;
   border: none;
   border-radius: 10px;
+  font-family: 'Righteous', cursive;
 }
 
 .red-branded-button{
