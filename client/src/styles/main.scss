@@ -25,3 +25,9 @@
 body{
   margin: 0 10vw 5vh 10vw;
 }
+
+@media(max-width: 600px){
+  body{
+    margin: 0;
+  }
+}
