@@ -36,7 +36,7 @@
     // flex-flow: row wrap;
     // align-items: baseline;
     .fav-btn{
-      justify-content: flex-end;
+      //justify-content: flex-end;
     }
   }
 
@@ -209,4 +209,12 @@
     align-items: center;
     justify-content: end;
     line-break: normal;
+    }
+
+    .rating-btn{
+      background-color: grey;
+    }
+
+    .filled-rating-btn{
+      background-color: gold;
     }
