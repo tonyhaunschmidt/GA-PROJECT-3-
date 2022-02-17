@@ -1,1 +1,52 @@
 @import '../../variables';
+
+.my-recipes-page{
+  margin: 80px 0 0 0;
+  .search-bar-container{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-start;
+    input{
+      width: 45vh;
+      height: 5vh;
+      margin: 0 5px 0 0;
+      border-radius: 10px;
+      padding: 5px;
+    }
+    .grey-branded-button{
+      height: 5vh;
+      width: 5vh;
+    }
+  }
+  .profile-main-section-header{
+    margin-bottom: 30px;
+    .filter-options{
+      display: flex;
+      border-bottom: 1px solid $darkGreyColour;
+      padding-bottom: 10px;
+      .left-button, .middle-button{
+        border-right: 1px solid $darkGreyColour;
+      }
+      .left-button {
+        padding-left: 0;
+      }
+      button{
+        font-size: 15px;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        padding: 0 20px;
+      }
+    }
+  }
+  .error-message{
+    color: red;
+  }
+  .recipe-card-dislay-container{
+    display: flex;
+    flex-wrap: wrap;
+    //justify-content: flex-start;
+    .recipe-card{
+      margin: 0 2vw 2vw 0;
+    }
+  }
+}

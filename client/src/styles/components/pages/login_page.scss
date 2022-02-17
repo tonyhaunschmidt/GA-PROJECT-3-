@@ -1,1 +1,40 @@
 @import '../../variables';
+
+.form-wrapper {
+  box-shadow: 10px 10px 15px rgb(158, 158, 158) ;
+  border: 2px solid rgb(224, 224, 224);
+  border-radius: 15px;
+  padding: 5vh;
+  width: 50vh;
+  margin: 40px auto;
+  text-align: center;
+  .login-input-block{
+    margin-top: 1vh;
+    input{
+      border-radius: 5px;
+      width: 35vh;
+      height: 4vh;
+      margin: 1vh 0;
+   }
+   .form-error{
+    margin: 2px 0;
+    color: red;
+  }
+  }
+  // input {
+  //   border-radius: 5px;
+  //   width: 30vh;
+  //   height: 3vh;
+  //   margin: 2vh 0;
+  // }
+  .green-branded-button{
+    cursor: pointer;
+    font-size: 2vh;
+    width: 15vh;
+    height: 4vh;
+    margin: 5px 0;
+  }
+  #dis{
+    background-color: #00ff8067;
+  }
+}

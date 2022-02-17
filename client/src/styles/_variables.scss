@@ -23,6 +23,7 @@ $darkGreyColour: #88959F;
   height: 21vh;
   width: 25vh;
   position: relative;
+  transition: transform 0.5s ;
   .recipe-image-container{
     width: 25vh;
     height: 21vh;
@@ -30,6 +31,7 @@ $darkGreyColour: #88959F;
       width: 25vh;
       height: 21vh;
       border-radius: 10%;
+      box-shadow: 3px 3px 5px rgb(59, 59, 59);
     }
   }
   .text-container{
@@ -50,6 +52,7 @@ $darkGreyColour: #88959F;
     
   }
   &:hover{
+    transform: translateY(-5px);
     .text-container{
       display: initial;
       background: rgba(0, 0, 0, 0.5);

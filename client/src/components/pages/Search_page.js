@@ -32,7 +32,7 @@ const Search = () => {
         if (foundRecipes.length === 0) {
           setErrorMessage('sorry, we could not find anything that matches that')
         }
-      }catch (err) {
+      } catch (err) {
         console.log(err)
       }
     }
@@ -70,9 +70,9 @@ const Search = () => {
       <Nav />
       <div className='search-bar-container'>
         <input type='text' placeholder='Search...' defaultValue={homepageSearchContents} onChange={handleTextInputChange}></input>
-        <button className='branded-button' onClick={runSearch}>Go</button>
+        <button className='grey-branded-button' onClick={runSearch}>Go</button>
       </div>
-      <p>{errorMessage}</p>
+      <p className='error-message'>{errorMessage}</p>
       <div className='recipe-card-dislay-container'>
         {searchedRecipes?.map((recipe, index) => {
           return (

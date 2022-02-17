@@ -13,7 +13,7 @@
     width: 80vw;
     margin: 10px 0;
     h2{
-      margin: 0;
+      margin: 0 0 10px 0;
     }
   }
   .search-and-login-container{
@@ -31,8 +31,28 @@
       border-radius: 10px;
     }
   }
+  a{
+    text-decoration: none;
+    color: rgb(11, 11, 54);
+    :hover{
+      text-decoration: underline;
+      color: darkblue;
+    }
+  }
+  .grey-branded-button{
+    cursor: pointer;
+    height: 5vh;
+    width: 5vh;
+  }
+  #no-hover{
+    color: rgb(255, 255, 255);
+    :hover{
+      text-decoration: none;
+      color: rgb(255, 255, 255);      
+    }
+  }
   ul{
-    margin: 0;
+    margin: 0 5vh 0 0 ;
     padding-right: 70px;
     display:flex;
     list-style: none;
@@ -40,7 +60,12 @@
     li{
       margin: 0 15px;
     }
-  }
+    #logout{
+      color: darkblue;
+      cursor: pointer;
+      text-decoration: underline;
+      }
+    }
   }
   .display-recipe-bar{
     display: flex;
