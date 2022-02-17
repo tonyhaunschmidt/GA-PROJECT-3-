@@ -33,19 +33,23 @@
   .description-input{
     margin: 5vh 0 3vh 0;
   }
-#cooktime{
-  width: 4vh;
-  height: 3vh;
-}
-.mealType-input{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1vh;
-}
-.radio{
-  width: 2vh;
-}
+  .cookingTime-input{
+    margin-top: 5vh;
+  }
+  #cooktime{
+    width: 5vh;
+    height: 3vh;
+  }
+  .mealType-input{
+    margin-top: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+  }
+  .radio{
+    width: 2vh;
+  }
   .ingredients-section{
     padding: 5vh 0;
     .ingredients-title{

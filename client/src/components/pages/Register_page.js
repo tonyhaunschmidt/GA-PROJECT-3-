@@ -11,6 +11,8 @@ import smallLogo from '../../assets/logo.png'
 const Register = () => {
   const navigate = useNavigate()
 
+  const [formError, setFormError] = useState(false)
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -37,6 +39,7 @@ const Register = () => {
       navigate('/login')
     } catch (err) {
       console.log(err)
+      setFormError(true)
       // setFormError(err.response.data.message)
       // console.log(formError)
     }
@@ -46,6 +49,7 @@ const Register = () => {
     <>
     <form onSubmit={handleSubmit} className='form-wrapper'>
     <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
+    {formError && <h4 className='form-error'>An account with these credentials already exsists</h4>}
       <div className='reg-input-block'>
         <input onChange={handleChange} type='text' name='username' placeholder='Username' />
       </div>

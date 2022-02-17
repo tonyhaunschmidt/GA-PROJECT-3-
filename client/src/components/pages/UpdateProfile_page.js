@@ -13,6 +13,7 @@ const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 const UpdateProfile = () => {
 
   const navigate = useNavigate()
+  
 
   const [currentUser, setCurrentUser] = useState({})
   const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ const UpdateProfile = () => {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`
         }
       })
-
+      navigate(`/profile/${currentUser._id}`)
       //  navigate(/api/recipes/{data._id})
     } catch (err) {
       console.log(err)
@@ -69,15 +70,13 @@ const UpdateProfile = () => {
   }
 
   return (
-    <section className='update-profile-page'>
-      <form className='form-wrapper' onSubmit={handleSubmit}>
+      <form className='up-profile-form-wrapper' onSubmit={handleSubmit}>
         <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
         <h3>Edit Profile</h3>
         <p>Username: {currentUser.username}</p>
         <input onChange={handleChange} type='text' name='name' placeholder='Display Name' defaultValue={currentUser.name && currentUser.name} />
         <textarea onChange={handleChange} name='bio' placeholder='write a little about yourself...' rows="8" cols="60" defaultValue={currentUser.bio && currentUser.bio} />
         <div className='image-input'>
-
           {formData.profileImage === "" ?
             currentUser.profileImage ?
               <>
@@ -94,12 +93,10 @@ const UpdateProfile = () => {
               <p>Update Your Profile Pic</p>
             </>
           }
-
           <input className='img-input' type='file' onChange={handleUpload} />
         </div>
         <button className='green-branded-button'>Submit</button>
       </form>
-    </section>
   )
 
 }

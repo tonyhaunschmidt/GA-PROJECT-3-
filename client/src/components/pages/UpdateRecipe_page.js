@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 
 import { getPayload, getTokenFromLocalStorage } from '../helper/authHelper.js'
-import { Link, useNavigate } from 'react-router-dom'
+
 
 import smallLogo from '../../assets/logo.png'
 
@@ -10,7 +11,7 @@ const uploadUrl = process.env.REACT_APP_CLOUDINARY_URL
 const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET
 
 
-const AddRecipe = () => {
+const UpdateRecipe = () => {
 
   // CLOUDINARY vvvv
 
@@ -24,9 +25,11 @@ const AddRecipe = () => {
     setFormData({ ...formData, image: res.data.url })
   }
 
-
+  const { id } = useParams()
   const navigate = useNavigate()
   // const [ingArr, setIngArr] = useState([])
+
+  const [recipe, setRecipe] = useState({})
 
   const [tags, setTags] = useState([])
   const [tag, setTag] = useState('')
@@ -60,11 +63,30 @@ const AddRecipe = () => {
     tags: [''],
   })
 
-
   useEffect(() => {
     const payload = getPayload()
     if (!payload.sub) navigate('/login')
     console.log('Authenticated')
+    const getRecipe = async () => {
+      try {
+        const { data } = await axios.get(`/api/recipes/${id}`)
+        setRecipe(data)
+        console.log(data)
+        setFormData({
+          title: data.title,
+          description: data.description,
+          cookingTime: data.cookingTime,
+          mealType: data.mealType,
+          ingredients: data.ingredients,
+          method: data.method,
+          image: data.image,
+          tags: data.tags,
+        })
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getRecipe()
   }, [])
 
 
@@ -82,13 +104,13 @@ const AddRecipe = () => {
     console.log(formData)
     try {
       // run input check function here 
-      const { data } = await axios.post('/api/recipes', formData, {
+      await axios.post('/api/recipes', formData, {
         headers: {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`
         }
-       
       })
-       navigate(`/recipe/${data._id}`)
+      navigate(`/recipe/${id}`)
+      //  navigate(/api/recipes/{data._id})
     } catch (err) {
       console.log(err)
     }
@@ -164,21 +186,23 @@ const AddRecipe = () => {
   }
 
   return (
+    recipe._id ? 
     <form className='recipe-form-wrapper' onSubmit={handleSubmit}>
+    {console.log('formData' , formData)}
     <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
-    <h2>Add your own recipe</h2>
+    <h2>Update your recipe</h2>
       <div className='title-input'>
-        <input onChange={handleChange} type='text' name='title' placeholder='Recipe Name' />
+        <input onChange={handleChange} type='text' name='title' placeholder='Recipe Name' defaultValue={recipe.title} />
         {!formData.title.length && <p className='form-error'>Please enter a title</p>}
       </div>
       
       <div className='description-input'>
-        <textarea onChange={handleChange}name='description' placeholder='Enter description' rows="8" cols="60" />
+        <textarea onChange={handleChange}name='description' placeholder='Enter description' rows="8" cols="60" defaultValue={recipe.description} />
         {!formData.description.length && <p className='form-error'>Please enter a description</p>}
       </div>
       <div className='cookingTime-input'>
         <label htmlFor='cookingTime'>Cook Time </label>
-        <input onChange={handleChange} type='number' name='cookingTime' min='1' max='999' id='cooktime' />
+        <input onChange={handleChange} type='number' name='cookingTime' min='1' max='999' id='cooktime' defaultValue={recipe.cookingTime} />
         <label htmlFor='cookingTime'> Mins</label>
         {!formData.cookingTime > 0 && <p className='form-error'>Please choose a time</p> }
       </div>
@@ -203,26 +227,26 @@ const AddRecipe = () => {
         </div>
         <p>Measure</p>
       </div>
-        {ings.map((ing, index) => {
+        {recipe.ingredients.map((ing, index) => {
           return (
             <div className='ingredient-input' key={index}>
-                <input onChange={handleIngChange} type='text' data-tag='ingredient' placeholder='Ingredient' id={index} />              
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForOne' id={index}/>
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForTwo' id={index}/>
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForThree' id={index}/>
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForFour' id={index}/>
-              <input onChange={handleIngChange} type='text' data-tag='measure' placeholder='Measure' id={index} />
+                <input onChange={handleIngChange} type='text' data-tag='ingredient' placeholder='Ingredient' id={index} defaultValue={ing.ingredient} />              
+                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForOne' id={index} defaultValue={ing.quantityForOne}/>
+                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForTwo' id={index} defaultValue={ing.quantityForTwo}/>
+                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForThree' id={index} defaultValue={ing.quantityForThree}/>
+                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForFour' id={index} defaultValue={ing.quantityForFour}/>
+              <input onChange={handleIngChange} type='text' data-tag='measure' placeholder='Measure' id={index} defaultValue={ing.measure}/>
             </div>
           )
         })}
         <button onClick={addIng} className='grey-branded-button'>Add Ingredient</button>
       </div>
       <div className='method-section'>
-        {steps.map((step, index) => {
+        {recipe.method.map((step, index) => {
           return (
             <div className='method-input' key={index}>
               <p>Step {step.step}</p>
-              <textarea onChange={handleStepChange} id={index} rows="4" cols="60" />
+              <textarea onChange={handleStepChange} id={index} rows="4" cols="60" defaultValue={step.instruction} />
             </div>
           )
         })}
@@ -239,7 +263,7 @@ const AddRecipe = () => {
           <button onClick={addTag} className='grey-branded-button'>  Add tag </button>
         </div>
         <div className='tag-section'>
-        {tags.map((tag, index) => {
+        {recipe.tags.map((tag, index) => {
           return (
             <div className='tag' key={index}>
               <p>{tag}</p>
@@ -250,14 +274,12 @@ const AddRecipe = () => {
       </div>
       {formData.title.length && formData.description.length && formData.mealType.length && formData.cookingTime !== 0 ? <><button onClick={handleSubmit} className='green-branded-button'>Submit</button></> : <><button onClick={handleSubmit} disabled id='dis' className='green-branded-button'>Submit</button></>  }
     </form>
+    : 
+    <>
+    <p>Loading</p>
+    </>
   )
 }
 
 
-export default AddRecipe
-
-// Improved error handling - specify number range for cooking time, max length for description, need to add required fields for quantity
-// Edit recipe page - use axios .get to pass info into states
-// add image upload preview section
-
-// header 
+export default UpdateRecipe
