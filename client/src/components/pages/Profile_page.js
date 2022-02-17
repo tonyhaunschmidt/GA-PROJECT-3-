@@ -162,15 +162,14 @@ const ProfileOther = () => {
               </div>
               <div className='profile-list-display'>
                 {followToDisplay.map((profile, index) =>
-                  <Link to={`/profile/${profile._id}`} onClick={() => window.location.assign(`/profile/${profile._id}`)}>
-                    <div className='profile-list-item'>
-                      {!profile.profileImage ?
-                        <img src={profilePlaceholder} alt='placeholder recipe' />
-                        :
-                        <img src={profile.image} alt={profile.title} />}
-                      <p>{profile.username}</p>
-                    </div>
-                  </Link>
+                  <div className='profile-list-item' onClick={() => window.location.assign(`/profile/${profile._id}`)}>
+                    {!profile.profileImage ?
+                      <img src={profilePlaceholder} alt='placeholder recipe' />
+                      :
+                      <img src={profile.profileImage} alt={profile.title} />}
+                    <p>{profile.username}</p>
+                  </div>
+
                 )}
               </div>
               <div className='button-container'>
@@ -181,7 +180,7 @@ const ProfileOther = () => {
             {!profile.profileImage ?
               <img src={profilePlaceholder} alt='placeholder recipe' />
               :
-              <img src={profile.image} alt={profile.title} />}
+              <img src={profile.profileImage} alt={profile.title} />}
             <div className='name-container'>
               {!profile.name ?
                 <h2>{profile.username}</h2>
@@ -194,7 +193,7 @@ const ProfileOther = () => {
             {!profile.bio ?
               <p>Hello, my name is {!profile.name ? profile.username : profile.name}</p>
               :
-              <p>{!profile.bio}</p>
+              <p>{profile.bio}</p>
             }
           </div>
           <div className='profile-stats-container'>
@@ -272,15 +271,13 @@ const ProfileOther = () => {
               </div>
               <div className='profile-list-display'>
                 {followToDisplay.map((profile, index) =>
-                  <Link to={`/profile/${profile._id}`} onClick={() => window.location.assign(`/profile/${profile._id}`)}>
-                    <div className='profile-list-item'>
-                      {!profile.profileImage ?
-                        <img src={profilePlaceholder} alt='placeholder recipe' />
-                        :
-                        <img src={profile.image} alt={profile.title} />}
-                      <p>{profile.username}</p>
-                    </div>
-                  </Link>
+                  <div className='profile-list-item' onClick={() => window.location.assign(`/profile/${profile._id}`)}>
+                    {!profile.profileImage ?
+                      <img src={profilePlaceholder} alt='placeholder recipe' />
+                      :
+                      <img src={profile.profileImage} alt={profile.title} />}
+                    <p>{profile.username}</p>
+                  </div>
                 )}
               </div>
               <div className='button-container'>
@@ -291,7 +288,7 @@ const ProfileOther = () => {
             {!profile.profileImage ?
               <img src={profilePlaceholder} alt='placeholder recipe' />
               :
-              <img src={profile.image} alt={profile.title} />}
+              <img src={profile.profileImage} alt={profile.title} />}
             <div className='name-container'>
               {!profile.name ?
                 <h2>{profile.username}</h2>
@@ -304,7 +301,7 @@ const ProfileOther = () => {
             {!profile.bio ?
               <p>Hello, my name is {!profile.name ? profile.username : profile.name}</p>
               :
-              <p>{!profile.bio}</p>
+              <p>{profile.bio}</p>
             }
           </div>
           <div className='profile-stats-container'>

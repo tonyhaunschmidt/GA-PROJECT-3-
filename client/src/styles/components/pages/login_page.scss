@@ -8,6 +8,10 @@
   width: 50vh;
   margin: 40px auto;
   text-align: center;
+  img{
+    //border: 1px solid $darkGreyColour;
+    border-radius: 30%;
+  }
   .login-input-block{
     margin-top: 1vh;
     input{

@@ -68,7 +68,7 @@ const Nav = () => {
             {!currentUser.profileImage ?
               <img src={profilePlaceholder} alt='placeholder recipe' />
               :
-              <img src={currentUser.image} alt={currentUser.title} />
+              <img src={currentUser.profileImage} alt={currentUser.title} />
             }
           </div>
           {displayDropDown ?

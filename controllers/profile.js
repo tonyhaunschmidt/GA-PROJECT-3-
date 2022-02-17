@@ -12,7 +12,7 @@ export const getProfile = async (req, res) => {
   }
 }
 
-export const editProfile = async(req, res) => {
+export const editProfile = async (req, res) => {
   try {
     //include condition to block updating things like username where you are not allowed. 
     const { id } = req.params
@@ -48,7 +48,7 @@ export const remFav = async (req, res) => {
   try {
     const { id } = req.params
     const user = await User.findById(req.currentUser)
-    const recipe = await Recipe.findById(id)    
+    const recipe = await Recipe.findById(id)
     const recipeToRemove = { _id: recipe._id, title: recipe.title, avgRating: recipe.avgRating }
     user.favRecipes.remove(recipeToRemove)
     await user.save()
@@ -79,7 +79,7 @@ export const unfollow = async (req, res) => {
     const { id } = req.params
     const user = await User.findById(req.currentUser)
     const userToUnfollow = await User.findById(id)
-    const profileToRemove = { _id: userToUnfollow._id, username: userToUnfollow.username, profileImage: userToUnfollow.profile }
+    const profileToRemove = { _id: userToUnfollow._id, username: userToUnfollow.username, profileImage: userToUnfollow.profileImage }
     user.following.remove(profileToRemove)
     userToUnfollow.followers.remove({ _id: user._id, username: user.username, profileImage: user.profileImage })
     await userToUnfollow.save()
