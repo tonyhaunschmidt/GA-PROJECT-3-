@@ -10,6 +10,8 @@
 @import './components/pages/recipe_page';
 @import './components/pages/addrecipe_page.scss';
 @import './components/pages/shoppingList_page';
+@import './components/pages/about_page';
+
 
 @import './components/footer';
 @import './components/nav';
@@ -31,4 +33,10 @@ body{
   body{
     margin: 0;
   }
+}
+
+.react-calendar{
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
 }

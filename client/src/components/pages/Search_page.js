@@ -86,7 +86,23 @@ const Search = () => {
                 </div>
                 <div className='text-container'>
                   <h3>{recipe.title}</h3>
-                  <p>{recipe.avgRating}</p>
+                  {recipe.avgRating === 'Not rated yet' ?
+                    <p>Not Rated Yet</p>
+                    :
+                    recipe.avgRating >= 4.5 ?
+                      <p>⭐️⭐️⭐️⭐️⭐️</p>
+                      :
+                      recipe.avgRating >= 3.5 ?
+                        <p>⭐️⭐️⭐️⭐️</p>
+                        :
+                        recipe.avgRating >= 2.5 ?
+                          <p>⭐️⭐️⭐️</p>
+                          :
+                          recipe.avgRating >= 1.5 ?
+                            <p>⭐️⭐️</p>
+                            :
+                            <p>⭐️</p>
+                  }
                 </div>
               </div>
             </Link>

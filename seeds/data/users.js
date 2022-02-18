@@ -41,7 +41,7 @@ export default [
     password: 'pass',
     passwordConfirmation: 'pass',
     name: 'Jimmy Schwimmy',
-    bio: 'I bloody well love a good meal I do. If its green, I aint giving it any starts and Im certainlty not going to favourite it. Desserts and greasy food for me please!',
+    bio: 'I bloody well love a good meal I do. If its green, I aint giving it any stars and Im certainlty not going to favourite it. Desserts and greasy food for me please!',
     profileImage: 'https://res.cloudinary.com/dadyz1unp/image/upload/v1645142624/facecook/xbhhttsi2o2uxx2ic7w5.jpg',
   },
   {

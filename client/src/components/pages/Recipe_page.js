@@ -181,7 +181,23 @@ const Recipe_page = () => {
                   <h4>Cooking Time: {recipe.cookingTime} mins</h4>
                   <h4><span>Meal Type: </span>{recipe.mealType}</h4>
                   <h4><Link to={`/profile/${recipe.owner._id}`}><p>{recipe.owner.username}</p></Link></h4>
-                  <h4><span>Avg rating: </span>{recipe.avgRating}</h4>
+                  <h4><span>Avg rating: </span>{recipe.avgRating === 'Not rated yet' ?
+                    <span>Not Rated Yet</span>
+                    :
+                    recipe.avgRating >= 4.5 ?
+                      <span>⭐️⭐️⭐️⭐️⭐️</span>
+                      :
+                      recipe.avgRating >= 3.5 ?
+                        <span>⭐️⭐️⭐️⭐️</span>
+                        :
+                        recipe.avgRating >= 2.5 ?
+                          <span>⭐️⭐️⭐️</span>
+                          :
+                          recipe.avgRating >= 1.5 ?
+                            <span>⭐️⭐️</span>
+                            :
+                            <span>⭐️</span>
+                  }</h4>
                 </div>
                 <div className='description'>
                   <p>{recipe.description}</p>
@@ -190,7 +206,7 @@ const Recipe_page = () => {
             </div>
           </header>
           <div className='ingredients-and-methods'>
-            <div className='ingredients'>
+            <div className='ingreds'>
               <div className='ingre-btn'>
                 <h3>Ingredients</h3>
                 <button onClick={filterQuantity} value={1} className='green-branded-button'>1 Serving</button>
@@ -229,7 +245,7 @@ const Recipe_page = () => {
             </div>
           </div>
           <div className='tags'>
-            <h4>Tags</h4>
+            <h3><em>Tags</em></h3>
             <ul className='tags-display'>
               {recipe.tags.map(tag => {
                 return <li>{tag}</li>
@@ -244,7 +260,6 @@ const Recipe_page = () => {
                 <textarea rows='7' cols='50' maxLength='300' placeholder=' How was your meal?' onChange={handleReviewInputChange} id='text-to-reset'></textarea>
               </div>
               <div className='rating-btns'>
-                <p>Rating:</p>
                 <button className='filled-rating-btn' value={1} onClick={handleRatingSelect}></button>
                 <button className={reviewInput.rating >= 2 ? 'filled-rating-btn' : 'rating-btn'} value={2} onClick={handleRatingSelect}></button>
                 <button className={reviewInput.rating >= 3 ? 'filled-rating-btn' : 'rating-btn'} value={3} onClick={handleRatingSelect}></button>
@@ -262,15 +277,24 @@ const Recipe_page = () => {
                 recipe.reviews.slice(0).reverse().map((review, index) =>
                   <div className='review-container' key={index}>
                     <p>{review.text}</p>
-
-                    <p>rating: {review.rating}</p>
+                    <p>rating: {review.rating === 5 ?
+                      <span>⭐️⭐️⭐️⭐️⭐️</span>
+                      :
+                      review.rating === 4 ?
+                        <span>⭐️⭐️⭐️⭐️</span>
+                        :
+                        review.rating === 3 ?
+                          <span>⭐️⭐️⭐️</span>
+                          :
+                          review.rating === 2 ?
+                            <span>⭐️⭐️</span>
+                            :
+                            <span>⭐️</span>
+                    }</p>
                   </div>
                 )
               }
-
-
             </div>
-
           </>
         </>
         :
