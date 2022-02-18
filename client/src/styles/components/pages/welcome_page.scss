@@ -1,0 +1,110 @@
+@import '../../variables';
+
+.welcome{
+  padding: 15vh 0 5vh 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  #logout{
+    cursor: pointer;
+    &:hover{
+      color: darkblue;
+      text-decoration: underline;
+    }
+    }
+  img{
+    width: 65vh;
+  }
+  .welcome-page-banner{
+    width: 80vw;
+    margin: 10px 0;
+    h2{
+      margin: 0 0 10px 0;
+    }
+  }
+  .search-and-login-container{
+    width: 60vh;
+    height: 15vh;
+    text-align: right;
+  .search-bar-container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    input{
+      width: 45vh;
+      height: 5vh;
+      margin: 0 5px 0 0;
+      border-radius: 10px;
+    }
+  }
+  a{
+    text-decoration: none;
+    color: rgb(11, 11, 54);
+    :hover{
+      text-decoration: underline;
+      color: darkblue;
+    }
+  }
+  .grey-branded-button{
+    cursor: pointer;
+    height: 5vh;
+    width: 5vh;
+  }
+  #no-hover{
+    color: rgb(255, 255, 255);
+    :hover{
+      text-decoration: none;
+      color: rgb(255, 255, 255);      
+    }
+  }
+  ul{
+    margin: 0 5vh 0 0 ;
+    padding-right: 70px;
+    display:flex;
+    list-style: none;
+    justify-content: flex-end;
+    li{
+      margin: 0 15px;
+    }
+
+    }
+  }
+  .display-recipe-bar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: $mainColour;
+    height: 25vh;
+    overflow-y: hidden;
+    border-radius: 10px;
+    &::-webkit-scrollbar {
+      width: 1em;
+      background-color: $secondaryColour;
+      border-radius: 0 0 10px 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $darkGreyColour;
+      border-radius: 10px;
+    }
+  }
+}
+@media (max-width:600px){
+  .welcome{
+    img{
+      width: 300px;
+    }
+    .search-and-login-container{
+      .search-bar-container{
+        input{
+          width: 35vh;
+          height: 5vh;
+          margin-left: 20px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+}

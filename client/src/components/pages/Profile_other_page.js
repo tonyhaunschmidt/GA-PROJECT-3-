@@ -2,22 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 
-import { getPayload, getTokenFromLocalStorage } from '../helper/authHelper'
+import { getCurrentUser, getTokenFromLocalStorage } from '../helper/authHelper'
 
 import profilePlaceholder from '../../assets/placeholder_profile_pic.png'
 import recipePlaceholder from '../../assets/placeholder_recipe_pic.png'
-import { set } from 'mongoose'
 
 const ProfileOther = () => {
-  
-  const { id } = useParams()
-  const [currentUser, setCurrentUser] = useState({})
+
   const [profile, setProfile] = useState({})
-  const [followerCount, setFollowerCount] = useState(0)
+  const { id } = useParams()
 
   const [recipesToDisplay, setRecipesToDisplay] = useState([])
   const [myAndFavRecipes, setMyAndFavRecipes] = useState([])
-  const [isUserFollowing, setIsUserFollowing] = useState(false)
 
 
   useEffect(() => {
@@ -25,32 +21,14 @@ const ProfileOther = () => {
       try {
         const { data } = await axios.get(`/api/profile/${id}`)
         setProfile(data)
-        console.log(data)
+        //console.log(data)
         setRecipesToDisplay(data.yourRecipes)
         setMyAndFavRecipes([ ...data.yourRecipes, ...data.favRecipes ])
-        setFollowerCount(data.followers.length)
       } catch (err) {
         console.log(err)
       }
   }
     getProfile()
-  }, [])
-
-  useEffect(() => {
-    const getCurrentUser = async () => {
-      try {
-        const payload = getPayload()
-        const { data } = await axios.get(`/api/profile/${payload.sub}`)
-        setCurrentUser(data)
-        console.log(data)
-        if (data.following.some(followingprofile => followingprofile._id === profile._id)){
-          setIsUserFollowing(true)
-        }
-      } catch (err) {
-        console.log(err)
-      }
-  }
-    getCurrentUser()
   }, [])
 
 
@@ -67,31 +45,18 @@ const ProfileOther = () => {
   }
 
   const handleFollow = async () => {
+    const currentUser = getCurrentUser()
+    console.log(currentUser)
     await axios.get(`/api/following/${profile._id}`, {
-      headers: {
-        Authorization: `Bearer ${getTokenFromLocalStorage()}`, 
-      }
-    })
-    setIsUserFollowing(true)
-    setFollowerCount(followerCount + 1)
-    //add if function for if you are not logged in then navigate to log in page
-  }
-
-  const handleUnfollow = async () => {
-    await axios.delete(`/api/following/${profile._id}`, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       }
     })
-    setIsUserFollowing(false)
-    setFollowerCount(followerCount - 1)
-    //add if function for if you are not logged in then navigate to log in page
   }
 
 
   return (
     <section className='profile-page'>
-      {console.log(isUserFollowing)}
       <div className='profile-card'>
         <div className='pic-and-name-container'>
           {!profile.profileImage ? 
@@ -125,7 +90,7 @@ const ProfileOther = () => {
           <ul>
             <li>{profile.yourRecipes.length}</li> 
             <li>{profile.favRecipes.length}</li>
-            <li>{followerCount}</li>
+            <li>{profile.followers.length}</li>
             <li>{profile.following.length}</li>
           </ul>
             :
@@ -134,13 +99,7 @@ const ProfileOther = () => {
           
         </div>
         <div className='button-container'>
-          {currentUser.following ?
-          isUserFollowing?
-          <button className='branded-button' onClick={handleUnfollow}>UNFOLLOW</button>
-            :
-          <button className='branded-button' onClick={handleFollow}>FOLLOW</button>
-          :
-          <p>loading...</p>}
+          <button className='branded-button' onClick={handleFollow}>FOLLOW</button> {/****************** add condition to check if you're logged in. should just be a truniry to see if you're logged in and if so show link around or otherwise run the onclick  **************/}
         </div>
       </div>
       <div className='profile-main-section'>

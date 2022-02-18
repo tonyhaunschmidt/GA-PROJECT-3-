@@ -1,122 +1,34 @@
 @import './variables';
 
+@import './components/pages/welcome_page';
+@import './components/pages/search_page';
+@import './components/pages/login_page';
+@import './components/pages/register_page';
+@import './components/pages/profile_page';
+@import './components/pages/updateProfile_page';
+@import './components/pages/myRecipes_page';
+@import './components/pages/recipe_page';
+@import './components/pages/addrecipe_page.scss';
+@import './components/pages/shoppingList_page';
+
+@import './components/footer';
+@import './components/nav';
+
+
+
+
 * {
   box-sizing: border-box;
+  font-family: 'Gloria Hallelujah', cursive; 
 }
+ 
 
 body{
-  margin: 0;
+  margin: 0 10vw 5vh 10vw;
 }
 
-.branded-button{
-  background-color: #88959F;
-  color: white;
-  border: none;
-  border-radius: 10px;
-}
-
-.welcome{
-  padding: 15vh 0 5vh 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  img{
-    width: 65vh;
+@media(max-width: 600px){
+  body{
+    margin: 0;
   }
-  .welcome-page-banner{
-    //height: 23vh;
-    width: 80vw;
-    margin: 10px 0;
-    h2{
-      //font-size: 10px;
-      margin: 0;
-    }
-  }
-}
-
-.search-and-login-container{
-  width: 60vh;
-  height: 15vh;
-  text-align: right;
- .search-bar-container{
-   margin-top: 20px;
-   display: flex;
-   justify-content: center;
-   input{
-    width: 45vh;
-    height: 5vh;
-    margin: 0 5px 0 0;
-    border-radius: 10px;
-   }
- }
- ul{
-   margin: 0;
-   padding-right: 70px;
-   display:flex;
-   list-style: none;
-   justify-content: flex-end;
-   li{
-     margin: 0 15px;
-   }
- }
-}
-
-.display-recipe-bar{
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  background-color: $logoMain;
-  height: 25vh;
-  overflow-y: hidden;
-  .recipe-card{
-    height: 21vh;
-    width: 25vh;
-    position: relative;
-    .recipe-image-container{
-      width: 25vh;
-      height: 21vh;
-      img {
-        width: 25vh;
-        height: 21vh;
-      }
-    }
-    .text-container{
-      display: none;
-      color: white;
-      position: absolute;
-      text-align: center;
-      top: 0;
-      width: 25vh;
-      height: 21vh;      
-      p{
-        font-size: 0.5rem ;
-      }
-      h3{
-        font-size: 1rem;
-      }
-      
-    }
-    &:hover{
-      .text-container{
-        display: initial;
-        background: rgba(0, 0, 0, 0.5);
-      }
-      img{
-        background: rgba(0, 0, 0, 0.5);
-      }
-    }
-  }
-}
-
-
-
-footer{
-  height: 3vh;
-  background-color: $mainDark;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
 }

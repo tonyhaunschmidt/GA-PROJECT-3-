@@ -1,0 +1,178 @@
+@import '../../variables';
+
+  .header{
+  display: flex;
+  margin-top: 80px;
+  width: 100%;
+
+  img{
+    margin-top: 35px;
+    border-radius: 35px;
+    width: 30vw;
+  }
+  .rest-of-header{
+    border-bottom: 1px solid black;
+    width: 100%;
+    padding-bottom: 15px;
+    margin: 0 0 0 20px;
+  }
+  .title{
+    margin: 0;
+  }
+  .fav-btn{
+    margin-top: 25px;
+  }
+  .title-fav-btn{
+    justify-content: space-between;
+    display: flex;
+  }
+  }
+    .recipe-info{
+      display: flex;
+      justify-content: space-between;
+      flex-flow: row wrap;
+      align-items: baseline;
+      border-bottom: 1px solid black;
+    }
+  
+    .description{
+      padding-top: 10px;
+    }
+    @media screen and (max-width: 640px) {
+      .ingredients-and-methods{
+      flex-wrap: wrap;
+      justify-content: center;
+      .ingredient{
+        text-align: center;
+        width: 100%
+      }
+      }
+    }
+  .ingredients-and-methods{
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: baseline;
+    padding-bottom: 15px;
+  }
+    .ingredients{
+      justify-content: start;
+      flex-direction: row;
+      align-items: flex-start;
+      .ingre-btn
+      h3{text-align: center;
+      }
+      border: 1px solid black;
+      border-radius: 5px;
+      text-indent: 2px;
+      text-align: center;
+      background-color: whitesmoke;
+      #green-branded-button{
+        display: flex;
+        padding: 3px;
+        max-height: 3vh;
+        font-size: 16px;
+        font-display: center;
+        background-color: #00ff80;
+        border-radius: 10px;
+        background-color: $mainColour;
+        color: white;
+        border: none;
+        align-items: center;
+        line-break: normal;
+      }
+    .ingredient{
+      width: 35vh;
+    }
+  }
+
+  .steps{
+    h3{
+      padding-bottom: 15px;
+      border-bottom: 1px solid black;
+      text-align: center;
+    }
+    justify-content: flex-end;
+    align-items: end;
+    width: 1fr;
+    padding-left: 40px;
+  }
+  
+  .tags{
+  justify-content: flex-start;
+  border-top: 1px solid black;
+  }
+  .tags ul li{
+    list-style-type: none;
+  }
+
+  .tags-display{
+    display: flex;
+    gap: 2.5vh;
+  }
+  .review{
+    padding-top: 25px;
+  }
+  .comments{
+  width: 100%;
+  textarea{
+    width: 100%
+  }
+  }
+  
+  #s-btn{
+    display: flex;
+    padding: 10px;
+    max-height: 5vh;
+    font-size: 16px;
+    font-display: center;
+    flex-direction: end;
+    background-color: #00ff80;
+    border-radius: 10px;
+    background-color: $mainColour;
+    color: white;
+    border: none;
+    align-items: center;
+    justify-content: end;
+    line-break: normal;
+    }
+
+    
+
+    .filled-rating-btn{
+      background: url('../../../assets/yellow-star.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      width: 20px;
+      height: 20px;
+    }
+    .rating-btn{
+      background: url('../../../assets/black-star.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      width: 20px;
+      height: 20px;
+    }
+
+    
+    @media screen and (max-width: 640px) {
+      .recipe-page{
+        margin: 15px;
+      }
+      .header{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        img{
+          width: 100%;
+        }
+        .fav-btn{
+          margin-top: 25px;
+        }
+      }
+    }

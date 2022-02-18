@@ -1,0 +1,98 @@
+@import '../variables';
+
+nav {
+  z-index: 999;
+  color: black;
+  // border-bottom: 1px solid $darkGreyColour;
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  background-color: $greyColour;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 6px 10vw; 
+  height: 50px;
+  .small-logo{
+    height: 38px;
+    border-radius: 32%;
+    // border: 1px solid $darkGreyColour;
+  }
+  .loginRegister{
+    display: flex;
+    list-style: none;
+    margin-top: 5px;
+    li{
+      color: black;
+      margin-right:15px;
+    }
+  }
+  .navbar-dropdown{
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+    
+    
+    .navbar-user{
+      width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      height: 38px;
+      padding: 0;
+      border: none;
+      
+      .username-text-container{
+        //background-color: red;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        border-left: 1px solid $darkGreyColour;
+        p{
+        //font-size: 35px;
+        //padding: 0;
+        margin: 0 15px;
+        width: 100%;
+      }
+      }
+      
+      img{
+        height: 38px;
+        margin: 0;
+        border-radius: 32%;
+        border: 1px solid rgb(87, 87, 87);
+      }
+    }
+    
+    
+    p {
+        width: 50px;
+      }
+      .dropdown-container {
+        background-color: $greyColour;
+        position: absolute;
+        top: 50px;
+        text-align: left;
+        border: 1px solid $darkGreyColour;
+        border-top: none;
+        .dropdown-list{
+          margin: 3px;
+          list-style: none;
+          padding: 0 30px 0 10px;
+          li{
+            cursor: pointer;
+            padding: 3px;
+            a{
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }

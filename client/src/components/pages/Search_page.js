@@ -11,9 +11,9 @@ const Search = () => {
   //let homepageSearchContents = location.state
   const [homepageSearchContents, setHomepageSearchContents] = useState(location.state)
   const [SearchInput, setSearchInput] = useState(homepageSearchContents)
-  const [allRecipes, setAllRecipes] = useState([]) 
+  const [allRecipes, setAllRecipes] = useState([])
   const [searchedRecipes, setSearchedRecipes] = useState([])
-  const [errorMessage, setErrorMessage] = useState('') 
+  const [errorMessage, setErrorMessage] = useState('')
 
 
   useEffect(() => {
@@ -22,19 +22,20 @@ const Search = () => {
         const { data } = await axios.get('/api/recipes')
         setAllRecipes(data)
         const foundRecipes = []
-        for (let i = 0; i < data.length; i++){
-          if(data[i].title.toLowerCase().includes(SearchInput.toLowerCase()) || data[i].tags.some(tag => tag.toLowerCase().includes(SearchInput.toLowerCase())) || data[i].ingredients.some(ing => ing.ingredient.toLowerCase().includes(SearchInput.toLowerCase()))){
-          foundRecipes.push(data[i])
+        for (let i = 0; i < data.length; i++) {
+          if (data[i].title.toLowerCase().includes(SearchInput.toLowerCase()) || data[i].tags.some(tag => tag.toLowerCase().includes(SearchInput.toLowerCase())) || data[i].ingredients.some(ing => ing.ingredient.toLowerCase().includes(SearchInput.toLowerCase()))) {
+            foundRecipes.push(data[i])
           }
         }
         setSearchedRecipes(foundRecipes)
-        if (foundRecipes.length === 0){
+
+        if (foundRecipes.length === 0) {
           setErrorMessage('sorry, we could not find anything that matches that')
         }
       } catch (err) {
         console.log(err)
       }
-  }
+    }
     getRecipes()
   }, [])
 
@@ -48,18 +49,18 @@ const Search = () => {
   }
 
   const runSearch = () => {
-    if(SearchInput === '' || SearchInput === null){
+    if (SearchInput === '' || SearchInput === null) {
 
     } else {
       const foundRecipes = []
-      for (let i = 0; i < allRecipes.length; i++){
-        if(allRecipes[i].title.toLowerCase().includes(SearchInput.toLowerCase()) || allRecipes[i].tags.some(tag => tag.toLowerCase().includes(SearchInput.toLowerCase())) || allRecipes[i].ingredients.some(ing => ing.ingredient.toLowerCase().includes(SearchInput.toLowerCase()))){
+      for (let i = 0; i < allRecipes.length; i++) {
+        if (allRecipes[i].title.toLowerCase().includes(SearchInput.toLowerCase()) || allRecipes[i].tags.some(tag => tag.toLowerCase().includes(SearchInput.toLowerCase())) || allRecipes[i].ingredients.some(ing => ing.ingredient.toLowerCase().includes(SearchInput.toLowerCase()))) {
           foundRecipes.push(allRecipes[i])
         }
       }
       setSearchedRecipes(foundRecipes)
-      if (foundRecipes.length === 0){
-      setErrorMessage('sorry, we could not find anything that matches that')
+      if (foundRecipes.length === 0) {
+        setErrorMessage('sorry, we could not find anything that matches that')
       }
     }
   }
@@ -68,19 +69,19 @@ const Search = () => {
     <section className='searchPage'>
       <Nav />
       <div className='search-bar-container'>
-        <input type='text' placeholder={homepageSearchContents === '' || homepageSearchContents === null ? 'Search...' : homepageSearchContents} onChange={handleTextInputChange}></input>
-        <button className='branded-button' onClick={runSearch}>Go</button>
+        <input type='text' placeholder='Search...' defaultValue={homepageSearchContents} onChange={handleTextInputChange}></input>
+        <button className='grey-branded-button' onClick={runSearch}>Go</button>
       </div>
-      <p>{errorMessage}</p>
+      <p className='error-message'>{errorMessage}</p>
       <div className='recipe-card-dislay-container'>
         {searchedRecipes?.map((recipe, index) => {
           return (
             <Link key={index} to={`/recipe/${recipe._id}`}>
-              <div  className='recipe-card'>
+              <div className='recipe-card'>
                 <div className='recipe-image-container'>
-                  {recipe.image === 'imageurl' ? 
-                    <img src={recipePlaceholder} alt='placeholder recipe' /> 
-                      : 
+                  {recipe.image === 'imageurl' ?
+                    <img src={recipePlaceholder} alt='placeholder recipe' />
+                    :
                     <img src={recipe.image} alt={recipe.title} />}
                 </div>
                 <div className='text-container'>
@@ -89,10 +90,11 @@ const Search = () => {
                 </div>
               </div>
             </Link>
-        )})}
+          )
+        })}
       </div>
     </section>
-  
+
   )
 }
 

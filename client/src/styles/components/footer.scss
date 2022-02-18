@@ -1,0 +1,10 @@
+@import '../variables';
+
+footer{
+  height: 3vh;
+  background-color: $secondaryColour;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

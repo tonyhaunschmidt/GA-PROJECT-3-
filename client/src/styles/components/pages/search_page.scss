@@ -1,0 +1,32 @@
+@import '../../variables';
+
+.searchPage{
+  margin: 110px 0 0 0;
+  .search-bar-container{
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: flex-start;
+    input{
+      width: 45vh;
+      height: 5vh;
+      margin: 0 5px 0 0;
+      border-radius: 10px;
+      padding: 5px;
+    }
+    .grey-branded-button{
+      height: 5vh;
+      width: 5vh;
+    }
+  }
+  .error-message{
+    color: red;
+  }
+  .recipe-card-dislay-container{
+    display: flex;
+    flex-wrap: wrap;
+    //justify-content: flex-start;
+    .recipe-card{
+      margin: 0 2vw 2vw 0;
+    }
+  }
+}

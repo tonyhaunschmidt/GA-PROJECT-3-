@@ -11,7 +11,8 @@ const seedDatabase = async () => {
     await mongoose.connection.db.dropDatabase()
     const users = await User.create(userData)
     const recipesWithOwners = recipeData.map(recipe => {
-      return { ...recipe, owner: users[0]._id }
+      const randomNumber = Math.floor(Math.random() * (users.length - 1)) + 1
+      return { ...recipe, owner: users[randomNumber]._id }
     })
     await Recipe.create(recipesWithOwners)
     await mongoose.connection.close()

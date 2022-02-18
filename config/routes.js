@@ -47,6 +47,6 @@ router.route('/login')
 //Profile routes
 router.route('/profile/:id')
   .get(getProfile)
-  .put(editProfile)
+  .put(secureRoute, editProfile)
 
 export default router

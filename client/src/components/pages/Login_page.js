@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+
+import { Link, useNavigate  } from 'react-router-dom'
+
+import { userIsAuthenticated } from '../helper/authHelper.js'
 import smallLogo from '../../assets/logo.png'
+
 
 const Login = () => {
   const navigate = useNavigate()
 
   const [formData, setFormData] = useState({
-    username: '',
     email: '',
     password: '',
   })
 
   const [formError, setFormError] = useState('')
+
+ useEffect(() => {
+  userIsAuthenticated() && navigate('/')
+  }, [])
 
   const handleChange = (e) => {
     const newObj = { ...formData, [e.target.name]: e.target.value }
@@ -38,13 +45,18 @@ const Login = () => {
   }
 
   return (
-    <form className='auth-form' onSubmit={handleSubmit}>
-      <img src={smallLogo} alt='FaceCook logo' />
-      <input onChange={handleChange} type='text' name='username' placeholder='Username' />
-      <input onChange={handleChange} type='text' name='email' placeholder='Email' />
-      <input onChange={handleChange} type='password' name='password' placeholder='Password' />
-      <button>Login</button>
+    <>
+    <form className='login-form-wrapper' onSubmit={handleSubmit}>
+      <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
+      <div className="login-input-block">
+        <input onChange={handleChange} type='text' name='email' placeholder='Email' />
+        <input onChange={handleChange} type='password' name='password' placeholder='Password' />
+        {formError.length ? <p className='form-error'>Unauthorised!</p> : <></>}
+      </div>
+      {!formData.email || !formData.password ? <button disabled id='dis' className='green-branded-button'>Login</button> : <button className='green-branded-button'>Login</button>} 
+      <p><Link to='/register'>Don't have an account?</Link></p>
     </form>
+    </>
   )
 
 }

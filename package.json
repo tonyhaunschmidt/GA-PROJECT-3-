@@ -12,7 +12,7 @@
     "express": "^4.17.2",
     "json": "^11.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.2.1",
+    "mongoose": "^6.2.2",
     "mongoose-unique-validator": "^3.0.0",
     "token": "^0.1.0",
     "web": "^0.0.2"

@@ -1,8 +1,14 @@
 import React from 'react'
 
+import Nav from '../Nav'
+
 const ShoppingList = () => {
-  return <p>ShoppingList_page</p>
-  
+  return (
+    <section className='shoppinglist-page'>
+      <Nav />
+      <p>shoppinglist</p>
+    </section>
+  )
 }
 
 export default ShoppingList

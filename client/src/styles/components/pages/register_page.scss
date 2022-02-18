@@ -1,0 +1,52 @@
+@import '../../variables';
+
+.reg-form-wrapper{
+  box-shadow: 10px 10px 15px rgb(158, 158, 158) ;
+  border: 2px solid rgb(224, 224, 224);
+  border-radius: 15px;
+  padding: 5vh;
+  width: 50vh;
+  margin: 40px auto;
+  text-align: center;
+  h4{
+    color: red;
+  }
+  .reg-input-block{
+    margin: 2vh 0;
+    input{
+      border-radius: 5px;
+      width: 35vh;
+      height: 4vh;
+      margin: 0;
+   }
+   .form-error{
+    margin: 2px 0;
+    color: red;
+   }
+  }
+  .green-branded-button{
+    cursor: pointer;
+    font-size: 2vh;
+    width: 15vh;
+    height: 4vh;
+    margin-bottom: 3px;
+  }
+  #dis{
+    background-color: #00ff8067;
+  }
+  a{
+    text-decoration: none;
+    color: rgb(11, 11, 54);
+    &:hover{
+      color: darkblue;
+      text-decoration: underline;
+    }
+  }
+}
+@media(max-width:600px){
+  .reg-form-wrapper {
+    padding: 3vh 0;
+    width: 40vh;
+    margin: 40px auto;
+  }
+}
