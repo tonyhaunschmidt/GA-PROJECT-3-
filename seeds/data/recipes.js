@@ -1,44 +1,5 @@
 export default [
   {
-    title: 'test',
-    description: 'this is a test. blah blah blah',
-    cookingTime: 40,
-    mealType: 'breakfast',
-    ingredients: [
-      {
-        ingredient: 'eggs',
-        quantityForOne: 2,
-        quantityForTwo: 3,
-        quantityForThree: 3,
-        quantityForFour: 4,
-        measure: 'units',
-      },
-      {
-        ingredient: 'carrots',
-        quantityForOne: 2,
-        quantityForTwo: 3,
-        quantityForThree: 3,
-        quantityForFour: 4,
-        measure: 'units',
-      }
-    ],
-    method: [
-      {
-        step: 1,
-        method: 'whisk the eggs',
-      },
-      {
-        step: 2,
-        method: 'grate the carrots',
-      }
-    ],
-    image: 'imageurl',
-    tags: ['vegan', 'pizza', 'comfort food'],
-    Featured: true,
-  },
-
-
-  {
     title: 'Penne Ragu Alforno with Cheese and Chives',
     description: 'This Penne Ragu Alforno is bursting full of flavours and makes the perfect dinner night option. Cook up a fresh start!',
     cookingTime: 40,
@@ -2115,6 +2076,416 @@ export default [
     ],
     image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645115833/facecook/utz5elnazbcobozeudos.jpg',
     tags: ['low calories', 'healthy', 'fish'],
+  },
+  {
+    title: 'Roast Chicken Breast',
+    description: 'With Red Wine Mushroom Sauce, Roasted Carrots and Garlic Mash, this Roast Chicken Breast is bursting full of flavours and makes the perfect dinner night option. Cook up a fresh start!',
+    cookingTime: 40,
+    mealType: 'dinner',
+    ingredients: [
+      {
+        ingredient: 'Chicken Breast (skin-on)',
+        quantityForOne: 0,
+        quantityForTwo: 2,
+        quantityForThree: 3,
+        quantityForFour: 4,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Carrot',
+        quantityForOne: 0,
+        quantityForTwo: 3,
+        quantityForThree: 4,
+        quantityForFour: 6,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Garlic Clove',
+        quantityForOne: 0,
+        quantityForTwo: 2,
+        quantityForThree: 3,
+        quantityForFour: 4,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Potatoes',
+        quantityForOne: 0,
+        quantityForTwo: 450,
+        quantityForThree: 700,
+        quantityForFour: 900,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Closed Cup Muchrooms',
+        quantityForOne: 0,
+        quantityForTwo: 150,
+        quantityForThree: 225,
+        quantityForFour: 300,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Red Onion',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 1,
+        quantityForFour: 2,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Red Wine Stock Paste',
+        quantityForOne: 0,
+        quantityForTwo: 20,
+        quantityForThree: 40,
+        quantityForFour: 60,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Sugar (for Carrots)',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 1.5,
+        quantityForFour: 2,
+        measure: 'tsp',
+      },
+      {
+        ingredient: 'Water (for Sauce)',
+        quantityForOne: 0,
+        quantityForTwo: 125,
+        quantityForThree: 200,
+        quantityForFour: 250,
+        measure: 'ml',
+      }
+    ],
+    method: [
+      {
+        step: 1,
+        instruction: 'Preheat your oven to 200°C. Boil a large saucepan of water over high heat. Heat a drizzle of oil in a frying pan on medium-high heat. Once hot, lay the chicken in the pan skin-side down. Season with salt and pepper. Fry until the skin is golden, 5-6 mins, then turn and cook for 1 min on the other side. TIP: To ensure crispy skin, don’t move the chicken. IMPORTANT: Wash your hands and equipment after handling raw chicken and its packaging.',
+      },
+      {
+        step: 2,
+        instruction: 'While the chicken cooks, trim the carrots (no need to peel), quarter lengthways and then chop into finger-length batons. Pop the carrots onto a large baking tray and add a drizzle of oil. Sprinkle over the sugar (see ingredients for amount) and season with salt and pepper. Toss to coat, then arrange in a single layer.',
+      },
+      {
+        step: 3,
+        instruction: 'Transfer the chicken to a baking tray (skin-side up). When the oven is hot, roast the carrots on the middle shelf for 5 mins, then put the chicken on the top shelf. Roast until the carrots are tender and the chicken is cooked, 18-20 mins. IMPORTANT: The chicken is cooked when no longer pink in the middle. Halfway through, add the garlic cloves (no need to peel) to the carrot tray to roast, 10 mins.',
+      },
+      {
+        step: 4,
+        instruction: 'Meanwhile, chop the potatoes into 2cm chunks (peel first if you prefer). Add to the pan of boiling water with 1/2 tsp salt. Simmer until you can easily slip a knife through, 15-20 mins. Once cooked, drain in a colander and pop them back into the pan. Cover with a lid to keep warm. Meanwhile, thinly slice the mushrooms. Halve, peel and thinly slice the red onion.',
+      },
+      {
+        step: 5,
+        instruction: 'Put the (now empty) frying pan back on medium-high heat. Add a drizzle of oil, the mushrooms and a pinch of salt and pepper. Stir-fry until the mushrooms are golden, 4-5 mins. Add the red onion and fry until softened, 3-4 mins. Pour in the water for the sauce (see ingredients for amount), stir in the red wine stock and bring to the boil. Lower the heat and simmer until the sauce has reduced by half, 4-5 mins. Remove from the heat.',
+      },
+      {
+        step: 6,
+        instruction: 'When the chicken is cooked, transfer to a board to rest for a couple of mins. Squeeze the garlic out of its skin and add to the potatoes along with a knob of butter and a splash of milk (if you have some). Add salt and pepper to taste and mash until smooth. Slice the chicken and serve with the mash and carrots, spooning over the sauce. Enjoy!',
+      }
+    ],
+    image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645140852/facecook/hy1gbx53paq5z16sfhqn.jpg',
+    tags: ['Sunday roast', 'low calories', 'tasty'],
+  },
+  {
+    title: 'Chicken Fried Rice',
+    description: 'Looking for a quick and tasty midweek dinner option? Try cooking up our Chicken Fried Rice in just 20 minutes for a delicious and speedy meal.',
+    cookingTime: 20,
+    mealType: 'dinner',
+    ingredients: [
+      {
+        ingredient: 'Basmati Rice',
+        quantityForOne: 0,
+        quantityForTwo: 150,
+        quantityForThree: 225,
+        quantityForFour: 300,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Diced Chicken Thigh',
+        quantityForOne: 0,
+        quantityForTwo: 280,
+        quantityForThree: 420,
+        quantityForFour: 560,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Sugar Snap Peas',
+        quantityForOne: 0,
+        quantityForTwo: 75,
+        quantityForThree: 150,
+        quantityForFour: 150,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Spring Onion',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 2,
+        quantityForFour: 2,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Closed Cup Mushrooms',
+        quantityForOne: 0,
+        quantityForTwo: 150,
+        quantityForThree: 225,
+        quantityForFour: 300,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Garlic',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 2,
+        quantityForFour: 2,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Lime',
+        quantityForOne: 0,
+        quantityForTwo: 0.5,
+        quantityForThree: 1,
+        quantityForFour: 1,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Salted Peanuts',
+        quantityForOne: 0,
+        quantityForTwo: 25,
+        quantityForThree: 40,
+        quantityForFour: 40,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Ginger puree',
+        quantityForOne: 0,
+        quantityForTwo: 4,
+        quantityForThree: 6,
+        quantityForFour: 8,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Sambal',
+        quantityForOne: 0,
+        quantityForTwo: 15,
+        quantityForThree: 22.5,
+        quantityForFour: 30,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Sesame Oil',
+        quantityForOne: 0,
+        quantityForTwo: 8,
+        quantityForThree: 12,
+        quantityForFour: 12,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Soy Sauce',
+        quantityForOne: 0,
+        quantityForTwo: 25,
+        quantityForThree: 25,
+        quantityForFour: 50,
+        measure: 'ml',
+      },
+      {
+        ingredient: 'Ketjap Manis',
+        quantityForOne: 0,
+        quantityForTwo: 10,
+        quantityForThree: 15,
+        quantityForFour: 20,
+        measure: 'g',
+      }
+    ],
+    method: [
+      {
+        step: 1,
+        instruction: 'a) Bring a large saucepan of water to the boil with 1/4 tsp salt for the rice.' +
+          'b) When boiling, add the rice and cook for 12 mins.' +
+          'c) Drain in a sieve and pop back into the pan. Cover with a lid and leave to the side.',
+      },
+      {
+        step: 2,
+        instruction: 'a) Meanwhile, heat a drizzle of oil in a large frying pan on high heat.' +
+          'b) When hot, add the diced chicken thigh, season with salt and pepper and stir-fry until browned, 6-7 mins. TIP: Cook in batches if necessary - you want it to brown, not stew. IMPORTANT: Wash your hands after handling raw chicken and its packaging.',
+      },
+      {
+        step: 3,
+        instruction: 'a) Meanwhile, chop the sugar snaps into 1cm pieces. Trim and thinly slice the spring onion. Thinly slice the mushrooms.' +
+          'b) Peel and grate the garlic (or use a garlic press).' +
+          'c) Zest the lime and chop into wedges.' +
+          'd) Roughly chop the peanuts.',
+      },
+      {
+        step: 4,
+        instruction: 'a) Once the chicken has browned, add the sliced mushrooms to the pan and stir-fry until golden brown, 3-4 mins.' +
+          'b) Add the ginger puree, sambal, garlic, sesame oil, sugar snaps and half the spring onion to the pan and cook for 2 mins more, stirring frequently. TIP: Add less sambal if you don\'t like too much heat.' +
+          'c) Lower the heat to medium.',
+      },
+      {
+        step: 5,
+        instruction: 'a) Once everything is cooked, stir the cooked rice into the pan and heat until piping hot, 1-2 mins. IMPORTANT: The chicken is cooked when no longer pink in the middle.',
+      },
+      {
+        step: 6,
+        instruction: 'a) Remove the pan from the heat and stir in the soy sauce, ketjap manis, lime zest and a squeeze of lime juice.' +
+          'b) Share between your bowls and finish with a sprinkle of peanuts and the remaining spring onions.' +
+          'c) Serve with a lime wedge for squeezing over. Enjoy!',
+      }
+    ],
+    image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645142574/facecook/zxdsnitrgyfc4b2waupc.jpg',
+    tags: ['quick meal', 'delicious', 'underated'],
+  },
+  {
+    title: 'Spicy Mushroom Mapo Tofu',
+    description: 'Looking for a quick and tasty midweek dinner option? Try cooking up our Spicy Mushroom Mapo Tofu in just 20 minutes for a delicious and speedy meal.',
+    cookingTime: 20,
+    mealType: 'dinner',
+    ingredients: [
+      {
+        ingredient: 'Jasmine Rice',
+        quantityForOne: 0,
+        quantityForTwo: 150,
+        quantityForThree: 225,
+        quantityForFour: 300,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Garlic',
+        quantityForOne: 0,
+        quantityForTwo: 2,
+        quantityForThree: 3,
+        quantityForFour: 4,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Spring Onion',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 2,
+        quantityForFour: 2,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Tofu',
+        quantityForOne: 0,
+        quantityForTwo: 280,
+        quantityForThree: 420,
+        quantityForFour: 560,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Cornflour',
+        quantityForOne: 0,
+        quantityForTwo: 10,
+        quantityForThree: 15,
+        quantityForFour: 20,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Sliced Muchrooms',
+        quantityForOne: 0,
+        quantityForTwo: 180,
+        quantityForThree: 240,
+        quantityForFour: 360,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Miso Paste',
+        quantityForOne: 0,
+        quantityForTwo: 15,
+        quantityForThree: 22,
+        quantityForFour: 30,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Soy Sauce',
+        quantityForOne: 0,
+        quantityForTwo: 15,
+        quantityForThree: 20,
+        quantityForFour: 25,
+        measure: 'ml',
+      },
+      {
+        ingredient: 'Szechuan Paste',
+        quantityForOne: 0,
+        quantityForTwo: 75,
+        quantityForThree: 125,
+        quantityForFour: 150,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Baby Spinach',
+        quantityForOne: 0,
+        quantityForTwo: 100,
+        quantityForThree: 150,
+        quantityForFour: 200,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Water (for Sauce)',
+        quantityForOne: 0,
+        quantityForTwo: 50,
+        quantityForThree: 75,
+        quantityForFour: 100,
+        measure: 'ml',
+      },
+      {
+        ingredient: 'Sugar',
+        quantityForOne: 0,
+        quantityForTwo: 2,
+        quantityForThree: 3,
+        quantityForFour: 4,
+        measure: 'tsp',
+      }
+    ],
+    method: [
+      {
+        step: 1,
+        instruction: 'a) Bring a large saucepan of water to the boil with 1/4 tsp of salt for the rice.' +
+          'b) When boiling, add the rice and cook for 12 mins.' +
+          'c) Drain in a sieve, pop back in the pan, cover with a lid and leave to the side until ready to serve.',
+      },
+      {
+        step: 2,
+        instruction: 'a) Meanwhile, peel and grate the garlic (or use a garlic press).' +
+          'b) Trim and thinly slice the spring onion.' +
+          'c) Drain the tofu and chop into 2cm cubes. Pat dry with kitchen paper.',
+      },
+      {
+        step: 3,
+        instruction: 'a) Add the cornflour to a bowl, season with salt and pepper. Toss the tofu into the flour and mix until fully coated.' +
+          'b) Heat a drizzle of oil in a large frying pan on high heat.' +
+          'c) Once hot, add the tofu pieces to the pan. Fry until crispy, 6-8 mins. Carefully turn every 1-2 mins to ensure they don\'t burn.' +
+          'd) When ready, transfer the tofu to a plate lined with kitchen paper.',
+      },
+      {
+        step: 4,
+        instruction: 'a) Pop the now empty pan back on high heat with a drizzle of oil. Add the mushrooms, season with salt and pepper and cook until browned, 3-4 mins, stirring occasionally.' +
+          'b) Meanwhile, in a bowl, mix together the garlic, miso, soy sauce, Szechuan paste, water and sugar (see ingredients for both amounts).' +
+          'c) Pour the sauce into the pan. Bring to the boil, then lower the heat to medium.',
+      },
+      {
+        step: 5,
+        instruction: 'a) Next, return the tofu to the pan with the sauce, stir to coat.' +
+          'b) Add the spinach into the pan a handful at a time until wilted and piping hot, 1-2 mins.' +
+          'c) Remove from the heat. TIP: Add a splash of water too if the sauce has thickened too much.',
+      },
+      {
+        step: 6,
+        instruction: 'a) Fluff up the rice with a fork.' +
+          'b) Serve the rice in bowls, with the mushroom mapo tofu on top. Make sure to get all of the sauce.' +
+          'c) Scatter the spring onions on top. Enjoy!',
+      }
+    ],
+    image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645144422/facecook/log0xpvsaslttiubozjg.jpg',
+    tags: [
+      'Vegetarian',
+      'vegan',
+      'low calories',
+      'quick meal',
+      'tasty',
+      'underrated '
+    ],
   }
 
 ]
