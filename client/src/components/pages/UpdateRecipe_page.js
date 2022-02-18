@@ -180,9 +180,11 @@ const UpdateRecipe = () => {
   const deleteTag = (e) => {
     e.preventDefault()
     const tagToDeleteIndex = e.target.id
-    let tagsToDeleteArray = tags
+    let tagsToDeleteArray = [...formData.tags]
     tagsToDeleteArray.splice(tagToDeleteIndex, 1)
+    console.log(tagsToDeleteArray)
     setTags([...tagsToDeleteArray])
+    setFormData({...formData, tags: [...tagsToDeleteArray]})
   }
 
   return (
@@ -195,7 +197,6 @@ const UpdateRecipe = () => {
         <input onChange={handleChange} type='text' name='title' placeholder='Recipe Name' defaultValue={recipe.title} />
         {!formData.title.length && <p className='form-error'>Please enter a title</p>}
       </div>
-      
       <div className='description-input'>
         <textarea onChange={handleChange}name='description' placeholder='Enter description' rows="8" cols="60" defaultValue={recipe.description} />
         {!formData.description.length && <p className='form-error'>Please enter a description</p>}
@@ -217,7 +218,8 @@ const UpdateRecipe = () => {
       </div>
       {!formData.mealType.length > 0 && <p className='form-error'>Please choose a meal type</p> }
       <div className='ingredients-section'>
-      <div className="ingredients-title">
+      <p>Quantity</p>
+      <div className="ingredients-title" id='media-ingtitle'>
         <p>Ingredients</p>
         <div className="qty-tag">
         <p className='qty'>Qty 1</p>
@@ -229,7 +231,7 @@ const UpdateRecipe = () => {
       </div>
         {recipe.ingredients.map((ing, index) => {
           return (
-            <div className='ingredient-input' key={index}>
+            <div className='ingredient-input' id='media-ing' key={index}>
                 <input onChange={handleIngChange} type='text' data-tag='ingredient' placeholder='Ingredient' id={index} defaultValue={ing.ingredient} />              
                 <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForOne' id={index} defaultValue={ing.quantityForOne}/>
                 <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForTwo' id={index} defaultValue={ing.quantityForTwo}/>
@@ -263,7 +265,7 @@ const UpdateRecipe = () => {
           <button onClick={addTag} className='grey-branded-button'>  Add tag </button>
         </div>
         <div className='tag-section'>
-        {recipe.tags.map((tag, index) => {
+        {formData.tags.map((tag, index) => {
           return (
             <div className='tag' key={index}>
               <p>{tag}</p>

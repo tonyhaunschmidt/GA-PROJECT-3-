@@ -46,7 +46,7 @@ const Login = () => {
 
   return (
     <>
-    <form className='form-wrapper' onSubmit={handleSubmit}>
+    <form className='login-form-wrapper' onSubmit={handleSubmit}>
       <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
       <div className="login-input-block">
         <input onChange={handleChange} type='text' name='email' placeholder='Email' />

@@ -8,7 +8,7 @@
   width: 70vh;
   margin: 40px auto;
   text-align: center;
-  textarea {
+  textarea{
     resize: none;
  }
   div{
@@ -25,10 +25,6 @@
   }
   .title-input{
     margin-top: 5vh;
-    input{
-      height: 4vh;
-      width: 35vh;
-    }
   }
   .description-input{
     margin: 5vh 0 3vh 0;
@@ -148,6 +144,52 @@
   }
   #dis{
     background-color: #00ff8067;
+  }
+}
+@media (max-width: 600px) {
+  .recipe-form-wrapper{
+    // margin-left: 4vh;
+    width: 40vh;
+    textarea{
+      width: 30vh;
+    }
+    input{
+      border-radius: 5px;
+      width: 30vh;
+      height: 4vh;
+    }
+  }
+  #media-ingtitle{
+    width: 40vh;
+    font-size: 10px;
+    display: flex;
+    padding-left: 0;
+    gap: 0vh;
+    margin-right: 15vh; 
+    p{
+      width: 10vh;
+      text-align: center;
+    }
+    .qty-tag{
+      display: flex;
+      align-items: center;
+      margin: 0 1vh 0 1vh;
+      .qty{
+        width: 2.5vh;
+        text-align: center;
+      }
+    }
+  }
+  
+  #media-ing{
+    width: 30vh;
+    input{
+      width: 6vh;
+      font-size: 10px;
+    }
+    .ing-input-num{
+      width: 3.5vh;
+    }
   }
 }
 

@@ -168,7 +168,6 @@ const Recipe_page = () => {
                           :
                           <button className='green-branded-button' onClick={deleteCheck}>Delete</button>
                         }
-
                       </>
                       :
                       isFavourite ?
@@ -194,7 +193,7 @@ const Recipe_page = () => {
             <div className='ingredients'>
               <div className='ingre-btn'>
                 <h3>Ingredients</h3>
-                <button onClick={filterQuantity} value={1} className='green-branded-button'> 1 Serving</button>
+                <button onClick={filterQuantity} value={1} className='green-branded-button'>1 Serving</button>
                 <button onClick={filterQuantity} value={2} className='green-branded-button'>2 Servings</button>
                 <button onClick={filterQuantity} value={3} className='green-branded-button'>3 Servings</button>
                 <button onClick={filterQuantity} value={4} className='green-branded-button'>4 Servings</button>
@@ -242,7 +241,7 @@ const Recipe_page = () => {
             <div className='review'>
               <h3>Reviews</h3>
               <div className='comments'>
-                <textarea rows='7' cols='50' maxLength='300' placeholder='How was your meal?' onChange={handleReviewInputChange} id='text-to-reset'></textarea>
+                <textarea rows='7' cols='50' maxLength='300' placeholder=' How was your meal?' onChange={handleReviewInputChange} id='text-to-reset'></textarea>
               </div>
               <div className='rating-btns'>
                 <p>Rating:</p>

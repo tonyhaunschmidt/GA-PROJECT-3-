@@ -10,7 +10,15 @@
   text-align: center;
   textarea {
     resize: none;
- }
+}
+  .image-input{
+    margin-top: 5vh;
+    img{
+      width: 25vh;
+      border-radius: 10px;
+      border: 25px solid #d4d4d4;
+    }
+  }
   input{
     border-radius: 5px;
     width: 35vh;
@@ -27,9 +35,13 @@
 }
 @media (max-width: 600px) {
   .up-profile-form-wrapper{
-    width: 50vh;
+    width: 40vh;
     textarea {
-      width: 40vh;
-   }
+      width: 25vh;
+    }
+    input{
+    width: 25vh;
+    height: 4vh;
+  }
   }
 }
