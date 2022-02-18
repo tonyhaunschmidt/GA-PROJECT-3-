@@ -2486,6 +2486,299 @@ export default [
       'tasty',
       'underrated '
     ],
+  },
+  {
+    title: 'Mexican Style Chicken & Sweetcorn Stew',
+    description: 'Looking for a quick and tasty midweek dinner option? Try cooking up our Mexican Style Chicken & Sweetcorn Stew in just 20 minutes for a delicious and speedy meal.',
+    cookingTime: 20,
+    mealType: 'dinner',
+    ingredients: [
+      {
+        ingredient: 'Diced Chicken Thigh',
+        quantityForOne: 0,
+        quantityForTwo: 210,
+        quantityForThree: 350,
+        quantityForFour: 420,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Red Onion',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 1,
+        quantityForFour: 2,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Garlic Clove',
+        quantityForOne: 0,
+        quantityForTwo: 2,
+        quantityForThree: 3,
+        quantityForFour: 4,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Mixed Beans',
+        quantityForOne: 0,
+        quantityForTwo: 30,
+        quantityForThree: 40,
+        quantityForFour: 50,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Sweetcorn',
+        quantityForOne: 0,
+        quantityForTwo: 150,
+        quantityForThree: 150,
+        quantityForFour: 326,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Mexican Style Spice Mix',
+        quantityForOne: 0,
+        quantityForTwo: 10,
+        quantityForThree: 15,
+        quantityForFour: 20,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Tomato Puree',
+        quantityForOne: 0,
+        quantityForTwo: 35,
+        quantityForThree: 50,
+        quantityForFour: 65,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Chicken Stock Paste',
+        quantityForOne: 0,
+        quantityForTwo: 15,
+        quantityForThree: 25,
+        quantityForFour: 30,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Mature Cheddar Cheese',
+        quantityForOne: 0,
+        quantityForTwo: 30,
+        quantityForThree: 45,
+        quantityForFour: 60,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Ciabatta',
+        quantityForOne: 0,
+        quantityForTwo: 2,
+        quantityForThree: 3,
+        quantityForFour: 4,
+        measure: 'unit(s)',
+      },
+      {
+        ingredient: 'Baby Spinach',
+        quantityForOne: 0,
+        quantityForTwo: 100,
+        quantityForThree: 100,
+        quantityForFour: 200,
+        measure: 'g',
+      },
+      {
+        ingredient: 'Water (for Sauce)',
+        quantityForOne: 0,
+        quantityForTwo: 150,
+        quantityForThree: 250,
+        quantityForFour: 350,
+        measure: 'ml',
+      },
+      {
+        ingredient: 'Sugar',
+        quantityForOne: 0,
+        quantityForTwo: 0.25,
+        quantityForThree: 0.5,
+        quantityForFour: 0.5,
+        measure: 'tsp',
+      },
+      {
+        ingredient: 'Olive O|il (for Garlic Bread)',
+        quantityForOne: 0,
+        quantityForTwo: 1.5,
+        quantityForThree: 2,
+        quantityForFour: 3,
+        measure: 'tbsp',
+      }
+    ],
+    method: [
+      {
+        step: 1,
+        instruction: 'a) Preheat your oven to 200°C.' +
+          'b) Heat a drizzle of oil in a large frying pan on medium-high heat. Once the oil is hot, add the chicken and season with salt and pepper.' +
+          'c) Fry, turning frequently until the chicken is browned all over, 3-5 mins. IMPORTANT: Wash your hands and equipment after handling raw chicken and its packaging.',
+      },
+      {
+        step: 2,
+        instruction: 'a) While the chicken is cooking, halve, peel and chop the red onion into small pieces.' +
+          'b) Peel and grate the garlic (or use a garlic press).' +
+          'c) Drain and rinse the mixed beans in a sieve, put half of them into a bowl and roughly mash with a fork. Add the remaining whole beans to the bowl.' +
+          'd) Drain the sweetcorn in a sieve.',
+      },
+      {
+        step: 3,
+        instruction: 'a) Once the chicken is browned, add the onion to the pan.' +
+          'b) Fry, stirring frequently, until the onion has softened, 3-4 mins.' +
+          'c) Stir in the Mexican style spice mix, sweetcorn and half the garlic. Cook, stirring, for 1 min. TIP: Add less spice if you don\'t like heat.' +
+          'd) Pour in the passata, water for the sauce (see ingredients for amount), chicken stock paste and mixed beans (whole and mashed).',
+      },
+      {
+        step: 4,
+        instruction: 'a) Season the sauce with salt, pepper and sugar (see ingredients for amount).' +
+          'b) Bring to the boil, stirring continuously, then reduce the heat to medium.' +
+          'c) Simmer until the mixture is thick and the chicken is cooked, 6-8 mins. Stir every 2 mins or so. IMPORTANT: The chicken is cooked when no longer pink in the middle.' +
+          'd) While the stew cooks, grate the cheese.',
+      },
+      {
+        step: 5,
+        instruction: 'a) In a small bowl, mix together the remaining garlic and olive oil for the garlic bread (see ingredients for amount).' +
+          'b) Cut each ciabatta in half. Place on a baking tray, spread the garlic oil on the cut side and season with salt and pepper.' +
+          'c) Bake until golden, 4-5 mins.' +
+          'd) Once the stew is cooked, stir in the spinach a handful at a time until wilted and piping hot, 1-2 mins. TIP: Add a splash of water if needed.',
+      },
+      {
+        step: 6,
+        instruction: 'a) Remove the pan from the heat, taste and add salt and pepper if you feel it needs it.' +
+          'b) Serve in bowls with the cheese scattered on top and the garlic ciabatta alongside. Enjoy!',
+      }
+    ],
+    image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645189785/facecook/z9soe6lu3dcusciugudj.jpg',
+    tags: ['quick meal', 'easy', 'Mexican'],
+  }
+  {
+    title: 'Refried Bean and Halloumi Tacos',
+    description: 'Looking for a quick and tasty midweek dinner option? Try cooking up our Refried Bean and Halloumi Tacos in just 20 minutes for a delicious and speedy meal.',
+    cookingTime: 20,
+    mealType: 'dinner',
+    ingredients: [
+      {
+        ingredient: 'Black Beans',
+        quantityForOne: 0,
+        quantityForTwo: 15,
+        quantityForThree: 23,
+        quantityForFour: 30,
+        measure: 'g'
+      },
+      {
+        ingredient: 'Garlic Clove',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 2,
+        quantityForFour: 2,
+        measure: 'unit(s)'
+      },
+      {
+        ingredient: 'Lime',
+        quantityForOne: 0,
+        quantityForTwo: 0.5,
+        quantityForThree: 1,
+        quantityForFour: 1,
+        measure: 'unit(s)'
+      },
+      {
+        ingredient: 'Halloumi',
+        quantityForOne: 0,
+        quantityForTwo: 250,
+        quantityForThree: 375,
+        quantityForFour: 500,
+        measure: 'g'
+      },
+      {
+        ingredient: 'Tomato Puree',
+        quantityForOne: 0,
+        quantityForTwo: 28,
+        quantityForThree: 42,
+        quantityForFour: 56,
+        measure: 'g'
+      },
+      {
+        ingredient: 'Chipotle Paste',
+        quantityForOne: 0,
+        quantityForTwo: 12,
+        quantityForThree: 16,
+        quantityForFour: 20,
+        measure: 'g'
+      },
+      {
+        ingredient: 'Mayonnaise',
+        quantityForOne: 0,
+        quantityForTwo: 12,
+        quantityForThree: 18,
+        quantityForFour: 24,
+        measure: 'g'
+      },
+      {
+        ingredient: 'Plain Taco Tortilla',
+        quantityForOne: 0,
+        quantityForTwo: 6,
+        quantityForThree: 9,
+        quantityForFour: 12,
+        measure: 'unit(s)'
+      },
+      {
+        ingredient: 'Baby Gem Lettuce',
+        quantityForOne: 0,
+        quantityForTwo: 1,
+        quantityForThree: 2,
+        quantityForFour: 2,
+        measure: 'unit(s)'
+      },
+      {
+        ingredient: 'Water (for Sauce)',
+        quantityForOne: 0,
+        quantityForTwo: 100,
+        quantityForThree: 150,
+        quantityForFour: 200,
+        measure: 'ml'
+      }
+    ],
+    method: [
+      {
+        step: 1,
+        instruction: 'a) Preheat your oven to 180°C.' +
+          'b) Drain and rinse the black beans in a sieve. Pop a third of the beans into a bowl and mash with a fork until broken up.' +
+          'c) Peel and grate the garlic (or use a garlic press). Zest and halve the lime.' +
+          'd) Chop the halloumi into 2cm chunks.'
+      },
+      {
+        step: 2,
+        instruction: 'a) Heat a drizzle of oil in a medium saucepan on medium-high heat.' +
+          'b) Add the garlic and tomato puree. Stir and cook for 1 min.' +
+          'c) Pour in the water for the sauce (see ingredients for amount) and add the whole and crushed beans. Mix together and cook for 3-4 mins.'
+      },
+      {
+        step: 3,
+        instruction: 'a) Add half the chipotle paste to the beans (add less if you don\'t like too much heat).' +
+          'b) Mix well and season to taste with salt and pepper.' +
+          'c) Allow to simmer until thickened, 2-3 mins.'
+      },
+      {
+        step: 4,
+        instruction: 'a) Heat a drizzle of oil in a large frying pan on medium-high heat.' +
+          'b) Once hot, add the halloumi and fry until golden, turning frequently, 4-5 mins.' +
+          'c) Meanwhile, mix the remaining chipotle paste with half the mayo in a small bowl.' +
+          'd) In another bowl, mix the remaining mayo with the lime zest.'
+      },
+      {
+        step: 5,
+        instruction: 'a) Pop the tortillas onto a baking tray and into the oven to warm through, 1-2 mins.' +
+          'b) Trim the baby gem, halve lengthways, then thinly slice widthways.'
+      },
+      {
+        step: 6,
+        instruction: 'a) Lay the tortillas on a board or plate. Spread the chipotle mayo over each.' +
+          'b) Top with a handful of lettuce and squeeze over the lime juice.' +
+          'c) Spoon over some chipotle bean mix, then top with the fried halloumi cubes. Drizzle over the zesty mayo to finish.' +
+          'd) Serve the tacos (3 per person) with any extra lime wedges for squeezing over. TIP: Tacos are best enjoyed eaten by hand - get stuck in! Enjoy!'
+      }
+    ],
+    image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645193080/facecook/llpasnpgfzhma3bdxcvi.jpg',
+    tags: ['taco', 'must try', 'quick meal', 'vegetarian'],
   }
 
 ]
