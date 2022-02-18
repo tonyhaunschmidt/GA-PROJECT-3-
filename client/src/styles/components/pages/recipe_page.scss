@@ -4,6 +4,7 @@
   display: flex;
   margin-top: 80px;
   width: 100%;
+  padding: 10px;
 
   img{
     margin-top: 35px;
@@ -15,6 +16,7 @@
     width: 100%;
     padding-bottom: 15px;
     margin: 0 0 0 20px;
+    padding-left: 10px;
   }
   .title{
     margin: 0;
@@ -33,6 +35,7 @@
       flex-flow: row wrap;
       align-items: baseline;
       border-bottom: 1px solid black;
+      padding-left: 10px;
     }
   
     .description{
@@ -55,10 +58,7 @@
     align-items: baseline;
     padding-bottom: 15px;
   }
-    .ingredients{
-      justify-content: start;
-      flex-direction: row;
-      align-items: flex-start;
+    .ingreds{
       .ingre-btn
       h3{text-align: center;
       }
@@ -67,6 +67,8 @@
       text-indent: 2px;
       text-align: center;
       background-color: whitesmoke;
+      width: 40%;
+      
       #green-branded-button{
         display: flex;
         padding: 3px;
@@ -82,7 +84,8 @@
         line-break: normal;
       }
     .ingredient{
-      width: 35vh;
+      // width: 50vh;
+      text-align: center;
     }
   }
 
@@ -94,8 +97,8 @@
     }
     justify-content: flex-end;
     align-items: end;
-    width: 1fr;
-    padding-left: 40px;
+    width: 100%;
+    padding-left: 70px;
   }
   
   .tags{
@@ -156,6 +159,10 @@
       border: none;
       width: 20px;
       height: 20px;
+    }
+    .review-container{
+      border-top: 0.5px solid rgb(204, 200, 200);
+      margin-top: 15px;
     }
 
     
