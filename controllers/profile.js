@@ -36,7 +36,7 @@ export const addFav = async (req, res) => {
     const recipe = await Recipe.findById(id)
     const user = await User.findById(req.currentUser)
     if (user.favRecipes.some(rec => rec.title === recipe.title)) throw new Error('Already Favourited')
-    user.favRecipes.push({ _id: recipe._id, title: recipe.title, avgRating: recipe.avgRating })
+    user.favRecipes.push({ _id: recipe._id, title: recipe.title, avgRating: recipe.avgRating, image: recipe.image })
     await user.save()
     return res.sendStatus(204)
   } catch (error) {
@@ -49,7 +49,7 @@ export const remFav = async (req, res) => {
     const { id } = req.params
     const user = await User.findById(req.currentUser)
     const recipe = await Recipe.findById(id)
-    const recipeToRemove = { _id: recipe._id, title: recipe.title, avgRating: recipe.avgRating }
+    const recipeToRemove = { _id: recipe._id, title: recipe.title, avgRating: recipe.avgRating, image: recipe.image }
     user.favRecipes.remove(recipeToRemove)
     await user.save()
     return res.sendStatus(204)
@@ -81,9 +81,11 @@ export const unfollow = async (req, res) => {
     const { id } = req.params
     const user = await User.findById(req.currentUser)
     const userToUnfollow = await User.findById(id)
-    const profileToRemove = { _id: userToUnfollow._id, username: userToUnfollow.username, profileImage: userToUnfollow.profileImage }
+    //const profileToRemove = { _id: userToUnfollow._id, username: userToUnfollow.username, profileImage: userToUnfollow.profileImage }
+    const profileToRemove = userToUnfollow._id
     user.following.remove(profileToRemove)
-    userToUnfollow.followers.remove({ _id: user._id, username: user.username, profileImage: user.profileImage })
+    //userToUnfollow.followers.remove({ _id: user._id, username: user.username, profileImage: user.profileImage })
+    userToUnfollow.followers.remove(user._id)
     await userToUnfollow.save()
     await user.save()
     return res.sendStatus(204)
