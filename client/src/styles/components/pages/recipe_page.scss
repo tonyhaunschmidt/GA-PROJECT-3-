@@ -1,5 +1,6 @@
 @import '../../variables';
 
+
 @media screen and (max-width: 640px) {
   .header {
   flex-wrap: wrap-reverse;
@@ -211,10 +212,23 @@
     line-break: normal;
     }
 
-    .rating-btn{
-      background-color: grey;
-    }
+    
 
     .filled-rating-btn{
-      background-color: gold;
+      background: url('../../../assets/yellow-star.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      width: 20px;
+      height: 20px;
+    }
+    .rating-btn{
+      background: url('../../../assets/black-star.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      width: 20px;
+      height: 20px;
     }

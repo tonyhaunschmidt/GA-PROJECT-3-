@@ -15,7 +15,6 @@ const ProfileOther = () => {
   const { id } = useParams()
   const [currentUser, setCurrentUser] = useState({})
   const [profile, setProfile] = useState({})
-  const [followerCount, setFollowerCount] = useState(0)
 
   const [isOwnProfile, setIsOwnProfile] = useState(false)
   const [recentlyAdded, setRecentlyAdded] = useState([])
@@ -26,6 +25,10 @@ const ProfileOther = () => {
 
   const [showPopUp, setShowPopUp] = useState(false)
   const [followToDisplay, setFollowToDisplay] = useState([])
+  const [followerCount, setFollowerCount] = useState(0)
+  const [followers, setFollowers] = useState([])
+  const [following, setFollowing] = useState([])
+
 
   const [currentFilter, setCurrentFilter] = useState('userRecipes')
   const [currentFollowFilter, setCurrentFollowFilter] = useState('followers')
@@ -45,11 +48,26 @@ const ProfileOther = () => {
         console.log(err)
       }
     }
-
     getProfile()
-
-
   }, [])
+
+  useEffect(() => {
+    const getFollowersAndFollowing = async () => {
+      try {
+        for (let i = 0; i < profile.following.length; i++) {
+          const { data } = await axios.get(`/api/profile/${profile.following[i]}`)
+          setFollowing([...following, { _id: data._id, username: data.username, profileImage: data.profileImage }])
+        }
+        for (let i = 0; i < profile.followers.length; i++) {
+          const { data } = await axios.get(`/api/profile/${profile.followers[i]}`)
+          setFollowers([...followers, { _id: data._id, username: data.username, profileImage: data.profileImage }])
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getFollowersAndFollowing()
+  }, [profile])
 
   useEffect(() => {
     const getCurrentUser = async () => {
@@ -72,11 +90,11 @@ const ProfileOther = () => {
   }, [profile])
 
   useEffect(() => {
-    const getRecentlyAdded = async () => {
+    const getFollowersRecipes = async () => {
       try {
         let recipesToAdd = []
         for (let i = 0; i < currentUser.following.length; i++) {
-          const { data } = await axios.get(`/api/profile/${currentUser.following[i]._id}`)
+          const { data } = await axios.get(`/api/profile/${currentUser.following[i]}`)
           recipesToAdd = [...recipesToAdd, ...data.yourRecipes]
         }
         const recipesToAddInDateOrder = recipesToAdd.sort(function (a, b) {
@@ -88,7 +106,7 @@ const ProfileOther = () => {
         console.log(err)
       }
     }
-    getRecentlyAdded()
+    getFollowersRecipes()
   }, [currentUser])
 
 
@@ -143,11 +161,13 @@ const ProfileOther = () => {
 
   const handlePopUpFilter = (e) => {
     if (e.target.value === 'followers') {
-      setFollowToDisplay(profile.followers)
+      setFollowToDisplay(followers)
+      console.log(followers)
       setCurrentFollowFilter('followers')
     }
     if (e.target.value === 'following') {
-      setFollowToDisplay(profile.following)
+      setFollowToDisplay(following) //asdasdsadsadsdas
+      console.log(following)
       setCurrentFollowFilter('following')
     }
   }

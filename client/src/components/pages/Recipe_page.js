@@ -246,11 +246,11 @@ const Recipe_page = () => {
               </div>
               <div className='rating-btns'>
                 <p>Rating:</p>
-                <button className='filled-rating-btn' value={1} onClick={handleRatingSelect}>1</button>
-                <button className={reviewInput.rating >= 2 ? 'filled-rating-btn' : 'rating-btn'} value={2} onClick={handleRatingSelect}>2</button>
-                <button className={reviewInput.rating >= 3 ? 'filled-rating-btn' : 'rating-btn'} value={3} onClick={handleRatingSelect}>3</button>
-                <button className={reviewInput.rating >= 4 ? 'filled-rating-btn' : 'rating-btn'} value={4} onClick={handleRatingSelect}>4</button>
-                <button className={reviewInput.rating >= 5 ? 'filled-rating-btn' : 'rating-btn'} value={5} onClick={handleRatingSelect}>5</button>
+                <button className='filled-rating-btn' value={1} onClick={handleRatingSelect}></button>
+                <button className={reviewInput.rating >= 2 ? 'filled-rating-btn' : 'rating-btn'} value={2} onClick={handleRatingSelect}></button>
+                <button className={reviewInput.rating >= 3 ? 'filled-rating-btn' : 'rating-btn'} value={3} onClick={handleRatingSelect}></button>
+                <button className={reviewInput.rating >= 4 ? 'filled-rating-btn' : 'rating-btn'} value={4} onClick={handleRatingSelect}></button>
+                <button className={reviewInput.rating >= 5 ? 'filled-rating-btn' : 'rating-btn'} value={5} onClick={handleRatingSelect}></button>
               </div>
               <div className='submit-btn'>
                 <button id='s-btn' onClick={handleReviewSubmit}>Submit</button>
