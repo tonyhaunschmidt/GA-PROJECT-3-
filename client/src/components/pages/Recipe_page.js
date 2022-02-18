@@ -229,7 +229,7 @@ const Recipe_page = () => {
             </div>
           </div>
           <div className='tags'>
-            <h4>Tags</h4>
+            <h3><em>Tags</em></h3>
             <ul className='tags-display'>
               {recipe.tags.map(tag => {
                 return <li>{tag}</li>
@@ -244,7 +244,6 @@ const Recipe_page = () => {
                 <textarea rows='7' cols='50' maxLength='300' placeholder=' How was your meal?' onChange={handleReviewInputChange} id='text-to-reset'></textarea>
               </div>
               <div className='rating-btns'>
-                <p>Rating:</p>
                 <button className='filled-rating-btn' value={1} onClick={handleRatingSelect}>1</button>
                 <button className={reviewInput.rating >= 2 ? 'filled-rating-btn' : 'rating-btn'} value={2} onClick={handleRatingSelect}>2</button>
                 <button className={reviewInput.rating >= 3 ? 'filled-rating-btn' : 'rating-btn'} value={3} onClick={handleRatingSelect}>3</button>
