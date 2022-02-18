@@ -194,9 +194,18 @@
           display: flex;
 
           img{
+            cursor: pointer;
             height: 50px;
             width: 50px;
-            margin-right: 70px; 
+            margin-right: 70px;
+            border-radius: 15px; 
+          }
+          p{
+            cursor: pointer;
+            &:hover{
+              color: darkblue;
+              text-decoration: underline;
+            }
           }
         }
       }

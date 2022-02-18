@@ -43,7 +43,7 @@ const ProfileOther = () => {
         setRecipesToDisplay(data.yourRecipes)
         setMyAndFavRecipes([...data.yourRecipes, ...data.favRecipes])
         setFollowerCount(data.followers.length)
-        setFollowToDisplay(data.followers)
+        //setFollowToDisplay(data.followers)
       } catch (err) {
         console.log(err)
       }
@@ -54,20 +54,30 @@ const ProfileOther = () => {
   useEffect(() => {
     const getFollowersAndFollowing = async () => {
       try {
+        let followingToAdd = []
         for (let i = 0; i < profile.following.length; i++) {
           const { data } = await axios.get(`/api/profile/${profile.following[i]}`)
-          setFollowing([...following, { _id: data._id, username: data.username, profileImage: data.profileImage }])
+          followingToAdd = [...followingToAdd, { _id: data._id, username: data.username, profileImage: data.profileImage }]
         }
+        setFollowing([...followingToAdd])
+        let followersToAdd = []
         for (let i = 0; i < profile.followers.length; i++) {
           const { data } = await axios.get(`/api/profile/${profile.followers[i]}`)
-          setFollowers([...followers, { _id: data._id, username: data.username, profileImage: data.profileImage }])
+          followersToAdd = [...followersToAdd, { _id: data._id, username: data.username, profileImage: data.profileImage }]
         }
+        setFollowers([...followersToAdd])
       } catch (error) {
         console.log(error)
       }
     }
     getFollowersAndFollowing()
   }, [profile])
+
+  useEffect(() => {
+    setFollowToDisplay(followers)
+  }, [followers])
+
+
 
   useEffect(() => {
     const getCurrentUser = async () => {
@@ -138,7 +148,17 @@ const ProfileOther = () => {
         }
       })
       setIsUserFollowing(true)
-      setFollowerCount(followerCount + 1)
+      //setFollowerCount(followerCount + 1)
+      const getProfile = async () => {
+        try {
+          const { data } = await axios.get(`/api/profile/${id}`)
+          setProfile(data)
+          setFollowerCount(data.followers.length)
+        } catch (err) {
+          console.log(err)
+        }
+      }
+      getProfile()
     }
   }
 
@@ -149,7 +169,17 @@ const ProfileOther = () => {
       }
     })
     setIsUserFollowing(false)
-    setFollowerCount(followerCount - 1)
+    //setFollowerCount(followerCount - 1)
+    const getProfile = async () => {
+      try {
+        const { data } = await axios.get(`/api/profile/${id}`)
+        setProfile(data)
+        setFollowerCount(data.followers.length)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    getProfile()
   }
 
   const showPopUpOn = () => {
