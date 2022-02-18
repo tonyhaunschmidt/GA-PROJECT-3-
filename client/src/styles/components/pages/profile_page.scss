@@ -1,4 +1,5 @@
 @import '../../variables';
+@import 'react-calendar/dist/Calendar.css';
 
 .profile-page{
   margin: 90px 0 0 0;
@@ -136,7 +137,7 @@
       .calander-container{
         margin: 0;
         height: 45vh;
-        background-color: orange; 
+        //background-color: orange; 
       }
       
     }
@@ -257,4 +258,5 @@
       }
     }
   }
+  
 }

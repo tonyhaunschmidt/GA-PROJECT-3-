@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
+import Calendar from 'react-calendar'
+
 import { getPayload, getTokenFromLocalStorage } from '../helper/authHelper'
 
 import Nav from '../Nav'
@@ -382,7 +384,7 @@ const ProfileOther = () => {
             <ul>
               <Link to='/myrecipes'><li>My Recipes</li></Link>
               <Link to='/myrecipes'><li>My Favourites</li></Link>
-              <li onClick={showPopUpOn}>Followers</li>  {/**************************** add on click to open pop up ********************/}
+              <li onClick={showPopUpOn}>Followers</li>
               <li onClick={showPopUpOn}>Following</li>
             </ul>
             {profile.yourRecipes ?
@@ -405,8 +407,7 @@ const ProfileOther = () => {
           <div className='calander-section'>
             <h3>MEAL PLAN</h3>
             <div className='calander-container'>
-              <h1>A MEAL PLAN CALANDER GOES HERE</h1>
-              {/*  LETS GET A CALANDER WORKING HERE!!!  */}
+              <Calendar />
             </div>
           </div>
           <h3 className='recently-added-title'>Recently Added</h3>
@@ -439,8 +440,6 @@ const ProfileOther = () => {
               </div>
             }
           </div>
-
-
         </div>
       </section>
   )
