@@ -1,6 +1,6 @@
 @import '../../variables';
 
-.form-wrapper{
+.reg-form-wrapper{
   box-shadow: 10px 10px 15px rgb(158, 158, 158) ;
   border: 2px solid rgb(224, 224, 224);
   border-radius: 15px;
@@ -20,8 +20,8 @@
       margin: 0;
    }
    .form-error{
-     margin: 2px 0;
-     color: red;
+    margin: 2px 0;
+    color: red;
    }
   }
   .green-branded-button{
@@ -41,5 +41,12 @@
       color: darkblue;
       text-decoration: underline;
     }
+  }
+}
+@media(max-width:600px){
+  .reg-form-wrapper {
+    padding: 3vh 0;
+    width: 40vh;
+    margin: 40px auto;
   }
 }

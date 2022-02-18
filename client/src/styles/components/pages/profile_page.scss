@@ -25,7 +25,7 @@
     flex-direction: column;
     justify-content: stretch;
     // border: 1px solid $darkGreyColour;
-    box-shadow: 3px 3px 5px rgb(59, 59, 59);
+    box-shadow: 5px 5px 8px rgb(59, 59, 59);
     .pic-and-name-container{
       display: flex;
       //background-color: salmon;
@@ -49,6 +49,8 @@
     }
     .bio-container{
       //background-color: gold;
+      overflow-wrap: break-word;
+      overflow-x: hidden;
       flex-grow: 1;
       margin: 10px 0;
       padding:  5px;
@@ -219,7 +221,7 @@
     .profile-card{
       position: unset;
       width: 90vw;
-      margin: 0 auto;
+      margin: 0 auto 80px auto;
     }
     .profile-main-section{
       margin: 0;

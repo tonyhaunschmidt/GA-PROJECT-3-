@@ -193,19 +193,20 @@ const AddRecipe = () => {
       </div>
       {!formData.mealType.length > 0 && <p className='form-error'>Please choose a meal type</p> }
       <div className='ingredients-section'>
-      <div className="ingredients-title">
+      <p>Quantity</p>
+      <div className="ingredients-title" id='media-ingtitle'>
         <p>Ingredients</p>
         <div className="qty-tag">
-        <p className='qty'>Qty 1</p>
-        <p className='qty'>Qty 2</p>
-        <p className='qty'>Qty 3</p>
-        <p className='qty'>Qty 4</p>
+        <p className='qty'>1</p>
+        <p className='qty'>2</p>
+        <p className='qty'>3</p>
+        <p className='qty'>4</p>
         </div>
         <p>Measure</p>
       </div>
         {ings.map((ing, index) => {
           return (
-            <div className='ingredient-input' key={index}>
+            <div className='ingredient-input' id='media-ing' key={index}>
                 <input onChange={handleIngChange} type='text' data-tag='ingredient' placeholder='Ingredient' id={index} />              
                 <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForOne' id={index}/>
                 <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForTwo' id={index}/>
