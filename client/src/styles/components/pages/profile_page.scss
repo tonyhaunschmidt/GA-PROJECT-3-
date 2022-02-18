@@ -194,9 +194,18 @@
           display: flex;
 
           img{
+            cursor: pointer;
             height: 50px;
             width: 50px;
-            margin-right: 70px; 
+            margin-right: 70px;
+            border-radius: 15px; 
+          }
+          p{
+            cursor: pointer;
+            &:hover{
+              color: darkblue;
+              text-decoration: underline;
+            }
           }
         }
       }
@@ -225,6 +234,11 @@
   .profile-page{
     display: flex;
     flex-direction: column;
+    .follower-following-popup{
+      //position: absolute;
+      //width: 90vw;
+      //margin: 0 auto 80px auto;
+    }
     .profile-card{
       position: unset;
       width: 90vw;
