@@ -6,6 +6,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  #logout{
+    cursor: pointer;
+    &:hover{
+      color: darkblue;
+      text-decoration: underline;
+    }
+    }
   img{
     width: 65vh;
   }
@@ -60,11 +67,7 @@
     li{
       margin: 0 15px;
     }
-    #logout{
-      color: darkblue;
-      cursor: pointer;
-      text-decoration: underline;
-      }
+
     }
   }
   .display-recipe-bar{

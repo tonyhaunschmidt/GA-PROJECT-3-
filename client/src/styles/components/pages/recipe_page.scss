@@ -58,10 +58,7 @@
     align-items: baseline;
     padding-bottom: 15px;
   }
-    .ingredients{
-      justify-content: start;
-      flex-direction: row;
-      align-items: flex-start;
+    .ingreds{
       .ingre-btn
       h3{text-align: center;
       }
@@ -70,6 +67,8 @@
       text-indent: 2px;
       text-align: center;
       background-color: whitesmoke;
+      width: 40%;
+      
       #green-branded-button{
         display: flex;
         padding: 3px;
@@ -85,7 +84,8 @@
         line-break: normal;
       }
     .ingredient{
-      width: 50vh;
+      // width: 50vh;
+      text-align: center;
     }
   }
 
@@ -97,7 +97,7 @@
     }
     justify-content: flex-end;
     align-items: end;
-    width: 1fr;
+    width: 100%;
     padding-left: 70px;
   }
   
@@ -140,14 +140,32 @@
     line-break: normal;
     }
 
-    .rating-btn{
-      background-color: grey;
-    }
+    
 
     .filled-rating-btn{
-      background-color: gold;
-      margin-bottom: 2vh;
+      background: url('../../../assets/yellow-star.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      width: 20px;
+      height: 20px;
     }
+    .rating-btn{
+      background: url('../../../assets/black-star.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: none;
+      width: 20px;
+      height: 20px;
+    }
+    .review-container{
+      border-top: 0.5px solid rgb(204, 200, 200);
+      margin-top: 15px;
+    }
+
+    
     @media screen and (max-width: 640px) {
       .recipe-page{
         margin: 15px;

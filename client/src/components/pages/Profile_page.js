@@ -15,7 +15,6 @@ const ProfileOther = () => {
   const { id } = useParams()
   const [currentUser, setCurrentUser] = useState({})
   const [profile, setProfile] = useState({})
-  const [followerCount, setFollowerCount] = useState(0)
 
   const [isOwnProfile, setIsOwnProfile] = useState(false)
   const [recentlyAdded, setRecentlyAdded] = useState([])
@@ -26,6 +25,10 @@ const ProfileOther = () => {
 
   const [showPopUp, setShowPopUp] = useState(false)
   const [followToDisplay, setFollowToDisplay] = useState([])
+  const [followerCount, setFollowerCount] = useState(0)
+  const [followers, setFollowers] = useState([])
+  const [following, setFollowing] = useState([])
+
 
   const [currentFilter, setCurrentFilter] = useState('userRecipes')
   const [currentFollowFilter, setCurrentFollowFilter] = useState('followers')
@@ -45,11 +48,26 @@ const ProfileOther = () => {
         console.log(err)
       }
     }
-
     getProfile()
-
-
   }, [])
+
+  useEffect(() => {
+    const getFollowersAndFollowing = async () => {
+      try {
+        for (let i = 0; i < profile.following.length; i++) {
+          const { data } = await axios.get(`/api/profile/${profile.following[i]}`)
+          setFollowing([...following, { _id: data._id, username: data.username, profileImage: data.profileImage }])
+        }
+        for (let i = 0; i < profile.followers.length; i++) {
+          const { data } = await axios.get(`/api/profile/${profile.followers[i]}`)
+          setFollowers([...followers, { _id: data._id, username: data.username, profileImage: data.profileImage }])
+        }
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getFollowersAndFollowing()
+  }, [profile])
 
   useEffect(() => {
     const getCurrentUser = async () => {
@@ -72,11 +90,11 @@ const ProfileOther = () => {
   }, [profile])
 
   useEffect(() => {
-    const getRecentlyAdded = async () => {
+    const getFollowersRecipes = async () => {
       try {
         let recipesToAdd = []
         for (let i = 0; i < currentUser.following.length; i++) {
-          const { data } = await axios.get(`/api/profile/${currentUser.following[i]._id}`)
+          const { data } = await axios.get(`/api/profile/${currentUser.following[i]}`)
           recipesToAdd = [...recipesToAdd, ...data.yourRecipes]
         }
         const recipesToAddInDateOrder = recipesToAdd.sort(function (a, b) {
@@ -88,7 +106,7 @@ const ProfileOther = () => {
         console.log(err)
       }
     }
-    getRecentlyAdded()
+    getFollowersRecipes()
   }, [currentUser])
 
 
@@ -143,11 +161,13 @@ const ProfileOther = () => {
 
   const handlePopUpFilter = (e) => {
     if (e.target.value === 'followers') {
-      setFollowToDisplay(profile.followers)
+      setFollowToDisplay(followers)
+      console.log(followers)
       setCurrentFollowFilter('followers')
     }
     if (e.target.value === 'following') {
-      setFollowToDisplay(profile.following)
+      setFollowToDisplay(following)
+      console.log(following)
       setCurrentFollowFilter('following')
     }
   }
@@ -164,7 +184,7 @@ const ProfileOther = () => {
             <div className='follower-following-popup'>
               <div className='follower-following-header'>
                 <div className='filter-options'>
-                  <button onClick={handlePopUpFilter} value='followers' className='left-button' id={currentFollowFilter === 'followers' && 'bold'}>Followers</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+                  <button onClick={handlePopUpFilter} value='followers' className='left-button' id={currentFollowFilter === 'followers' && 'bold'}>Followers</button>
                   <button onClick={handlePopUpFilter} value='following' id={currentFollowFilter === 'following' && 'bold'}>Following</button>
                 </div>
               </div>
@@ -208,7 +228,7 @@ const ProfileOther = () => {
             <ul>
               <li>{!profile.name ? profile.username : profile.name}'s Recipes</li>
               <li>{!profile.name ? profile.username : profile.name}'s Favourites</li>
-              <li onClick={showPopUpOn}>Followers</li>  {/**************************** add on click to open pop up ********************/}
+              <li onClick={showPopUpOn}>Followers</li>
               <li onClick={showPopUpOn}>Following</li>
             </ul>
             {profile.yourRecipes ?
@@ -254,7 +274,23 @@ const ProfileOther = () => {
                     </div>
                     <div className='text-container'>
                       <h3>{recipe.title}</h3>
-                      <p>{recipe.avgRating}</p>
+                      {recipe.avgRating === 'Not rated yet' ?
+                        <p>Not Rated Yet</p>
+                        :
+                        recipe.avgRating >= 4.5 ?
+                          <p>⭐️⭐️⭐️⭐️⭐️</p>
+                          :
+                          recipe.avgRating >= 3.5 ?
+                            <p>⭐️⭐️⭐️⭐️</p>
+                            :
+                            recipe.avgRating >= 2.5 ?
+                              <p>⭐️⭐️⭐️</p>
+                              :
+                              recipe.avgRating >= 1.5 ?
+                                <p>⭐️⭐️</p>
+                                :
+                                <p>⭐️</p>
+                      }
                     </div>
                   </div>
                 </Link>

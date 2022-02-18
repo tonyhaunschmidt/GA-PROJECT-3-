@@ -86,9 +86,9 @@ const AddRecipe = () => {
         headers: {
           Authorization: `Bearer ${getTokenFromLocalStorage()}`
         }
-       
+
       })
-       navigate(`/recipe/${data._id}`)
+      navigate(`/recipe/${data._id}`)
     } catch (err) {
       console.log(err)
     }
@@ -165,53 +165,53 @@ const AddRecipe = () => {
 
   return (
     <form className='recipe-form-wrapper' onSubmit={handleSubmit}>
-    <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
-    <h2>Add your own recipe</h2>
+      <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
+      <h2>Add your own recipe</h2>
       <div className='title-input'>
-        <input onChange={handleChange} type='text' name='title' placeholder='Recipe Name' />
+        <input onChange={handleChange} type='text' name='title' placeholder='Recipe Name' maxLength={50} />
         {!formData.title.length && <p className='form-error'>Please enter a title</p>}
       </div>
-      
+
       <div className='description-input'>
-        <textarea onChange={handleChange}name='description' placeholder='Enter description' rows="8" cols="60" />
+        <textarea onChange={handleChange} name='description' placeholder='Enter description' rows="8" cols="60" />
         {!formData.description.length && <p className='form-error'>Please enter a description</p>}
       </div>
       <div className='cookingTime-input'>
         <label htmlFor='cookingTime'>Cook Time </label>
         <input onChange={handleChange} type='number' name='cookingTime' min='1' max='999' id='cooktime' />
         <label htmlFor='cookingTime'> Mins</label>
-        {!formData.cookingTime > 0 && <p className='form-error'>Please choose a time</p> }
+        {!formData.cookingTime > 0 && <p className='form-error'>Please choose a time</p>}
       </div>
       <div className='mealType-input'>
         <label htmlFor='breakfast'>Breakfast</label>
-        <input onChange={handleChange} className='radio'type='radio' name='mealType' defaultValue='breakfast' />
+        <input onChange={handleChange} className='radio' type='radio' name='mealType' defaultValue='breakfast' />
         <label htmlFor='lunch'>Lunch</label>
-        <input onChange={handleChange} className='radio'type='radio' name='mealType' defaultValue='lunch' />
+        <input onChange={handleChange} className='radio' type='radio' name='mealType' defaultValue='lunch' />
         <label htmlFor='dinner'>Dinner</label>
-        <input onChange={handleChange} className='radio'type='radio' name='mealType' defaultValue='dinner' />
-        
+        <input onChange={handleChange} className='radio' type='radio' name='mealType' defaultValue='dinner' />
+
       </div>
-      {!formData.mealType.length > 0 && <p className='form-error'>Please choose a meal type</p> }
+      {!formData.mealType.length > 0 && <p className='form-error'>Please choose a meal type</p>}
       <div className='ingredients-section'>
-      <p>Quantity</p>
-      <div className="ingredients-title" id='media-ingtitle'>
-        <p>Ingredients</p>
-        <div className="qty-tag">
-        <p className='qty'>1</p>
-        <p className='qty'>2</p>
-        <p className='qty'>3</p>
-        <p className='qty'>4</p>
+        <p>Serving</p>
+        <div className="ingredients-title" id='media-ingtitle'>
+          <p>Ingredients</p>
+          <div className="qty-tag">
+            <p className='qty'>1</p>
+            <p className='qty'>2</p>
+            <p className='qty'>3</p>
+            <p className='qty'>4</p>
+          </div>
+          <p>Measure</p>
         </div>
-        <p>Measure</p>
-      </div>
         {ings.map((ing, index) => {
           return (
             <div className='ingredient-input' id='media-ing' key={index}>
-                <input onChange={handleIngChange} type='text' data-tag='ingredient' placeholder='Ingredient' id={index} />              
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForOne' id={index}/>
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForTwo' id={index}/>
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForThree' id={index}/>
-                <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForFour' id={index}/>
+              <input onChange={handleIngChange} type='text' data-tag='ingredient' placeholder='Ingredient' id={index} />
+              <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForOne' id={index} />
+              <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForTwo' id={index} />
+              <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForThree' id={index} />
+              <input onChange={handleIngChange} className="ing-input-num" type='number' data-tag='quantityForFour' id={index} />
               <input onChange={handleIngChange} type='text' data-tag='measure' placeholder='Measure' id={index} />
             </div>
           )
@@ -231,15 +231,15 @@ const AddRecipe = () => {
       </div>
       {/* image input here vvv */}
       <div className='image-input'>
-      <h4>Upload an image</h4>
+        <h4>Upload an image</h4>
         <input className='img-input' type='file' onChange={handleUpload} />
       </div>
-      {/* image input here ^^^  */}    
-        <div className='tag-input'>
-          <input onChange={handleTagChange} type='text' name='tags' placeholder='Tags' id='tags' />
-          <button onClick={addTag} className='grey-branded-button'>  Add tag </button>
-        </div>
-        <div className='tag-section'>
+      {/* image input here ^^^  */}
+      <div className='tag-input'>
+        <input onChange={handleTagChange} type='text' name='tags' placeholder='Tags' id='tags' />
+        <button onClick={addTag} className='grey-branded-button'>  Add tag </button>
+      </div>
+      <div className='tag-section'>
         {tags.map((tag, index) => {
           return (
             <div className='tag' key={index}>
@@ -249,7 +249,7 @@ const AddRecipe = () => {
           )
         })}
       </div>
-      {formData.title.length && formData.description.length && formData.mealType.length && formData.cookingTime !== 0 ? <><button onClick={handleSubmit} className='green-branded-button'>Submit</button></> : <><button onClick={handleSubmit} disabled id='dis' className='green-branded-button'>Submit</button></>  }
+      {formData.title.length && formData.description.length && formData.mealType.length && formData.cookingTime !== 0 ? <><button onClick={handleSubmit} className='green-branded-button'>Submit</button></> : <><button onClick={handleSubmit} disabled id='dis' className='green-branded-button'>Submit</button></>}
     </form>
   )
 }
