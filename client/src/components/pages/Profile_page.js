@@ -166,7 +166,7 @@ const ProfileOther = () => {
       setCurrentFollowFilter('followers')
     }
     if (e.target.value === 'following') {
-      setFollowToDisplay(following) //asdasdsadsadsdas
+      setFollowToDisplay(following)
       console.log(following)
       setCurrentFollowFilter('following')
     }
@@ -184,7 +184,7 @@ const ProfileOther = () => {
             <div className='follower-following-popup'>
               <div className='follower-following-header'>
                 <div className='filter-options'>
-                  <button onClick={handlePopUpFilter} value='followers' className='left-button' id={currentFollowFilter === 'followers' && 'bold'}>Followers</button> {/**************************** add on click to filter display array- also fade or highlight selected ********************/}
+                  <button onClick={handlePopUpFilter} value='followers' className='left-button' id={currentFollowFilter === 'followers' && 'bold'}>Followers</button>
                   <button onClick={handlePopUpFilter} value='following' id={currentFollowFilter === 'following' && 'bold'}>Following</button>
                 </div>
               </div>
@@ -228,7 +228,7 @@ const ProfileOther = () => {
             <ul>
               <li>{!profile.name ? profile.username : profile.name}'s Recipes</li>
               <li>{!profile.name ? profile.username : profile.name}'s Favourites</li>
-              <li onClick={showPopUpOn}>Followers</li>  {/**************************** add on click to open pop up ********************/}
+              <li onClick={showPopUpOn}>Followers</li>
               <li onClick={showPopUpOn}>Following</li>
             </ul>
             {profile.yourRecipes ?
@@ -274,7 +274,23 @@ const ProfileOther = () => {
                     </div>
                     <div className='text-container'>
                       <h3>{recipe.title}</h3>
-                      <p>{recipe.avgRating}</p>
+                      {recipe.avgRating === 'Not rated yet' ?
+                        <p>Not Rated Yet</p>
+                        :
+                        recipe.avgRating >= 4.5 ?
+                          <p>⭐️⭐️⭐️⭐️⭐️</p>
+                          :
+                          recipe.avgRating >= 3.5 ?
+                            <p>⭐️⭐️⭐️⭐️</p>
+                            :
+                            recipe.avgRating >= 2.5 ?
+                              <p>⭐️⭐️⭐️</p>
+                              :
+                              recipe.avgRating >= 1.5 ?
+                                <p>⭐️⭐️</p>
+                                :
+                                <p>⭐️</p>
+                      }
                     </div>
                   </div>
                 </Link>

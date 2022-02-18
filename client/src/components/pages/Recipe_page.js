@@ -181,7 +181,23 @@ const Recipe_page = () => {
                   <h4>Cooking Time: {recipe.cookingTime} mins</h4>
                   <h4><span>Meal Type: </span>{recipe.mealType}</h4>
                   <h4><Link to={`/profile/${recipe.owner._id}`}><p>{recipe.owner.username}</p></Link></h4>
-                  <h4><span>Avg rating: </span>{recipe.avgRating}</h4>
+                  <h4><span>Avg rating: </span>{recipe.avgRating === 'Not rated yet' ?
+                    <span>Not Rated Yet</span>
+                    :
+                    recipe.avgRating >= 4.5 ?
+                      <span>⭐️⭐️⭐️⭐️⭐️</span>
+                      :
+                      recipe.avgRating >= 3.5 ?
+                        <span>⭐️⭐️⭐️⭐️</span>
+                        :
+                        recipe.avgRating >= 2.5 ?
+                          <span>⭐️⭐️⭐️</span>
+                          :
+                          recipe.avgRating >= 1.5 ?
+                            <span>⭐️⭐️</span>
+                            :
+                            <span>⭐️</span>
+                  }</h4>
                 </div>
                 <div className='description'>
                   <p>{recipe.description}</p>
@@ -263,7 +279,20 @@ const Recipe_page = () => {
                   <div className='review-container' key={index}>
                     <p>{review.text}</p>
 
-                    <p>rating: {review.rating}</p>
+                    <p>rating: {review.rating === 5 ?
+                      <span>⭐️⭐️⭐️⭐️⭐️</span>
+                      :
+                      review.rating === 4 ?
+                        <span>⭐️⭐️⭐️⭐️</span>
+                        :
+                        review.rating === 3 ?
+                          <span>⭐️⭐️⭐️</span>
+                          :
+                          review.rating === 2 ?
+                            <span>⭐️⭐️</span>
+                            :
+                            <span>⭐️</span>
+                    }</p>
                   </div>
                 )
               }
