@@ -76,5 +76,32 @@
     height: 25vh;
     overflow-y: hidden;
     border-radius: 10px;
+    &::-webkit-scrollbar {
+      width: 1em;
+      background-color: $secondaryColour;
+      border-radius: 0 0 10px 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $darkGreyColour;
+      border-radius: 10px;
+    }
   }
+}
+@media (max-width:600px){
+  .welcome{
+    img{
+      width: 300px;
+    }
+    .search-and-login-container{
+      .search-bar-container{
+        input{
+          width: 35vh;
+          height: 5vh;
+          margin-left: 20px;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
 }

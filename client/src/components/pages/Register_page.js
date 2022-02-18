@@ -47,7 +47,7 @@ const Register = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit} className='form-wrapper'>
+    <form onSubmit={handleSubmit} className='reg-form-wrapper'>
     <Link to='/'><img src={smallLogo} alt='FaceCook logo' /></Link>
     {formError && <h4 className='form-error'>An account with these credentials already exsists</h4>}
       <div className='reg-input-block'>
