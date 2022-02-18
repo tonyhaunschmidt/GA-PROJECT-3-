@@ -1,4 +1,5 @@
 @import '../../variables';
+@import 'react-calendar/dist/Calendar.css';
 
 .profile-page{
   margin: 90px 0 0 0;
@@ -136,7 +137,7 @@
       .calander-container{
         margin: 0;
         height: 45vh;
-        background-color: orange; 
+        //background-color: orange; 
       }
       
     }
@@ -234,11 +235,11 @@
   .profile-page{
     display: flex;
     flex-direction: column;
-    .follower-following-popup{
+    //.follower-following-popup{
       //position: absolute;
       //width: 90vw;
       //margin: 0 auto 80px auto;
-    }
+    //}
     .profile-card{
       position: unset;
       width: 90vw;
@@ -257,4 +258,5 @@
       }
     }
   }
+  
 }

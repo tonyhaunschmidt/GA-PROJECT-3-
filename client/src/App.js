@@ -13,6 +13,7 @@ import MyRecipes from './components/pages/MyRecipes_page'
 import Recipe from './components/pages/Recipe_page'
 import AddRecipe from './components/pages/AddRecipe_page'
 import UpdateRecipe from './components/pages/UpdateRecipe_page'
+import AboutPage from './components/pages/about_page'
 import ShoppingList from './components/pages/ShoppingList_page'
 import Footer from './components/Footer'
 
@@ -31,6 +32,7 @@ function App() {
         <Route path='addrecipe' element={<AddRecipe />} />
         <Route path='shoppinglist' element={<ShoppingList />} />
         <Route path='updaterecipe/:id' element={<UpdateRecipe />} />
+        <Route path='about' element={<AboutPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
