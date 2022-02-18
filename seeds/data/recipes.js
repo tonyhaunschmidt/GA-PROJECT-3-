@@ -119,7 +119,7 @@ export default [
 
   {
     title: 'Coconut Caribbean Style Soup',
-    description: 'With Sweet Popato and Kidney Beans, Poudre de Colombo is a spice mix that has its origins in Sri Lanka but is much beloved by cooks in the French Caribbean islands. It adds an unmistakably sunny vibe to anything you add it to, including tonight\'s soup! With kidney beans and plenty of veggies in a delicious coconutty broth, it\'s a true taste of sunshine. Enjoy!',
+    description: 'With Sweet Popato and Kidney Beans, Poudre de Colombo is a spice mix that has its origins in Sri Lanka but is much beloved by cooks in the French Caribbean islands. it\'s a true taste of sunshine. Enjoy!',
     cookingTime: 35,
     mealType: 'lunch',
     ingredients: [
