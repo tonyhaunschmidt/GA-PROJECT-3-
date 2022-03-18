@@ -34,10 +34,7 @@ const Recipe_page = () => {
     const getRecipe = async () => {
       try {
         const { data } = await axios.get(`/api/recipes/${id}`)
-
         setRecipe(data)
-        console.log('here')
-        console.log(data)
       } catch (err) {
         console.log(err)
       }

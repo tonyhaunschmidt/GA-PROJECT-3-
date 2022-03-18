@@ -35,13 +35,26 @@ const ProfileOther = () => {
   const [currentFilter, setCurrentFilter] = useState('userRecipes')
   const [currentFollowFilter, setCurrentFollowFilter] = useState('followers')
 
+  const [calendarPopup, setCalendarPopup] = useState(false)
+  const [date, setDate] = useState(new Date())
+  const [currentDateChoice, setCurrentDateChoice] = useState({
+    date: new Date(),
+    breakfast: '',
+    breakfastQty: 1,
+    lunch: '',
+    lunchQty: 1,
+    dinner: '',
+    dinnerQty: 1
+  })
+  const [currentDateChoiceExisting, setCurrentDateChoiceExisting] = useState({})
+
+
 
   useEffect(() => {
     const getProfile = async () => {
       try {
         const { data } = await axios.get(`/api/profile/${id}`)
         setProfile(data)
-        console.log(data)
         setRecipesToDisplay(data.yourRecipes)
         setMyAndFavRecipes([...data.yourRecipes, ...data.favRecipes])
         setFollowerCount(data.followers.length)
@@ -87,7 +100,6 @@ const ProfileOther = () => {
         const payload = getPayload()
         const { data } = await axios.get(`/api/profile/${payload.sub}`)
         setCurrentUser(data)
-        console.log(data)
         if (data.following.some(followingprofile => followingprofile._id === profile._id)) {
           setIsUserFollowing(true)
         }
@@ -140,7 +152,6 @@ const ProfileOther = () => {
   }
 
   const handleFollow = async () => {
-    console.log(currentUser)
     if (!currentUser._id) {
       navigate('/login')
     } else {
@@ -194,13 +205,51 @@ const ProfileOther = () => {
   const handlePopUpFilter = (e) => {
     if (e.target.value === 'followers') {
       setFollowToDisplay(followers)
-      console.log(followers)
       setCurrentFollowFilter('followers')
     }
     if (e.target.value === 'following') {
       setFollowToDisplay(following)
-      console.log(following)
       setCurrentFollowFilter('following')
+    }
+  }
+
+  const onCalChange = date => {
+    setDate(date)
+    setCalendarPopup(true)
+    setCurrentDateChoice({ ...currentDateChoice, date: date })
+    if (currentUser.mealPlan.some(day => Date.parse(day.date) === Date.parse(date))) {
+      setCurrentDateChoiceExisting(currentUser.mealPlan.find(day => Date.parse(day.date) === Date.parse(date)))
+    } else {
+      setCurrentDateChoiceExisting({})
+    }
+
+  }
+
+  const calendarExit = () => {
+    setCalendarPopup(false)
+    setCurrentDateChoice({})
+  }
+
+  const handleMealPlanChange = (e) => {
+    setCurrentDateChoice({ ...currentDateChoice, [e.target.name]: e.target.value })
+  }
+
+  const submitMealPlan = async () => {
+    if (currentDateChoiceExisting.date) {
+      currentUser.mealPlan.splice(currentUser.mealPlan.indexOf(currentDateChoiceExisting), 1, currentDateChoice)
+      setCurrentDateChoiceExisting(currentDateChoice)
+    } else {
+      currentUser.mealPlan.push(currentDateChoice)
+      setCurrentDateChoiceExisting(currentDateChoice)
+    }
+    try {
+      await axios.put(`/api/profile/${currentUser._id}`, { mealPlan: currentUser.mealPlan }, {
+        headers: {
+          Authorization: `Bearer ${getTokenFromLocalStorage()}`
+        }
+      })
+    } catch (err) {
+      console.log(err)
     }
   }
 
@@ -360,6 +409,57 @@ const ProfileOther = () => {
                 <button className='green-branded-button' onClick={showPopUpOff}>Close</button>
               </div>
             </div>}
+          {calendarPopup &&
+            <div className='calendar-popup'>
+              <h2>{date.toDateString()}</h2>
+              <h3>Breakfast:</h3>
+              <p>{myAndFavRecipes.find(recipe => recipe._id === currentDateChoiceExisting.breakfast) ? `${myAndFavRecipes.find(recipe => recipe._id === currentDateChoiceExisting.breakfast).title} x ${currentDateChoiceExisting.breakfastQty}` : ''}</p>
+              <select onChange={handleMealPlanChange} name='breakfast'>
+                <option value='' selected='selected' disabled>-select-</option>
+                <option value=''>none</option>
+                {myAndFavRecipes.map((recipe, index) =>
+                  <option key={index} value={recipe._id}>{recipe.title}</option>)}
+              </select>
+              <select onChange={handleMealPlanChange} name='breakfastQty'>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+              <h3>Lunch:</h3>
+              <p>{myAndFavRecipes.find(recipe => recipe._id === currentDateChoiceExisting.lunch) ? `${myAndFavRecipes.find(recipe => recipe._id === currentDateChoiceExisting.lunch).title} x ${currentDateChoiceExisting.lunchQty}` : ''}</p>
+              <select onChange={handleMealPlanChange} name='lunch'>
+                <option value='' selected='selected' disabled>-select-</option>
+                <option value=''>none</option>
+                {myAndFavRecipes.map((recipe, index) =>
+                  <option key={index} value={recipe._id}>{recipe.title}</option>)}
+              </select>
+              <select onChange={handleMealPlanChange} name='lunchQty'>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+              <h3>Dinner:</h3>
+              <p>{myAndFavRecipes.find(recipe => recipe._id === currentDateChoiceExisting.dinner) ? `${myAndFavRecipes.find(recipe => recipe._id === currentDateChoiceExisting.dinner).title} x ${currentDateChoiceExisting.dinnerQty}` : ''}</p>
+              <select onChange={handleMealPlanChange} name='dinner'>
+                <option value='' selected='selected' disabled>-select-</option>
+                <option value=''>none</option>
+                {myAndFavRecipes.map((recipe, index) =>
+                  <option key={index} value={recipe._id}>{recipe.title}</option>)}
+              </select>
+              <select onChange={handleMealPlanChange} name='dinnerQty'>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+              <div className='button-container'>
+                <button className='green-branded-button' onClick={submitMealPlan}>CONFIRM</button>
+                <button className='green-branded-button' onClick={calendarExit}>CANCEL</button>
+              </div>
+            </div>
+          }
           <div className='pic-and-name-container'>
             {!profile.profileImage ?
               <img src={profilePlaceholder} alt='placeholder recipe' />
@@ -407,7 +507,7 @@ const ProfileOther = () => {
           <div className='calander-section'>
             <h3>MEAL PLAN</h3>
             <div className='calander-container'>
-              <Calendar />
+              <Calendar onChange={onCalChange} value={date} />
             </div>
           </div>
           <h3 className='recently-added-title'>Recently Added</h3>
