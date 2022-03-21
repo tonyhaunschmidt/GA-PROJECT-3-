@@ -16,7 +16,7 @@ const userSchema = new Schema({
   favRecipes: [],
   following: [],
   followers: [],
-  // mealPlan: []
+  mealPlan: [],
   isAdmin: { type: Boolean },
 })
 
