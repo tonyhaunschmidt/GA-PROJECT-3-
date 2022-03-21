@@ -1,8 +1,8 @@
 {
-  "name": "GA-PROJECT-3-",
+  "name": "GA-PROJECT-3-FACECOOK",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:tonyhaunschmidt/GA-PROJECT-3-.git",
+  "repository": "git@github.com:tonyhaunschmidt/GA-PROJECT-3-FACECOOK.git",
   "author": "Tony Haunschmidt <tmhaunschmidt@gmail.com>",
   "license": "MIT",
   "dependencies": {
@@ -20,6 +20,7 @@
   "type": "module",
   "scripts": {
     "serve": "npx nodemon index.js",
-    "seed": "node seeds/seeds.js"
+    "seed": "node seeds/seeds.js",
+    "start": "node index"
   }
 }
