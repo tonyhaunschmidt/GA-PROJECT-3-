@@ -50,20 +50,30 @@ const ShoppingList = () => {
         mealPlanInDateBracket.push(currentUser.mealPlan[i])
         try {
           const { data } = await axios.get(`/api/recipes/${currentUser.mealPlan[i].breakfast}`)
-          for (let i = 0; i < data.ingredients.length; i++) {
-            if (ingredientsShoppingList.some(ingredient => ingredient.ingredient === data.ingredients[i].ingredient)) {
-              const ingredientToUpdate = ingredientsShoppingList.find(ingredient => ingredient.ingredient === data.ingredients[i].ingredient)
-              if (ingredientToUpdate.measure === data.ingredients[i].measure) {
+          for (let j = 0; j < data.ingredients.length; j++) {
+            let qty
+            if (currentUser.mealPlan[i].breakfastQty === '1') {
+              qty = data.ingredients[j].quantityForOne
+            } else if (currentUser.mealPlan[i].breakfastQty === '2') {
+              qty = data.ingredients[j].quantityForTwo
+            } else if (currentUser.mealPlan[i].breakfastQty === '3') {
+              qty = data.ingredients[j].quantityForThree
+            } else if (currentUser.mealPlan[i].breakfastQty === '4') {
+              qty = data.ingredients[j].quantityForFour
+            }
+            if (ingredientsShoppingList.some(ingredient => ingredient.ingredient === data.ingredients[j].ingredient)) {
+              const ingredientToUpdate = ingredientsShoppingList.find(ingredient => ingredient.ingredient === data.ingredients[j].ingredient)
+              if (ingredientToUpdate.measure === data.ingredients[j].measure) {
                 const updatedIngredient = {
                   ...ingredientToUpdate,
-                  quantity: ingredientToUpdate.quantity + data.ingredients[i].quantityForOne
+                  quantity: ingredientToUpdate.quantity + qty
                 }
                 ingredientsShoppingList.splice(ingredientsShoppingList.indexOf(ingredientToUpdate), 1, updatedIngredient)
               } else {
-                ingredientsShoppingList.push({ ingredient: data.ingredients[i].ingredient, quantity: data.ingredients[i].quantityForOne, measure: data.ingredients[i].measure })
+                ingredientsShoppingList.push({ ingredient: data.ingredients[j].ingredient, quantity: qty, measure: data.ingredients[j].measure })
               }
             } else (
-              ingredientsShoppingList.push({ ingredient: data.ingredients[i].ingredient, quantity: data.ingredients[i].quantityForOne, measure: data.ingredients[i].measure })
+              ingredientsShoppingList.push({ ingredient: data.ingredients[j].ingredient, quantity: qty, measure: data.ingredients[j].measure })
             )
           }
         } catch (err) {
@@ -71,20 +81,30 @@ const ShoppingList = () => {
         }
         try {
           const { data } = await axios.get(`/api/recipes/${currentUser.mealPlan[i].lunch}`)
-          for (let i = 0; i < data.ingredients.length; i++) {
-            if (ingredientsShoppingList.some(ingredient => ingredient.ingredient === data.ingredients[i].ingredient)) {
-              const ingredientToUpdate = ingredientsShoppingList.find(ingredient => ingredient.ingredient === data.ingredients[i].ingredient)
-              if (ingredientToUpdate.measure === data.ingredients[i].measure) {
+          for (let j = 0; j < data.ingredients.length; j++) {
+            let qty
+            if (currentUser.mealPlan[i].lunchQty === '1') {
+              qty = data.ingredients[j].quantityForOne
+            } else if (currentUser.mealPlan[i].lunchQty === '2') {
+              qty = data.ingredients[j].quantityForTwo
+            } else if (currentUser.mealPlan[i].lunchQty === '3') {
+              qty = data.ingredients[j].quantityForThree
+            } else if (currentUser.mealPlan[i].lunchQty === '4') {
+              qty = data.ingredients[j].quantityForFour
+            }
+            if (ingredientsShoppingList.some(ingredient => ingredient.ingredient === data.ingredients[j].ingredient)) {
+              const ingredientToUpdate = ingredientsShoppingList.find(ingredient => ingredient.ingredient === data.ingredients[j].ingredient)
+              if (ingredientToUpdate.measure === data.ingredients[j].measure) {
                 const updatedIngredient = {
                   ...ingredientToUpdate,
-                  quantity: ingredientToUpdate.quantity + data.ingredients[i].quantityForOne
+                  quantity: ingredientToUpdate.quantity + qty
                 }
                 ingredientsShoppingList.splice(ingredientsShoppingList.indexOf(ingredientToUpdate), 1, updatedIngredient)
               } else {
-                ingredientsShoppingList.push({ ingredient: data.ingredients[i].ingredient, quantity: data.ingredients[i].quantityForOne, measure: data.ingredients[i].measure })
+                ingredientsShoppingList.push({ ingredient: data.ingredients[j].ingredient, quantity: qty, measure: data.ingredients[j].measure })
               }
             } else (
-              ingredientsShoppingList.push({ ingredient: data.ingredients[i].ingredient, quantity: data.ingredients[i].quantityForOne, measure: data.ingredients[i].measure })
+              ingredientsShoppingList.push({ ingredient: data.ingredients[j].ingredient, quantity: qty, measure: data.ingredients[j].measure })
             )
           }
         } catch (err) {
@@ -92,20 +112,30 @@ const ShoppingList = () => {
         }
         try {
           const { data } = await axios.get(`/api/recipes/${currentUser.mealPlan[i].dinner}`)
-          for (let i = 0; i < data.ingredients.length; i++) {
-            if (ingredientsShoppingList.some(ingredient => ingredient.ingredient === data.ingredients[i].ingredient)) {
-              const ingredientToUpdate = ingredientsShoppingList.find(ingredient => ingredient.ingredient === data.ingredients[i].ingredient)
-              if (ingredientToUpdate.measure === data.ingredients[i].measure) {
+          for (let j = 0; j < data.ingredients.length; j++) {
+            let qty
+            if (currentUser.mealPlan[i].dinnerQty === '1') {
+              qty = data.ingredients[j].quantityForOne
+            } else if (currentUser.mealPlan[i].dinnerQty === '2') {
+              qty = data.ingredients[j].quantityForTwo
+            } else if (currentUser.mealPlan[i].dinnerQty === '3') {
+              qty = data.ingredients[j].quantityForThree
+            } else if (currentUser.mealPlan[i].dinnerQty === '4') {
+              qty = data.ingredients[j].quantityForFour
+            }
+            if (ingredientsShoppingList.some(ingredient => ingredient.ingredient === data.ingredients[j].ingredient)) {
+              const ingredientToUpdate = ingredientsShoppingList.find(ingredient => ingredient.ingredient === data.ingredients[j].ingredient)
+              if (ingredientToUpdate.measure === data.ingredients[j].measure) {
                 const updatedIngredient = {
                   ...ingredientToUpdate,
-                  quantity: ingredientToUpdate.quantity + data.ingredients[i].quantityForOne
+                  quantity: ingredientToUpdate.quantity + qty
                 }
                 ingredientsShoppingList.splice(ingredientsShoppingList.indexOf(ingredientToUpdate), 1, updatedIngredient)
               } else {
-                ingredientsShoppingList.push({ ingredient: data.ingredients[i].ingredient, quantity: data.ingredients[i].quantityForOne, measure: data.ingredients[i].measure })
+                ingredientsShoppingList.push({ ingredient: data.ingredients[j].ingredient, quantity: qty, measure: data.ingredients[j].measure })
               }
             } else (
-              ingredientsShoppingList.push({ ingredient: data.ingredients[i].ingredient, quantity: data.ingredients[i].quantityForOne, measure: data.ingredients[i].measure })
+              ingredientsShoppingList.push({ ingredient: data.ingredients[j].ingredient, quantity: qty, measure: data.ingredients[j].measure })
             )
           }
         } catch (err) {
@@ -140,9 +170,6 @@ const ShoppingList = () => {
         <button className='green-branded-button' onClick={generateShoppingList}>GO</button>
       </div>
       <div className='shoppinglist-main'>
-
-
-
         <div>
           <h2>MEAL PLAN</h2>
           {mealPlanInBracket.map((day, index) =>
