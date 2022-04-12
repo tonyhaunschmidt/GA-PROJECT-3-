@@ -51,17 +51,17 @@ As this was our first project working in a group of more than two, we all felt t
 
 During our first meeting which was to pitch ideas to each other and decide on a general concept in which to run with, my idea was selected in addition to me adopting a team leader role. That night I spent time wireframing the front-end of the application to demonstrate the user experience and to help my project co-workers and I get behind a shared vision. Once I had the general front-end planned out I spent time creating a first draft data structure that we would need in the back-end in order to make it work.  
 
-{detailed wireframe}
+![initial wireframe](readme_assets/initial_wireframe.png)
 
 The next day, we as a team reviewed the initial wireframe I made in order to develop and integrate ideas from all the team members. Once we had the idea fully formatted between us, we then went on to develop the branding in which we came up with a name, logo and general colour scheme and design we wanted to use on our front-end. This helped us formulate the final wireframe together. The final wireframe was extremely useful during the rest of production as it was easy to stick to and it meant that all the primary decision making was done, leaving us to code through each component and limited any kind of major revisions that would arise from inconsistencies between each of our work.   
 
-{final wireframe}
+![final wireframe](readme_assets/final_wireframe.png)
 
 Having the final wireframe was also useful to then revise the initial back-end data structure I had come up with in which we pseudo-coded most parts of the front-end functionality. This really helped us understand the best way to structure our database and also list the controllers that we would need to code on the back-end to make it work. We all felt it was best to fully complete the back-end before moving on to the front-end to avoid any need for major revisions so it was important for us to be rigorous in this step.
 
 We also took this opportunity of working in a group of 3 to utilise Trello. Once we had finalised planning everything that needed to be produced we then broke down the entire project into bitesize steps which we created a card for and added to the ToDo list on our Trello board. We also assigned each card a colour code to help us easily identify which part of the project that task is in and during production moved the card from the ToDo list to the WIP list and assigned our names to it so we can each keep track of who is working on what and when before then moving the card to the Complete list. We also had extra lists for stretch goals, and cards we wanted to revisit or review as a team as well as a separate list to list key information such as a link to our final wireframe or an example recipe to showcase the data structure that we decided upon.
 
-{trello board}
+![trello board](readme_assets/trello.png)
 
 During production we had daily stand up meetings first thing in the morning in which we talked about any issues we were having and what we were aiming to achieve that day. For the rest of the day we typically remained on a shared Zoom call where we can ask each other for guidance or opinions as and when we needed it.  
 
@@ -71,16 +71,17 @@ Learning Express as a framework was a great introduction to developing our own b
 
 As mentioned above, the data structure was well planned out during the planning stage. We coded two models. One for the Users and one for the Recipes. Below is the code for the Recipe model in which, as well as the main Recipe schema, we included a sub schema for the reviews and also an average rating virtual field before calling them in the Mongoose model.
 
-[recipe model]
+![recipe model](readme_assets/recipe_model.png)
 
 We wanted to demonstrate all CRUD operations within our controllers. You can see all 4 operations coded to be used on the Recipe collection below. All 4 of the routes where these controllers are called, except the getOneRecipe controller, have a secure route middleware called before the controller (demonstrated below). This means that the user needs to be logged in when making these requests. However for the delete and edit controllers we wanted to implement an additional check so that only the owner of the recipe can delete or edit their recipe. We also implemented in this check that a faceCook admin user can also delete or edit a recipe. This is so we can safeguard against unwanted content on our site.
 
-[recipe CRUD controllers]
+![CRUD](readme_assets/CRUD.png)
 
 As mentioned above we included a secure route middleware. In this function we used the jwt.verify method in order to verify the token before using it to see if it matches a user in our database and only then will the controller pass. 
 
-{securerRoute}
-{Routes}
+![secure route](readme_assets/secure_route.png)
+
+![routes](readme_assets/routes.png)
 
 
 ## CONCLUSION AND KEY LEARNING
