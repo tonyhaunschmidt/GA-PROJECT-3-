@@ -7,6 +7,8 @@ I adopted a role as team leader in this project and developed the initial idea a
 
 My newly learnt technologies for this project were Express, Node.js, MongoDB and React Calendar. 
 
+Made in collaberation with [Ryan Arnold](https://github.com/RY44) and [Ayo Afolabi](https://github.com/A-Afolabi).
+
 ## TIMEFRAME
 
 7 Days
@@ -47,7 +49,7 @@ To view your own recipes and favourited recipes, you can navigate to the my reci
 ## PLANNING
 As this was our first project working in a group of more than two, we all felt that planning was going to be an important step in the project in order to all be behind a shared vision of what we want the final outcome to look like as well as giving us the ability to seperate the work into different tasks that can be done by us individually. 
 
-During our first meeting which was to brainstorm ideas and decide on a general concept in which to run with, my idea was selected in addition to me adopting a team leader role. That night I spent time wireframing the front-end of the application to demonstrate the user experience and to help my project co-workers and I get behind a shared vision. Once I had the general front-end planned out I spent time creating a first draft data structure that we would need in the back-end in order to make it work.  
+During our first meeting which was to pitch ideas to each other and decide on a general concept in which to run with, my idea was selected in addition to me adopting a team leader role. That night I spent time wireframing the front-end of the application to demonstrate the user experience and to help my project co-workers and I get behind a shared vision. Once I had the general front-end planned out I spent time creating a first draft data structure that we would need in the back-end in order to make it work.  
 
 {detailed wireframe}
 
@@ -55,7 +57,7 @@ The next day, we as a team reviewed the initial wireframe I made in order to dev
 
 {final wireframe}
 
-Having the final wireframe was also useful to then revise the initial back-end data structure I had come up with in which we pseudo coded most parts of the font-end functionality. This really helped us understand the best way to structure our database and also list the controllers that we would need to code on the back-end to make it work. We all decided that it would be the most optimal if we had no cross over between the front-end and back-end production, i.e. we wanted to fully complete the back-end before moving on to the front-end to again, avoid any need for major revisions.
+Having the final wireframe was also useful to then revise the initial back-end data structure I had come up with in which we pseudo coded most parts of the font-end functionality. This really helped us understand the best way to structure our database and also list the controllers that we would need to code on the back-end to make it work. We all felt it was best to fully complete the back-end before moving on to the front-end to again, avoid any need for major revisions so it was important for us to be rigorous in this step.
 
 We also took this opportunity of working in a group of 3 to utilise Trello. Once we had finalised planning everything that needs to be produced we then broke down the entire project into bitesize steps which we created a card for and added to the ToDo list on our Trello board. We also assigned each card a colour code to help us easily identify which part of the project that task is in and during production moved the card from the ToDo list to the WIP list and assigned our names to it so we can each keep track of who is working on what and when before then moving the card to the Done list. We also had extra lists for stretch goals, and cards we wanted to revisit or review as a team as well as a seperate list to list key information such as a link to our final wireframe or an example recipe to showcase the data structure that we decided upon.
 
@@ -71,7 +73,7 @@ As mentioned above, the data structure was well planned out during the plannning
 
 [recipe model]
 
-We wanted to demonstrate all CRUD operations within our controllers. You can see all 4 operations coded to be used on the Recipe collection below. All 4 of the routes where these controllers are called, except the getOneRecipe controller, has a secure route middleware called before the controller (demonstrated below). This means that the user needs to be logged in or, if using an API client like insomnia, have a valid bearer token. However for the delete and edit controllers we wanted to impliment an additional check so that only the owner of the recipe can delete or edit their recipe. We also implimented in this check that a faceCook admin user can also delete or edit a recipe. This is so we can safe guard against unwanted content on our site.
+We wanted to demonstrate all CRUD operations within our controllers. You can see all 4 operations coded to be used on the Recipe collection below. All 4 of the routes where these controllers are called, except the getOneRecipe controller, has a secure route middleware called before the controller (demonstrated below). This means that the user needs to be logged in or, if using an API client like Insomnia, have a valid bearer token. However for the delete and edit controllers we wanted to impliment an additional check so that only the owner of the recipe can delete or edit their recipe. We also implimented in this check that a faceCook admin user can also delete or edit a recipe. This is so we can safe guard against unwanted content on our site.
 
 [recipe CRUD controllers]
 
@@ -83,10 +85,21 @@ As mentioned above we included a secure route middleware. In this function we us
 
 ## CONCLUSION AND KEY LEARNING
 
+There was a lot to get our head around with this introduction to creating our own backend. There was the general concept of the MERN stack and how each of these interacted with each other as well as understanding individual elements like JSON web tokens, authentication, what controllers are and how they interact with the models and database and building the routes so clients can make requests to our API.
 
+This project really emphasised to me the importance of documentation and gave me a lot of opportunity to practice finding the information I needed and the confidence to impliment my findings in my own code.  
 
+It was great working in a team with Ryan and Ayo and I feel like we did well to keep organised and thoroughly plan through the project before diving into the code. We worked efficiently and complimented each other's strengths and helped each other when needed. I am looking forward to working in a team with other software professionals moving forward in my career.  
 
 ## FUTURE IMPROVEMENTS
+
+Incorporate nutritional information in the recipes similar to Myfitnesspal. This would be an awesome feature in the meal plan and shopping list so that you can see a breakdown of your nutritional information across any given period. 
+
+At the moment the shopping list functionality is not optimal in that often it will have 2 or more of the same ingredient that hasn't compiled (i.e. '10 gram' & '30 g' will show as 2 different item lists rather than combining to show '40 g'). Having drop downs for the measurements and suggested items in the add recipe form would be a good step or to write code that can reckonise the common similar measurements and items.
+
+Currently the user needs to be aware of how many servings are in each recipe whilst building their meal plan. It would be good to code the drop down list so that the serving quantities that the recipe owner did not input are blocked out from the options. 
+
+I would love to develop the search function much more but due to the limited time for this project it searches for the string inputed in an exact match in either the recipe names, ingredients or tags. It would be nice to make it smarter for example if you typed in 'Onions' rather than 'Onion' it would find you the same results.  
 
 #### KNOWN BUGS
 We use the cloud-based image service, Cloudinary to upload the users' recipe and profile images and then on display, link them to the Cloudinary URL. Since deployment, the images upload to cloudinary fine but our site is showing the default place holder.
