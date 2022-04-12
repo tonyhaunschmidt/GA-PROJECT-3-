@@ -1,9 +1,7 @@
 # GA PROJECT 3- FACECOOK
 
 ## BRIEF
-My first full-stack project, as part of a group of 3, was to create an application using the full MERN stack. FaceCook is a social media app where you can share recipes and plan your meals. I thoroughly enjoyed this project and learnt a lot from the time spent working on it, including the importance of planning and what kind of pitfalls to look out for when designing your own back-end as well as developing productive ways to share and organise the workload using Trello and having daily meetings.
-
-I adopted a role as team leader in this project and developed the initial idea and wireframing and plan for the back-end data structure. We as a team decided to code the entire backend together and I also went on to code the home page and search page as well as the profile pages, my recipes page, shopping list and navigation bar.
+My first full-stack project, as part of a group of 3, was to create an application using the full MERN stack. FaceCook is a social media app where you can share recipes and plan your meals. I thoroughly enjoyed this project and learnt a lot from the time spent working on it. 
 
 My newly learnt technologies for this project were Express, Node.js, MongoDB and React Calendar. 
 
@@ -65,6 +63,8 @@ We also took this opportunity of working in a group of 3 to utilise Trello. Once
 
 During production we had daily stand up meetings first thing in the morning in which we talked about any issues we were having and what we were aiming to achieve that day. For the rest of the day we typically remained on a shared Zoom call where we can ask each other for guidance or opinions as and when we needed it.  
 
+We as a team decided to code the entire backend together and I also went on to code the home page and search page as well as the profile pages, my recipes page, shopping list and navigation bar.
+
 ## EXPRESS
 
 Learning Express as a framework was a great introduction to developing our own back-end and introducing Node.js. We used Mongoose as the ODM to interact with our MongoDB database.
@@ -86,7 +86,7 @@ As mentioned above we included a secure route middleware. In this function we us
 
 ## CONCLUSION AND KEY LEARNING
 
-There was a lot to get our head around with this introduction to creating our own backend. There was the general concept of the MERN stack and how each of these interacted with each other as well as understanding individual elements like JSON web tokens, authentication, what controllers are and how they interact with the models and database and building the routes so clients can make requests to our API.
+There was a lot to get our head around with this introduction to creating our own back-end. There was the general concept of the MERN stack and how each of these interacted with each other as well as understanding individual elements like JSON Web Tokens, authentication, what controllers are and how they interact with the models and database and building the routes so clients can make requests to our API.
 
 This project really emphasised to me the importance of documentation and gave me a lot of opportunity to practise finding the information I needed and the confidence to implement my findings in my own code.  
 
@@ -94,7 +94,7 @@ It was great working in a team with Ryan and Ayo and I feel like we did well to 
 
 ## FUTURE IMPROVEMENTS
 
-Incorporate nutritional information in the recipes similar to Myfitnesspal. This would be an awesome feature in the meal plan and shopping list so that you can see a breakdown of your nutritional information across any given period. 
+Incorporate nutritional information in the recipes similar to MyFitnessPal. This would be an awesome feature in the meal plan and shopping list so that you can see a breakdown of your nutritional information across any given period. 
 
 At the moment the shopping list functionality is not optimal in that often it will have 2 or more of the same ingredient that doesn't compile (i.e. '10 grams' & '30 g' will show as 2 different item lists rather than combining to show '40 g'). Having dropdowns for the measurements and suggested items in the add recipe form would be a good step or to write code that can recognise the common similar measurements and items.
 
