@@ -97,7 +97,7 @@ It was great working in a team with Ryan and Ayo and I feel like we did well to 
 
 #### WINS
 * Carrying out very detailed planning that helped us structure the backend and agree on a clear conception for the front end.
-* Getting to grips with the full MERN stack and further developing on my React skills.
+* Getting to grips with the full MERN stack and further developing my React skills.
 * Working well in a team.
 
 ## FUTURE IMPROVEMENTS
