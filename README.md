@@ -90,7 +90,15 @@ There was a lot to get our head around with this introduction to creating our ow
 
 This project really emphasised to me the importance of documentation and gave me a lot of opportunity to practise finding the information I needed and the confidence to implement my findings in my own code.  
 
-It was great working in a team with Ryan and Ayo and I feel like we did well to keep organised and thoroughly plan through the project before diving into the code. We worked efficiently and complemented each other's strengths and helped each other when needed. I am looking forward to working in a team with other software professionals moving forward in my career.  
+It was great working in a team with Ryan and Ayo and I feel like we did well to keep organised and thoroughly plan through the project before diving into the code. We worked efficiently and complemented each other's strengths and helped each other when needed. I am looking forward to working in a team with other software professionals moving forward in my career. 
+
+#### CHALLENGES
+* Devising the best UX in which to implement the meal plan MVP. 
+
+#### WINS
+* Carrying out very detailed planning that helped us structure the backend and agree on a clear conception for the front end.
+* Getting to grips with the full MERN stack and further developing on my React skills.
+* Working well in a team.
 
 ## FUTURE IMPROVEMENTS
 
