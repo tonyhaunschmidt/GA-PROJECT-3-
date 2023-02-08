@@ -2649,7 +2649,7 @@ export default [
     ],
     image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645189785/facecook/z9soe6lu3dcusciugudj.jpg',
     tags: ['quick meal', 'easy', 'Mexican'],
-  }
+  },
   {
     title: 'Refried Bean and Halloumi Tacos',
     description: 'Looking for a quick and tasty midweek dinner option? Try cooking up our Refried Bean and Halloumi Tacos in just 20 minutes for a delicious and speedy meal.',
@@ -2662,7 +2662,7 @@ export default [
         quantityForTwo: 15,
         quantityForThree: 23,
         quantityForFour: 30,
-        measure: 'g'
+        measure: 'g',
       },
       {
         ingredient: 'Garlic Clove',
@@ -2670,7 +2670,7 @@ export default [
         quantityForTwo: 1,
         quantityForThree: 2,
         quantityForFour: 2,
-        measure: 'unit(s)'
+        measure: 'unit(s)',
       },
       {
         ingredient: 'Lime',
@@ -2678,7 +2678,7 @@ export default [
         quantityForTwo: 0.5,
         quantityForThree: 1,
         quantityForFour: 1,
-        measure: 'unit(s)'
+        measure: 'unit(s)',
       },
       {
         ingredient: 'Halloumi',
@@ -2686,7 +2686,7 @@ export default [
         quantityForTwo: 250,
         quantityForThree: 375,
         quantityForFour: 500,
-        measure: 'g'
+        measure: 'g',
       },
       {
         ingredient: 'Tomato Puree',
@@ -2694,7 +2694,7 @@ export default [
         quantityForTwo: 28,
         quantityForThree: 42,
         quantityForFour: 56,
-        measure: 'g'
+        measure: 'g',
       },
       {
         ingredient: 'Chipotle Paste',
@@ -2702,7 +2702,7 @@ export default [
         quantityForTwo: 12,
         quantityForThree: 16,
         quantityForFour: 20,
-        measure: 'g'
+        measure: 'g',
       },
       {
         ingredient: 'Mayonnaise',
@@ -2710,7 +2710,7 @@ export default [
         quantityForTwo: 12,
         quantityForThree: 18,
         quantityForFour: 24,
-        measure: 'g'
+        measure: 'g',
       },
       {
         ingredient: 'Plain Taco Tortilla',
@@ -2718,7 +2718,7 @@ export default [
         quantityForTwo: 6,
         quantityForThree: 9,
         quantityForFour: 12,
-        measure: 'unit(s)'
+        measure: 'unit(s)',
       },
       {
         ingredient: 'Baby Gem Lettuce',
@@ -2726,7 +2726,7 @@ export default [
         quantityForTwo: 1,
         quantityForThree: 2,
         quantityForFour: 2,
-        measure: 'unit(s)'
+        measure: 'unit(s)',
       },
       {
         ingredient: 'Water (for Sauce)',
@@ -2734,7 +2734,7 @@ export default [
         quantityForTwo: 100,
         quantityForThree: 150,
         quantityForFour: 200,
-        measure: 'ml'
+        measure: 'ml',
       }
     ],
     method: [
@@ -2743,38 +2743,38 @@ export default [
         instruction: 'a) Preheat your oven to 180°C.' +
           'b) Drain and rinse the black beans in a sieve. Pop a third of the beans into a bowl and mash with a fork until broken up.' +
           'c) Peel and grate the garlic (or use a garlic press). Zest and halve the lime.' +
-          'd) Chop the halloumi into 2cm chunks.'
+          'd) Chop the halloumi into 2cm chunks.',
       },
       {
         step: 2,
         instruction: 'a) Heat a drizzle of oil in a medium saucepan on medium-high heat.' +
           'b) Add the garlic and tomato puree. Stir and cook for 1 min.' +
-          'c) Pour in the water for the sauce (see ingredients for amount) and add the whole and crushed beans. Mix together and cook for 3-4 mins.'
+          'c) Pour in the water for the sauce (see ingredients for amount) and add the whole and crushed beans. Mix together and cook for 3-4 mins.',
       },
       {
         step: 3,
         instruction: 'a) Add half the chipotle paste to the beans (add less if you don\'t like too much heat).' +
           'b) Mix well and season to taste with salt and pepper.' +
-          'c) Allow to simmer until thickened, 2-3 mins.'
+          'c) Allow to simmer until thickened, 2-3 mins.',
       },
       {
         step: 4,
         instruction: 'a) Heat a drizzle of oil in a large frying pan on medium-high heat.' +
           'b) Once hot, add the halloumi and fry until golden, turning frequently, 4-5 mins.' +
           'c) Meanwhile, mix the remaining chipotle paste with half the mayo in a small bowl.' +
-          'd) In another bowl, mix the remaining mayo with the lime zest.'
+          'd) In another bowl, mix the remaining mayo with the lime zest.',
       },
       {
         step: 5,
         instruction: 'a) Pop the tortillas onto a baking tray and into the oven to warm through, 1-2 mins.' +
-          'b) Trim the baby gem, halve lengthways, then thinly slice widthways.'
+          'b) Trim the baby gem, halve lengthways, then thinly slice widthways.',
       },
       {
         step: 6,
         instruction: 'a) Lay the tortillas on a board or plate. Spread the chipotle mayo over each.' +
           'b) Top with a handful of lettuce and squeeze over the lime juice.' +
           'c) Spoon over some chipotle bean mix, then top with the fried halloumi cubes. Drizzle over the zesty mayo to finish.' +
-          'd) Serve the tacos (3 per person) with any extra lime wedges for squeezing over. TIP: Tacos are best enjoyed eaten by hand - get stuck in! Enjoy!'
+          'd) Serve the tacos (3 per person) with any extra lime wedges for squeezing over. TIP: Tacos are best enjoyed eaten by hand - get stuck in! Enjoy!',
       }
     ],
     image: 'http://res.cloudinary.com/dadyz1unp/image/upload/v1645193080/facecook/llpasnpgfzhma3bdxcvi.jpg',

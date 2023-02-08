@@ -1,0 +1,122 @@
+.green-branded-button {
+  background-color: #00ff80;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.grey-branded-button {
+  background-color: #88959F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.red-branded-button {
+  background-color: red;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+}
+
+.recipe-card {
+  height: 21vh;
+  width: 25vh;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.recipe-card .recipe-image-container {
+  width: 25vh;
+  height: 21vh;
+}
+
+.recipe-card .recipe-image-container img {
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+  -webkit-box-shadow: 3px 3px 5px #3b3b3b;
+          box-shadow: 3px 3px 5px #3b3b3b;
+}
+
+.recipe-card .text-container {
+  display: none;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+}
+
+.recipe-card .text-container p {
+  font-size: 0.5rem;
+}
+
+.recipe-card .text-container h3 {
+  font-size: 1rem;
+}
+
+.recipe-card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.recipe-card:hover .text-container {
+  display: initial;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.recipe-card:hover img {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.searchPage {
+  margin: 110px 0 0 0;
+}
+
+.searchPage .search-bar-container {
+  margin-bottom: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.searchPage .search-bar-container input {
+  width: 45vh;
+  height: 5vh;
+  margin: 0 5px 0 0;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.searchPage .search-bar-container .grey-branded-button {
+  height: 5vh;
+  width: 5vh;
+}
+
+.searchPage .error-message {
+  color: red;
+}
+
+.searchPage .recipe-card-dislay-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.searchPage .recipe-card-dislay-container .recipe-card {
+  margin: 0 2vw 2vw 0;
+}
+/*# sourceMappingURL=search_page.css.map */

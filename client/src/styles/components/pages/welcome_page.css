@@ -1,0 +1,220 @@
+.green-branded-button {
+  background-color: #00ff80;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.grey-branded-button {
+  background-color: #88959F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.red-branded-button {
+  background-color: red;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+}
+
+.recipe-card {
+  height: 21vh;
+  width: 25vh;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.recipe-card .recipe-image-container {
+  width: 25vh;
+  height: 21vh;
+}
+
+.recipe-card .recipe-image-container img {
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+  -webkit-box-shadow: 3px 3px 5px #3b3b3b;
+          box-shadow: 3px 3px 5px #3b3b3b;
+}
+
+.recipe-card .text-container {
+  display: none;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+}
+
+.recipe-card .text-container p {
+  font-size: 0.5rem;
+}
+
+.recipe-card .text-container h3 {
+  font-size: 1rem;
+}
+
+.recipe-card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.recipe-card:hover .text-container {
+  display: initial;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.recipe-card:hover img {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.welcome {
+  padding: 15vh 0 5vh 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.welcome #logout {
+  cursor: pointer;
+}
+
+.welcome #logout:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.welcome img {
+  width: 65vh;
+}
+
+.welcome .welcome-page-banner {
+  width: 80vw;
+  margin: 10px 0;
+}
+
+.welcome .welcome-page-banner h2 {
+  margin: 0 0 10px 0;
+}
+
+.welcome .search-and-login-container {
+  width: 60vh;
+  height: 15vh;
+  text-align: right;
+}
+
+.welcome .search-and-login-container .search-bar-container {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.welcome .search-and-login-container .search-bar-container input {
+  width: 45vh;
+  height: 5vh;
+  margin: 0 5px 0 0;
+  border-radius: 10px;
+}
+
+.welcome .search-and-login-container a {
+  text-decoration: none;
+  color: #0b0b36;
+}
+
+.welcome .search-and-login-container a :hover {
+  text-decoration: underline;
+  color: darkblue;
+}
+
+.welcome .search-and-login-container .grey-branded-button {
+  cursor: pointer;
+  height: 5vh;
+  width: 5vh;
+}
+
+.welcome .search-and-login-container #no-hover {
+  color: white;
+}
+
+.welcome .search-and-login-container #no-hover :hover {
+  text-decoration: none;
+  color: white;
+}
+
+.welcome .search-and-login-container ul {
+  margin: 0 5vh 0 0;
+  padding-right: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.welcome .search-and-login-container ul li {
+  margin: 0 15px;
+}
+
+.welcome .display-recipe-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background-color: #00ff80;
+  height: 25vh;
+  overflow-y: hidden;
+  border-radius: 10px;
+}
+
+.welcome .display-recipe-bar::-webkit-scrollbar {
+  width: 1em;
+  background-color: #008040;
+  border-radius: 0 0 10px 10px;
+}
+
+.welcome .display-recipe-bar::-webkit-scrollbar-thumb {
+  background-color: #88959F;
+  border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+  .welcome img {
+    width: 300px;
+  }
+  .welcome .search-and-login-container .search-bar-container input {
+    width: 35vh;
+    height: 5vh;
+    margin-left: 20px;
+    border-radius: 10px;
+  }
+}
+/*# sourceMappingURL=welcome_page.css.map */

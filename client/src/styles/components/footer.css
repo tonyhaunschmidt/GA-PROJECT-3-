@@ -1,0 +1,104 @@
+.green-branded-button {
+  background-color: #00ff80;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.grey-branded-button {
+  background-color: #88959F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.red-branded-button {
+  background-color: red;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+}
+
+.recipe-card {
+  height: 21vh;
+  width: 25vh;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.recipe-card .recipe-image-container {
+  width: 25vh;
+  height: 21vh;
+}
+
+.recipe-card .recipe-image-container img {
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+  -webkit-box-shadow: 3px 3px 5px #3b3b3b;
+          box-shadow: 3px 3px 5px #3b3b3b;
+}
+
+.recipe-card .text-container {
+  display: none;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+}
+
+.recipe-card .text-container p {
+  font-size: 0.5rem;
+}
+
+.recipe-card .text-container h3 {
+  font-size: 1rem;
+}
+
+.recipe-card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.recipe-card:hover .text-container {
+  display: initial;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.recipe-card:hover img {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+footer {
+  height: 3vh;
+  background-color: #008040;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 10px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+}
+/*# sourceMappingURL=footer.css.map */

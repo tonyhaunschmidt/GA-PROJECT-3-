@@ -1,0 +1,42 @@
+.about {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+
+.about img {
+  width: 50vw;
+}
+
+.about ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about .created {
+  margin-top: 70px;
+}
+
+.about a {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.about a:hover {
+  color: darkblue;
+  text-decoration: underline;
+}
+/*# sourceMappingURL=about_page.css.map */

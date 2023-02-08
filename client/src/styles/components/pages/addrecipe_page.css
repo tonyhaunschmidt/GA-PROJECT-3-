@@ -1,0 +1,319 @@
+.green-branded-button {
+  background-color: #00ff80;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.grey-branded-button {
+  background-color: #88959F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.red-branded-button {
+  background-color: red;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+}
+
+.recipe-card {
+  height: 21vh;
+  width: 25vh;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.recipe-card .recipe-image-container {
+  width: 25vh;
+  height: 21vh;
+}
+
+.recipe-card .recipe-image-container img {
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+  -webkit-box-shadow: 3px 3px 5px #3b3b3b;
+          box-shadow: 3px 3px 5px #3b3b3b;
+}
+
+.recipe-card .text-container {
+  display: none;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+}
+
+.recipe-card .text-container p {
+  font-size: 0.5rem;
+}
+
+.recipe-card .text-container h3 {
+  font-size: 1rem;
+}
+
+.recipe-card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.recipe-card:hover .text-container {
+  display: initial;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.recipe-card:hover img {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.recipe-form-wrapper {
+  border-radius: 15px;
+  -webkit-box-shadow: 10px 10px 15px #9e9e9e;
+          box-shadow: 10px 10px 15px #9e9e9e;
+  padding: 5vh 5vh;
+  border: 2px solid #e0e0e0;
+  width: 70vh;
+  margin: 40px auto;
+  text-align: center;
+}
+
+.recipe-form-wrapper textarea {
+  resize: none;
+}
+
+.recipe-form-wrapper div {
+  margin: 2vh 0;
+}
+
+.recipe-form-wrapper input {
+  border-radius: 5px;
+  width: 35vh;
+  height: 4vh;
+}
+
+.recipe-form-wrapper .form-error {
+  margin: 2px 0;
+  color: red;
+}
+
+.recipe-form-wrapper .title-input {
+  margin-top: 5vh;
+}
+
+.recipe-form-wrapper .description-input {
+  margin: 5vh 0 3vh 0;
+}
+
+.recipe-form-wrapper .cookingTime-input {
+  margin-top: 5vh;
+}
+
+.recipe-form-wrapper #cooktime {
+  width: 5vh;
+  height: 3vh;
+}
+
+.recipe-form-wrapper .mealType-input {
+  margin-top: 5vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 1vh;
+}
+
+.recipe-form-wrapper .radio {
+  width: 2vh;
+}
+
+.recipe-form-wrapper .ingredients-section {
+  padding: 5vh 0;
+}
+
+.recipe-form-wrapper .ingredients-section .ingredients-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1vh;
+  padding: 0 0 0 5vh;
+  margin: 0 1.5vh 0 0 p;
+  margin-width: 15vh;
+  margin-text-align: center;
+}
+
+.recipe-form-wrapper .ingredients-section .ingredients-title .qty-tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 2vh 0 2vh;
+}
+
+.recipe-form-wrapper .ingredients-section .ingredients-title .qty-tag .qty {
+  width: 6vh;
+  text-align: center;
+}
+
+.recipe-form-wrapper .ingredients-section .ingredient-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #d4d4d4;
+  width: 60vh;
+  margin: 0 auto;
+  display: flex;
+  height: 10vh;
+  padding: 2vh;
+}
+
+.recipe-form-wrapper .ingredients-section .ingredient-input input {
+  width: 15vh;
+  height: 5vh;
+  border: none;
+  border-radius: 0;
+  border: 1px solid black;
+}
+
+.recipe-form-wrapper .ingredients-section .ingredient-input .ing-input-num {
+  width: 6vh;
+}
+
+.recipe-form-wrapper .method-section .method-input {
+  margin-bottom: 1vh;
+}
+
+.recipe-form-wrapper .image-input {
+  margin-top: 10vh;
+}
+
+.recipe-form-wrapper .image-input .img-input {
+  margin: 0 auto;
+  width: 20vh;
+}
+
+.recipe-form-wrapper .tag-input .grey-branded-button {
+  height: 4vh;
+  border-radius: 0;
+}
+
+.recipe-form-wrapper .tag-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2vh;
+}
+
+.recipe-form-wrapper .tag-section .tag {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1vh;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.recipe-form-wrapper .tag-section .tag .grey-branded-button {
+  background-color: #c93f3f;
+  border-radius: 5px;
+  color: white;
+  width: 3vh;
+  height: 2vh;
+  line-height: 50%;
+  font-size: 2.5vh;
+}
+
+.recipe-form-wrapper .green-branded-button {
+  cursor: pointer;
+  font-size: 2vh;
+  width: 15vh;
+  height: 4vh;
+  margin: 5px 0;
+}
+
+.recipe-form-wrapper .grey-branded-button {
+  cursor: pointer;
+  padding: 0.5vh;
+  width: 12vh;
+  height: 3vh;
+  margin: 5px 0;
+}
+
+.recipe-form-wrapper #dis {
+  background-color: #00ff8067;
+}
+
+@media (max-width: 600px) {
+  .recipe-form-wrapper {
+    width: 40vh;
+  }
+  .recipe-form-wrapper textarea {
+    width: 30vh;
+  }
+  .recipe-form-wrapper input {
+    border-radius: 5px;
+    width: 30vh;
+    height: 4vh;
+  }
+  #media-ingtitle {
+    width: 40vh;
+    font-size: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 0;
+    gap: 0vh;
+    margin-right: 15vh;
+  }
+  #media-ingtitle p {
+    width: 10vh;
+    text-align: center;
+  }
+  #media-ingtitle .qty-tag {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: 0 1vh 0 1vh;
+  }
+  #media-ingtitle .qty-tag .qty {
+    width: 2.5vh;
+    text-align: center;
+  }
+  #media-ing {
+    width: 30vh;
+  }
+  #media-ing input {
+    width: 6vh;
+    font-size: 10px;
+  }
+  #media-ing .ing-input-num {
+    width: 3.5vh;
+  }
+}
+/*# sourceMappingURL=addrecipe_page.css.map */

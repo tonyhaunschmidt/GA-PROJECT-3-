@@ -1,0 +1,205 @@
+.green-branded-button {
+  background-color: #00ff80;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.grey-branded-button {
+  background-color: #88959F;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-family: 'Righteous', cursive;
+}
+
+.red-branded-button {
+  background-color: red;
+  color: white;
+  border: 1px solid #88959F;
+  border-radius: 10px;
+}
+
+.recipe-card {
+  height: 21vh;
+  width: 25vh;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.recipe-card .recipe-image-container {
+  width: 25vh;
+  height: 21vh;
+}
+
+.recipe-card .recipe-image-container img {
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+  -webkit-box-shadow: 3px 3px 5px #3b3b3b;
+          box-shadow: 3px 3px 5px #3b3b3b;
+}
+
+.recipe-card .text-container {
+  display: none;
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 25vh;
+  height: 21vh;
+  border-radius: 10%;
+}
+
+.recipe-card .text-container p {
+  font-size: 0.5rem;
+}
+
+.recipe-card .text-container h3 {
+  font-size: 1rem;
+}
+
+.recipe-card:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.recipe-card:hover .text-container {
+  display: initial;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.recipe-card:hover img {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  z-index: 999;
+  color: black;
+  background-color: #e2e2e2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 6px 10vw;
+  height: 50px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav .small-logo {
+  height: 38px;
+  border-radius: 32%;
+}
+
+nav .loginRegister {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  margin-top: 5px;
+}
+
+nav .loginRegister li {
+  color: black;
+  margin-right: 15px;
+}
+
+nav .navbar-dropdown {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+nav .navbar-dropdown .navbar-user {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 38px;
+  padding: 0;
+  border: none;
+}
+
+nav .navbar-dropdown .navbar-user .username-text-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  border-left: 1px solid #88959F;
+}
+
+nav .navbar-dropdown .navbar-user .username-text-container p {
+  margin: 0 15px;
+  width: 100%;
+}
+
+nav .navbar-dropdown .navbar-user img {
+  height: 38px;
+  margin: 0;
+  border-radius: 32%;
+  border: 1px solid #575757;
+}
+
+nav .navbar-dropdown p {
+  width: 50px;
+}
+
+nav .navbar-dropdown .dropdown-container {
+  background-color: #e2e2e2;
+  position: absolute;
+  top: 50px;
+  text-align: left;
+  border: 1px solid #88959F;
+  border-top: none;
+}
+
+nav .navbar-dropdown .dropdown-container .dropdown-list {
+  margin: 3px;
+  list-style: none;
+  padding: 0 30px 0 10px;
+}
+
+nav .navbar-dropdown .dropdown-container .dropdown-list li {
+  cursor: pointer;
+  padding: 3px;
+}
+
+nav .navbar-dropdown .dropdown-container .dropdown-list li a {
+  color: black;
+}
+/*# sourceMappingURL=nav.css.map */
