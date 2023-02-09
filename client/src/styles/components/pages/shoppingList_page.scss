@@ -1,1 +1,36 @@
 @import '../../variables';
+
+.shoppinglist-page{
+  margin: 90px 0 0 0;
+  .header{
+    display: flex;
+    justify-content: center;
+    *{
+      margin: 10px;
+    }
+    button{
+      width: 80px;
+    }
+  }
+  .shoppinglist-main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    & > div{
+      margin: 20px;
+      width: 50%;
+      background-color: $greyColour;
+      padding: 10px;
+      border-radius: 20px;
+      box-shadow: 5px 5px 8px rgb(59, 59, 59);
+      h2{
+        text-align: center;
+        text-decoration: underline;
+      }
+      .day{
+        border-bottom: 1px solid $darkGreyColour;
+      }
+    }
+    
+  }
+}
