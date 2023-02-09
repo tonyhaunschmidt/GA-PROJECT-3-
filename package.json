@@ -1,14 +1,15 @@
 {
-  "name": "GA-PROJECT-3-",
+  "name": "GA-PROJECT-3-FACECOOK",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:tonyhaunschmidt/GA-PROJECT-3-.git",
+  "repository": "git@github.com:tonyhaunschmidt/GA-PROJECT-3-FACECOOK.git",
   "author": "Tony Haunschmidt <tmhaunschmidt@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "axios": "^0.25.0",
     "bcrypt": "^5.0.1",
     "create-react-app": "^5.0.0",
+    "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "json": "^11.0.0",
     "jsonwebtoken": "^8.5.1",
@@ -20,6 +21,8 @@
   "type": "module",
   "scripts": {
     "serve": "npx nodemon index.js",
-    "seed": "node seeds/seeds.js"
+    "seed": "node seeds/seeds.js",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   }
 }

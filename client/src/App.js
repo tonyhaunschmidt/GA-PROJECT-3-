@@ -13,7 +13,7 @@ import MyRecipes from './components/pages/MyRecipes_page'
 import Recipe from './components/pages/Recipe_page'
 import AddRecipe from './components/pages/AddRecipe_page'
 import UpdateRecipe from './components/pages/UpdateRecipe_page'
-import AboutPage from './components/pages/about_page'
+import AboutPage from './components/pages/About_page'
 import ShoppingList from './components/pages/ShoppingList_page'
 import Footer from './components/Footer'
 
