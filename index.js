@@ -15,7 +15,7 @@ const app = express()
 
 const startServer = async () => {
   try {
-    await mongoose.connect(dbURI)
+    await mongoose.connect(process.env.DB_URI)
     console.log('Mongodb connected')
 
     app.use(express.json())
@@ -37,7 +37,7 @@ const startServer = async () => {
       return res.status(404).json({ message: 'Route Not Found' })
     })
 
-    app.listen(port, () => console.log(`Server listening on port ${port}`))
+    app.listen(process.env.PORT, () => console.log(`Server listening on port ${process.env.PORT}`))
   } catch (err) {
     console.log(err)
   }
