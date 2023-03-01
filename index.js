@@ -37,6 +37,10 @@ const startServer = async () => {
       return res.status(404).json({ message: 'Route Not Found' })
     })
 
+    // if (process.env.NODE_ENV === 'production') {
+    //   app.use(express.static('client/build'));
+    // }
+
     app.listen(process.env.PORT, () => console.log(`Server listening on port ${process.env.PORT}`))
   } catch (err) {
     console.log(err)
